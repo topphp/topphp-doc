@@ -10,7 +10,7 @@ composer create-project topphp/component-builder=dev-master topphpComponentTest
 
 ```
 ### README文件
-至少要包含的信息
+> 至少要包含的信息
 
 1.组件名称和描述
 2.安装说明
