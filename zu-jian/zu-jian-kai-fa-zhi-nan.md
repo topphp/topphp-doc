@@ -9,7 +9,7 @@ composer create-project topphp/component-builder=版本 你的组件名字
 composer create-project topphp/component-builder=dev-master topphpComponentTest
 
 ```
-README文件
+### README文件
 至少要包含的信息
 
 1.组件名称和描述
