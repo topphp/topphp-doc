@@ -67,3 +67,4 @@
 > extra中 
 > branch-alias为当前组件版本参数
 > think为框架配置参数,"config"参数中的配置会自动生成配置文件到 项目根目录 `config`中
+![](/assets/WX20200108-155443@2x.png)
