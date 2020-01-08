@@ -1,9 +1,11 @@
 # Summary
 
-## 基本使用
+## 前言
 
 * [什么是topPHP](README.md)
-* [First Chapter](chapter1.md)
+* 版本更新
+
+## 快速入门
 
 ## 组件
 
