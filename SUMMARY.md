@@ -10,6 +10,7 @@
 ## 组件
 
 * [组件开发指南](zu-jian/zu-jian-kai-fa-zhi-nan.md)
+  * [composer.json文件说明](zu-jian/zu-jian-kai-fa-zhi-nan/composerjsonwen-jian-shuo-ming.md)
 
 ## 微服务
 
