@@ -64,21 +64,6 @@
 }
 
 ```
-
-```
-"extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
-        "think": {
-            "services": [
-                //注册的服务写这里
-            ],
-            "config": {
-                // 配置文件
-                "builder": "src/config/builder.php"
-            }
-        }
-    },
-
-```
+> extra中 
+> branch-alias为当前组件版本参数
+> think为框架配置参数
