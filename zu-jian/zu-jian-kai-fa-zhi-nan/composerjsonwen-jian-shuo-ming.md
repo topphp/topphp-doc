@@ -47,8 +47,10 @@
         },
         "think": {
             "services": [
+                //注册的服务写这里
             ],
             "config": {
+                // 配置文件
                 "builder": "src/config/builder.php"
             }
         }
