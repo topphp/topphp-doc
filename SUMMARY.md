@@ -3,7 +3,7 @@
 ## 前言
 
 * [什么是topPHP](README.md)
-* 版本更新
+* [版本更新](ban-ben-geng-xin.md)
 
 ## 快速入门
 
