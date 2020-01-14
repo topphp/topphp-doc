@@ -7,6 +7,8 @@
 
 ## 快速入门
 
+* [注解](kuai-su-ru-men/zhu-jie.md)
+
 ## 组件
 
 * [组件开发指南](zu-jian/zu-jian-kai-fa-zhi-nan.md)
