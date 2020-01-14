@@ -1,3 +1,6 @@
+#安装
+> composer require topthink/think-annotation
+
 # 配置
 > 配置文件位于 config/annotation.php
 
