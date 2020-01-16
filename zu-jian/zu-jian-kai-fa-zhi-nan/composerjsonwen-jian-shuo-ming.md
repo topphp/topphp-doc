@@ -102,6 +102,7 @@ $this->commands([Server::class]);
 ```php
 
 <?php
+
 function testhaha()
 {
     echo 'haha';
