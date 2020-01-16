@@ -76,7 +76,9 @@
 实现boot()方法
 
 ```
-$this->commands([Server::class])
+// 把对应的命令行类加载到下面数组内
+$this->commands([Server::class]);
+
 ```
 
 
