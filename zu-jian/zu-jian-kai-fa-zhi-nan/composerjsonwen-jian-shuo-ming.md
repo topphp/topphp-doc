@@ -81,4 +81,7 @@ $this->commands([Server::class]);
 
 ```
 
+命令行代码如下
+![](/assets/2.png)
+
 
