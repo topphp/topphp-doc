@@ -69,4 +69,13 @@
 > ![](/assets/WX20200108-155443@2x.png)
 
 
+### 添加命令行执行方法
+![](/assets/1.png)
+
+添加与composer.json中定义的services命名空间一样的文件Service.php 继承 `\think\Service`
+实现boot()方法
+```
+$this->commands([Server::class])
+```
+
 
