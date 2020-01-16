@@ -74,6 +74,7 @@
 
 添加与composer.json中定义的services命名空间一样的文件Service.php 继承 `\think\Service`
 实现boot()方法
+
 ```
 $this->commands([Server::class])
 ```
