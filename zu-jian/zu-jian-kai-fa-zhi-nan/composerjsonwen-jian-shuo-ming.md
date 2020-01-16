@@ -1,4 +1,4 @@
-`composer.json文件示例`
+## composer.json文件示例
 
 ```json
 {
@@ -29,7 +29,10 @@
     "autoload": {
         "psr-4": {
             "topphp\\componentBuilder\\": "src"
-        }
+        },
+        "files": [
+            "src/helper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -84,4 +87,13 @@ $this->commands([Server::class]);
 命令行代码如下
 ![](/assets/2.png)
 
+
+### 组件自定义助手函数
+```
+
+"files": [
+    "src/helper.php"
+]
+
+```
 
