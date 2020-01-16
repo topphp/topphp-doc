@@ -18,3 +18,7 @@ xdebug.max_nesting_level = 500
 
 ```
 
+
+也可以参考下这个链接的配置方法
+
+https://www.jetbrains.com/help/phpstorm/2019.3/configuring-xdebug.html?utm_campaign=PS&utm_medium=link&utm_source=product&utm_content=2019.3
