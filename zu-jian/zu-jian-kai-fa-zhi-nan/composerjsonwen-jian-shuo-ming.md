@@ -97,3 +97,15 @@ $this->commands([Server::class]);
 
 ```
 
+`helper.php`
+
+```php
+
+<?php
+function testhaha()
+{
+    echo 'haha';
+}
+
+```
+
