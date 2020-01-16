@@ -8,6 +8,7 @@
 ## 快速入门
 
 * [注解](kuai-su-ru-men/zhu-jie.md)
+* [单元测试](kuai-su-ru-men/dan-yuan-ce-shi.md)
 
 ## 组件
 
