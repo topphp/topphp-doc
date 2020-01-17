@@ -10,6 +10,7 @@
 * [注解](kuai-su-ru-men/zhu-jie.md)
 * [单元测试](kuai-su-ru-men/dan-yuan-ce-shi.md)
 * [常见问题](kuai-su-ru-men/chang-jian-wen-ti.md)
+* 调试
 
 ## 组件
 
