@@ -110,3 +110,10 @@ function testhaha()
 
 ```
 
+### 安装组件时自动执行脚本
+
+```json
+"post-root-package-install": [
+    "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+]
+```
