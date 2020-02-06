@@ -1,4 +1,5 @@
 
+#sdebug
 
 基于 xdebug2.7(https://github.com/xdebug/xdebug)
 ### 注意事项
