@@ -14,7 +14,7 @@ if (!\extension_loaded('sdebug')) {
 `vendor/sebastian/environment/src/Runtime.php:176行`
 
 ```php
- public function hasXdebug(): bool
+public function hasXdebug(): bool
 {
     return ($this->isPHP() || $this->isHHVM()) && \extension_loaded('sdebug');
 }
