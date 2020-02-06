@@ -10,7 +10,6 @@
 
 #### 第一步
 ```shell
-
 git clone https://github.com/swoole/sdebug.git
 ```
 #### 第二步 编译
