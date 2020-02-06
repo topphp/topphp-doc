@@ -8,7 +8,7 @@
 `@Inject()`
 
 # 注解路由
-
+`@Route("url",method="")`
 
 # 注解验证
 
