@@ -7,7 +7,6 @@
 
 >单步调试: 如果php不是7.3的, 建议使用 sdebug_2_6(https://github.com/mabu233/sdebug/tree/sdebug), sdebug_2_7 可能需要与phpstorm2019搭配使用
 
-
 #### 第一步
 ```shell
 git clone https://github.com/swoole/sdebug.git
