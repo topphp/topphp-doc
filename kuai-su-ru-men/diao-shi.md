@@ -26,3 +26,5 @@ Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
     with Sdebug v2.7.3-dev, Copyright (c) 2002-2019, by Derick Rethans
 ```
 
+#### 截图演示
+![](/assets/WX20200206-134340@2x.png)
