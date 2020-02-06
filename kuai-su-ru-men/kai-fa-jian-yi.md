@@ -8,3 +8,7 @@
 
 ![](/assets/settings.png)![](/assets/settings2.png)
 
+快捷键想保留自己的话 把key maps选项关掉
+
+![](/assets/settings3.png)
+
