@@ -7,13 +7,22 @@
 >单步调试: 如果php不是7.3的, 建议使用 sdebug_2_6(https://github.com/mabu233/sdebug/tree/sdebug), sdebug_2_7 可能需要与phpstorm2019搭配使用
 
 
-### 第一步
+#### 第一步
 ```shell
 
 git clone https://github.com/swoole/sdebug.git
 ```
-### 第二步 编译
+#### 第二步 编译
 ```shell
 cd sdebug
 ./rebuild.sh
+
+
+$ php -v
+PHP 7.2.25 (cli) (built: Nov 22 2019 10:27:28) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.2.25, Copyright (c) 1999-2018, by Zend Technologies
+    with Sdebug v2.7.3-dev, Copyright (c) 2002-2019, by Derick Rethans
 ```
+
