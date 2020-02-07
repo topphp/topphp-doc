@@ -25,6 +25,5 @@ composer create-project topphp/component-builder=dev-master topphpComponentTest
 
 7.软件许可证
 
-
-
+8.版本号![](/assets/version.png)
 
