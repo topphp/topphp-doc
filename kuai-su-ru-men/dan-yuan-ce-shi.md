@@ -1,5 +1,7 @@
 # 单元测试
 
+> 注意swoole和xdebug不可同时开启.此扩展仅支持Apache,Nginx,php-fpm环境下使用.
+
 >先安装xdebug扩展
 
 ```shell
