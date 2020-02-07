@@ -17,6 +17,7 @@
 
 ## 组件
 
+* [如何为topphp做贡献](zu-jian/ru-he-wei-topphp-zuo-gong-xian.md)
 * [组件开发指南](zu-jian/zu-jian-kai-fa-zhi-nan.md)
   * [composer.json文件说明](zu-jian/zu-jian-kai-fa-zhi-nan/composerjsonwen-jian-shuo-ming.md)
 * [topphp-swoole](zu-jian/topphp-swoole.md)
