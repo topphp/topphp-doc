@@ -16,7 +16,6 @@ xdebug.remote_enable = 1
 xdebug.remote_connect_back = 1
 xdebug.remote_port = 9000
 xdebug.max_nesting_level = 500
-
 ```
 
 >也可以参考下这个链接的配置方法
