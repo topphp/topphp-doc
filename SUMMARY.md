@@ -11,7 +11,7 @@
 * [开发建议](kuai-su-ru-men/kai-fa-jian-yi.md)
 * [注解](kuai-su-ru-men/zhu-jie.md)
 * [安装xdebug扩展](kuai-su-ru-men/dan-yuan-ce-shi.md)
-* [调试](kuai-su-ru-men/diao-shi.md)
+* [安装sdebug扩展](kuai-su-ru-men/diao-shi.md)
 
 ## 组件
 

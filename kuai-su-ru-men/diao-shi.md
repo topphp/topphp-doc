@@ -1,4 +1,5 @@
 # sdebug
+> 该扩展支持在swoole环境下断点调试.不可和xdebug同时开启
 
 基于 xdebug2.7\([https://github.com/xdebug/xdebug](https://github.com/xdebug/xdebug)\)
 
