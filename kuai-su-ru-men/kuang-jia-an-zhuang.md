@@ -6,3 +6,6 @@
 ```
 
 ### 运行服务
+```shell
+php think server
+```
