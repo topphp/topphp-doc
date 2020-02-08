@@ -13,6 +13,7 @@ php think run
 ```
 
 ###### swoole方式启动
+需要先安装 `topphp/topphp-swoole`
 ```shell
 php think server
 ```

@@ -9,7 +9,6 @@
 ## 快速入门
 
 * [开发建议](kuai-su-ru-men/kai-fa-jian-yi.md)
-* [注解](kuai-su-ru-men/zhu-jie.md)
 * [安装xdebug扩展](kuai-su-ru-men/xdebugan-zhuang.md)
 * [安装sdebug扩展](kuai-su-ru-men/sdebugan-zhuang.md)
 * [单元测试](kuai-su-ru-men/dan-yuan-ce-shi.md)
@@ -17,7 +16,9 @@
 
 ## 基础架构
 
+* [依赖注入](kuai-su-ru-men/yi-lai-zhu-ru.md)
 * [协程](kuai-su-ru-men/xie-cheng.md)
+* [注解](kuai-su-ru-men/zhu-jie.md)
 
 ## 组件
 

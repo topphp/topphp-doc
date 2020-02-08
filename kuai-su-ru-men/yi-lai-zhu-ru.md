@@ -1,0 +1,1 @@
+topphp采用 thinkphp6 作为框架的依赖注入管理容器
