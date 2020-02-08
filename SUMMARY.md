@@ -18,7 +18,14 @@
 
 * [依赖注入](kuai-su-ru-men/yi-lai-zhu-ru.md)
 * [协程](kuai-su-ru-men/xie-cheng.md)
+* 路由
+* 控制器
 * [注解](kuai-su-ru-men/zhu-jie.md)
+* [数据库](kuai-su-ru-men/shu-ju-ku.md)
+* [模型](mo-xing.md)
+* 验证器
+* 命令行
+* 路由
 
 ## 组件
 
