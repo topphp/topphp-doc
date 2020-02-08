@@ -6,6 +6,13 @@
 ```
 
 ### 运行服务
+###### 普通方式启动
+
+```shell
+php think run
+```
+
+###### swoole方式启动
 ```shell
 php think server
 ```
