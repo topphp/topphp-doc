@@ -23,3 +23,11 @@
 
 ### 关闭 swoole.ini中配置的短名称
 `swoole.use_shortname='Off'`
+
+### composer 更换阿里镜像
+```shell
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
+# 取消全局配置
+composer config -g --unset repos.packagist
+```
