@@ -4,7 +4,11 @@ composer require topphp/topphp-testing=dev-master
 ```
 
 ### 使用
-继承`Topphp\TopphpTesting\TestCase`
+1.继承`Topphp\TopphpTesting\TestCase`
+2.类名`*Test`
+3.方法名 `test*`
+
+
 ```php
 <?php
 declare(strict_types=1);
@@ -13,7 +17,7 @@ namespace Topphp\Test;
 
 use Topphp\TopphpTesting\TestCase;
 
-class TestDemo extends TestCase
+class DemoTest extends TestCase
 {
     public function testIndex()
     {
