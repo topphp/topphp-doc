@@ -7,7 +7,7 @@ composer require topphp/topphp-testing=dev-master
 1.继承`Topphp\TopphpTesting\TestCase`
 2.类名`*Test`
 3.方法名 `test*`
-4.可使用注解形式 `@test`定义单元测试函数,这样方法名就不用`test`开头
+4.可使用注解形式(`@test`)定义单元测试函数,这样方法名就不用`test`开头
 
 ```php
 <?php
