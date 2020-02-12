@@ -13,6 +13,7 @@
 * [单元测试](kuai-su-ru-men/dan-yuan-ce-shi.md)
   * [安装xdebug扩展](kuai-su-ru-men/xdebugan-zhuang.md)
   * [安装sdebug扩展](kuai-su-ru-men/sdebugan-zhuang.md)
+  * [单元测试PHPStorm图解](kuai-su-ru-men/dan-yuan-ce-shi-phpstorm-tu-jie.md)
 
 ## 基础架构
 
