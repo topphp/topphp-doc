@@ -5,14 +5,20 @@
 在 PHP-FPM 架构下的开发，通常在我们需要借助第三方库来解决我们的需求时，都会通过 Composer 来直接引入一个对应的组件，但是有时候第三方库并不能满足我们的需求时,会自己进行一个组件的封装.而且topphp可以在swoole环境下持久化运行,且支持协程,导致了第三方组件会存在一些使用上的问题.
 阅读本指南会教会你如何开发一个属于自己的topphp组件.
 
+# 组件开发的环境及准备工作
 
-
-
-# 创建组件命令
+1.安装骨架项目(topphp/topphp-skeleton):
 ```shell
-composer create-project topphp/component-builder=版本 你的组件名字
+git clone http://git.n.kaituocn.com/kaituoGroup/topphp/topphp-skeleton.git
+```
+2. 同级目录下添加`topphp`文件夹
 
-# 例如:
+3.进入`topphp文件夹`,并通过组件创建器(topphp/component-builder)进行组件创建:
+```shell
+# 运行以下命令
+$ cd topphp
+$ composer create-project topphp/component-builder=dev-master 你的组件名字
+
 composer create-project topphp/component-builder=dev-master topphp-testing
 Installing topphp/component-builder (dev-master 63957ce7c3e9e8425c280c0fa4135e847a6d5ec3)
   - Installing topphp/component-builder (dev-master 63957ce): Cloning 63957ce7c3 from cache
