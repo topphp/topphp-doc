@@ -94,7 +94,7 @@ Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]? Y
     "你的组件名字": "dev-master"
   }
 ```
-完整json文件请参考 [`composer.json文件说明`章节](zu-jian/zu-jian-kai-fa-zhi-nan/composerjsonwen-jian-shuo-ming.md)
+完整json文件请参考 [`composer.json文件说明`章节](/zu-jian/zu-jian-kai-fa-zhi-nan/composerjsonwen-jian-shuo-ming.md)
 
 
 #### 注意
