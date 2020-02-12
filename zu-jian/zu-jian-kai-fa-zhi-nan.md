@@ -1,5 +1,8 @@
-# 创建组件命令
+# 前言
+为了让开发者更好的为 topphp 开发组件，我们提供了本指南用于指导开发者进行组件开发，在阅读本指南前，需要您对 topphp和thinkphp 的文档进行仔细的阅读。
 
+
+# 创建组件命令
 ```shell
 composer create-project topphp/component-builder=版本 你的组件名字
 
