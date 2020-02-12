@@ -29,9 +29,9 @@
 
 * [官方组件库](zu-jian/topphp-swoole/guan-fang-zu-jian.md)
   * [topphp-swoole](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-swoole.md)
-  * [component-builder](zu-jian/topphp-swoole/guan-fang-zu-jian/component-builder.md)
 * [为topphp做贡献](zu-jian/ru-he-wei-topphp-zuo-gong-xian.md)
 * [组件开发指南](zu-jian/zu-jian-kai-fa-zhi-nan.md)
+  * [component-builder](zu-jian/topphp-swoole/guan-fang-zu-jian/component-builder.md)
   * [composer.json文件说明](zu-jian/zu-jian-kai-fa-zhi-nan/composerjsonwen-jian-shuo-ming.md)
 
 ## 微服务
