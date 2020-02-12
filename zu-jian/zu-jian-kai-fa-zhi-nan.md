@@ -73,6 +73,23 @@ Writing lock file
 Generating autoload files
 Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]? Y
 ```
+>这样做的目的是为了让 `topphp-skeleton` 项目可以直接通过 `path` 的形式，让 Composer 直接通过 `topphp` 文件夹内的项目作为依赖项被加载到 `topphp-skelton` 项目的 `vendor` 目录中，我们对 `topphp-skelton` 内的 `composer.json` 文件增加一个 repositories 项，如下：
+```json
+{
+    "repositories": {
+        "hyperf": {
+            "type": "path",
+            "url": "../topphp/*"
+        },
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer"
+        }
+    }
+}
+```
+
+
 #### 注意
 > 交互输入必须使用英文半角输入法,否则会出现字符确实.
 
