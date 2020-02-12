@@ -7,13 +7,13 @@
 
 # 组件开发的环境及准备工作
 
-1.安装骨架项目(topphp/topphp-skeleton):
+##### 1.安装骨架项目(topphp/topphp-skeleton):
 ```shell
 git clone http://git.n.kaituocn.com/kaituoGroup/topphp/topphp-skeleton.git
 ```
-2. 同级目录下添加`topphp`文件夹
+##### 2. 同级目录下添加`topphp`文件夹
 
-3.进入`topphp文件夹`,并通过组件创建器(topphp/component-builder)进行组件创建:
+##### 3.进入`topphp文件夹`,并通过组件创建器(topphp/component-builder)进行组件创建:
 ```shell
 # 运行以下命令
 $ cd topphp
@@ -73,7 +73,7 @@ Writing lock file
 Generating autoload files
 Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]? Y
 ```
->这样做的目的是为了让 `topphp-skeleton` 项目可以直接通过 `path` 的形式，让 Composer 直接通过 `topphp` 文件夹内的项目作为依赖项被加载到 `topphp-skelton` 项目的 `vendor` 目录中，我们对 `topphp-skelton` 内的 `composer.json` 文件增加一个 repositories 项，如下：
+##### 4.这样做的目的是为了让 `topphp-skeleton` 项目可以直接通过 `path` 的形式，让 Composer 直接通过 `topphp` 文件夹内的项目作为依赖项被加载到 `topphp-skelton` 项目的 `vendor` 目录中，我们对 `topphp-skelton` 内的 `composer.json` 文件增加一个 repositories 项，如下：
 ```json
 {
     "repositories": {
@@ -88,6 +88,13 @@ Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]? Y
     }
 }
 ```
+##### 5.然后删除 `topphp-skeleton` 项目内的 `composer.lock` 文件和 `vendor` 目录，再执行 `composer require 你刚刚安装的组件=dev-master`,或者直接在 `composer.json` 增加如下代码:
+```json
+ "require": {
+    "你的组件名字": "dev-master"
+  }
+```
+完整json文件请参考 `composer.json文件说明`![zu-jian/zu-jian-kai-fa-zhi-nan/composerjsonwen-jian-shuo-ming.md] 章节
 
 
 #### 注意
