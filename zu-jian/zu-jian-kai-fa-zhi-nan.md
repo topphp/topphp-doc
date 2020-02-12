@@ -14,6 +14,7 @@ Created project in topphp-testing
 填写你的组件描述:单元测试组件
 请设置你的软件许可证(MIT):
 请填写应用命名空间 (Topphp\TopphpTesting):
+需要安装 topthink/framework 组件吗? [n]:y
 正在删除安装脚本命名空间...
 正在删除安装脚本相关composer配置...
 删除安装脚本目录
@@ -57,6 +58,8 @@ Writing lock file
 Generating autoload files
 Do you want to remove the existing VCS (.git, .svn..) history? [Y,n]? Y
 ```
+#### 注意
+> 交互输入必须使用英文半角输入法,否则会出现字符确实.
 
 ### README文件
 
