@@ -7,7 +7,10 @@
 
 与`Go`语言不同的是`Swoole4`的`defer`是协程退出前执行。这是因为`Go`没有提供析构方法，而`PHP`对象有析构函数，使用`__destruct`就可以实现`Go`的`defer`特性，参见[如何实现 Go defer](https://wiki.swoole.com/wiki/page/p-go_defer.html)。
 
+
 ### 示例
+>当我们希望在协程结束时运行一些代码时，可以通过 defer(callable $callable) 函数或 Coroutine::defer(callable $callable) 将一段函数以 栈(stack) 的形式储存起来，栈(stack) 内的函数会在当前协程结束时以 先进后出 的流程逐个执行。
+
 ```php
 <?php
 /**

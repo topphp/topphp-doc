@@ -20,7 +20,7 @@
 * [依赖注入](kuai-su-ru-men/yi-lai-zhu-ru.md)
 * [协程](kuai-su-ru-men/xie-cheng.md)
   * [defer特性](kuai-su-ru-men/xie-cheng/deferte-xing.md)
-  * WaitGroup 特性
+  * [WaitGroup 特性](kuai-su-ru-men/xie-cheng/waitgroup-te-xing.md)
   * Parallel 特性
 * [路由](kuai-su-ru-men/lu-you.md)
 * 控制器
