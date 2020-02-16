@@ -1,5 +1,5 @@
 # sdebug
-> 该扩展支持在swoole环境下断点调试.不可和xdebug同时开启
+> 该扩展支持在swoole环境下断点调试.不可和xdebug同时开启,php版本必须  >=7.0<=7.3
 
 基于 xdebug2.7\([https://github.com/xdebug/xdebug](https://github.com/xdebug/xdebug)\)
 
