@@ -35,10 +35,13 @@ class ContextTest extends TestCase
             $info = Context::get('info', Coroutine::getuid());  // get context of this coroutine
             var_dump($info);
             $this->assertEquals($info, [1, 2, 3], '1 succss');
-
             Coroutine::defer(function () {
                 Context::delete('info', Coroutine::getuid());       // delete
-                $info = Context::get('info');                       // get context of this coroutine
+                // get context of this coroutine
+                $info = Context::get(
+                    'info',
+                    Coroutine::getuid()
+                );
                 var_dump($info);
                 $this->assertNull($info, '2 success');
             });
