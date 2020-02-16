@@ -19,6 +19,9 @@
 
 * [依赖注入](kuai-su-ru-men/yi-lai-zhu-ru.md)
 * [协程](kuai-su-ru-men/xie-cheng.md)
+  * [defer特性](kuai-su-ru-men/xie-cheng/deferte-xing.md)
+  * WaitGroup 特性
+  * Parallel 特性
 * [路由](kuai-su-ru-men/lu-you.md)
 * 控制器
 * [注解](kuai-su-ru-men/zhu-jie.md)
@@ -30,8 +33,8 @@
 
 * [官方组件库](zu-jian/topphp-swoole/guan-fang-zu-jian.md)
   * [topphp-swoole](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-swoole.md)
-  * topphp-testing
-  * topphp-rsa
+  * [topphp-testing](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-testing.md)
+  * [topphp-rsa](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-rsa.md)
 * [为topphp做贡献](zu-jian/ru-he-wei-topphp-zuo-gong-xian.md)
 * [组件开发指南](zu-jian/zu-jian-kai-fa-zhi-nan.md)
   * [component-builder](zu-jian/topphp-swoole/guan-fang-zu-jian/component-builder.md)
