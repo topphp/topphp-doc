@@ -6,7 +6,7 @@
 ### 注意事项
 
 为了避免 swoole 的检测 xdebug 警告, 扩展注册的名称是 sdebug, 如果想使用 Phpunit CodeCoverage , 需要手动把检测 xdebug 的判断修改成 sdebug  
-修改:  
+修改:
 `vendor/phpunit/php-code-coverage/src/Driver/Xdebug.php:38行`
 
 ```php
