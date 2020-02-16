@@ -28,25 +28,23 @@ use Topphp\TopphpTesting\TestCase;
 
 class ContextTest extends TestCase
 {
-    public function testGet()
+    public function testContext()
     {
         Coroutine::create(function () {
-
-            Context::put('info', [1, 2, 3], Coroutine::getuid());
-            $info = Context::get('info', Coroutine::getuid()); // get context of this coroutine
+            Context::set('info', [1, 2, 3], Coroutine::getuid());
+            $info = Context::get('info', Coroutine::getuid());  // get context of this coroutine
             var_dump($info);
             $this->assertEquals($info, [1, 2, 3], '1 succss');
 
             Coroutine::defer(function () {
                 Context::delete('info', Coroutine::getuid());       // delete
-                $info = Context::get('info', Coroutine::getuid());  // get context of this coroutine
+                $info = Context::get('info');                       // get context of this coroutine
                 var_dump($info);
                 $this->assertNull($info, '2 success');
             });
         });
     }
 }
-
 ```
 
 
