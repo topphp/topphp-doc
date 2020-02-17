@@ -23,7 +23,7 @@ Coroutine::create(function () {
 >在 `topphp` 里实现协程的上下文管理将非常简单，基于 Topphp\TopphpSwoole\coroutine\Context 类的 set($key, $item, int $cid = null)、get($key, int $cid = null, $default = null)、has($key, int $cid = null)、delete(string $id, \Closure $closure) 静态方法即可完成上下文数据的管理，通过这些方法设置和获取的值，都仅限于当前的协程，在协程结束时，对应的上下文也会自动跟随释放掉，无需手动管理，无需担忧内存泄漏的风险。
 
 #### Context::set()
->通过调用set方法存储y一个值到当前线协程上下文中,示例示例:
+>通过调用set方法存储y一个值到当前线协程上下文中,示例如下:
 ```php
 Context::set('info', [1, 2, 3], Coroutine::getuid());
 ```
