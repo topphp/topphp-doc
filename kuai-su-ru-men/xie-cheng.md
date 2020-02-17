@@ -30,7 +30,7 @@ Coroutine::create(function () {
 Context::set('info', [1, 2, 3], Coroutine::getuid());
 ```
 #### Context::get()
->通过调用get方法可从当前协程的上下文中取出一个以 $key 为 key 储存的值，如不存在则返回 $default ，如下：
+>通过调用`get`方法可从当前协程的上下文中取出一个以 `$key` 为 key 储存的值，如不存在则返回 $default ，如下：
 
 示例:
 ```php
@@ -39,12 +39,13 @@ var_dump($info);
 // [1,2,3]
 ```
 
-#### Context::set()
->通过调用setf发存储y一个值到当前线协程上下文中
+#### Context::has()
+>通过调用has方法可判断当前协程的上下文中是否存在以 `$key` 为 key 储存的值，如存在则返回 true，不存在则返回 false，如下：
 
 示例:
 ```php
-Context::set('info', [1, 2, 3], Coroutine::getuid());
+$info = Context::has('info');
+// true
 ```
 
 
