@@ -29,8 +29,6 @@ Context::set('info', [1, 2, 3], Coroutine::getuid());
 ```
 #### Context::get()
 >通过调用`get`方法可从当前协程的上下文中取出一个以 `$key` 为 key 储存的值，如不存在则返回 $default ，示例如下：
-
-示例:
 ```php
 $info = Context::get('info', Coroutine::getuid(), [1,2,3]);  // get context of this coroutine
 var_dump($info); 
@@ -39,8 +37,6 @@ var_dump($info);
 
 #### Context::has()
 >通过调用has方法可判断当前协程的上下文中是否存在以 `$key` 为 key 储存的值，如存在则返回 true，不存在则返回 false，示例如下：
-
-示例:
 ```php
 $info = Context::has('info');
 // true
@@ -48,12 +44,27 @@ $info = Context::has('info');
 
 #### Context::delete()
 >通过调用delete方法可删除当前协程的上下文中以 `$key` 为 key 储存的值，示例如下：
-
-示例:
 ```php
 $info = Context::delete('info',Coroutine::getuid());
 // true
 ```
+
+#### Context::override()
+> 当我们需要做一些复杂的上下文处理，比如先判断一个 key 是否存在，如果存在则取出 value 来再对 value 进行某些修改，然后再将 value 设置回上下文容器中，此时会有比较繁杂的判断条件，可直接通过调用 override 方法来实现这个逻辑，
+示例如下：
+```php
+$info = Context::delete('info',Coroutine::getuid());
+// true
+```
+
+
+
+
+
+
+
+
+
 
 
 
