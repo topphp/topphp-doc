@@ -19,7 +19,7 @@ use Topphp\TopphpTesting\TestCase;
 
 class ParallelTest extends TestCase
 {
-    public function testAdd()
+    public function testAddParallel()
     {
         $parallel = new Parallel();
         $parallel->add(function () {
