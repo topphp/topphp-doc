@@ -18,8 +18,7 @@ class DemoTest extends TestCase
 }
 ```
 
-2. 如果是想对http接口进行测试的话可以继承 
-`Topphp\TopphpTesting\HttpTestCase`
+2. 如果是想对http接口进行测试的话可以继承 `Topphp\TopphpTesting\HttpTestCase`
 
 ```php
 class DemoTest extends HttpTestCase
