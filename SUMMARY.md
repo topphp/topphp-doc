@@ -23,11 +23,11 @@
   * [WaitGroup 特性](kuai-su-ru-men/xie-cheng/waitgroup-te-xing.md)
   * [Parallel 特性](kuai-su-ru-men/xie-cheng/parallel-te-xing.md)
 * [路由](kuai-su-ru-men/lu-you.md)
-* 控制器
+* [控制器](kuai-su-ru-men/kong-zhi-qi.md)
 * [注解](kuai-su-ru-men/zhu-jie.md)
 * [数据库](kuai-su-ru-men/shu-ju-ku.md)
 * [模型](mo-xing.md)
-* 验证器
+* [验证器](kuai-su-ru-men/yan-zheng-qi.md)
 
 ## 组件
 
