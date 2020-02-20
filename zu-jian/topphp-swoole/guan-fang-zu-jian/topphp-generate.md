@@ -7,12 +7,11 @@
 [![](https://img.shields.io/scrutinizer/g/topphp/topphp-generate.svg?style=flat-square)](https://scrutinizer-ci.com/g/topphp/topphp-generate)  
 [![](https://img.shields.io/packagist/dt/topphp/topphp-generate.svg?style=flat-square)](https://packagist.org/packages/topphp/topphp-generate)
 
-# 生成器
-可快速生成thinkphp的模型类,继承自 think\Model
+# php文件生成器
 
-## Structure
+1.可快速生成thinkphp的模型类,继承自 think\Model
 
-> 组件结构
+### 组件结构
 
 ```
 bin/        
@@ -24,7 +23,7 @@ tests/
 vendor/
 ```
 
-## Install
+## 安装
 
 Via Composer
 
@@ -32,23 +31,25 @@ Via Composer
 $ composer require topphp/topphp-generate
 ```
 
-## Usage
+## 使用方法
 
 需要先配置数据库信息 `config/database.php` 后进行命令行生成
 
 ```shell
 php think gen:db
 ```
-
+> 程序会在 `APP\model\entity`目录下创建实体类
 ## 效果图
-![](/assets/db.png)
+
+![](/assets/db.png)![](/assets/gendb1.png)
+
 
 
 # 版本说明
+
 现代的PHP组件都使用语义版本方案\([http://semver.org](http://semver.org)\), 版本号由三个点\(.\)分数字组成\(例如:1.13.2\).第一个数字是主版本号,如果PHP组件更新破坏了向后兼容性,会提升主版本号.  
 第二个数字是次版本号,如果PHP组件小幅更新了功能,而且没有破坏向后兼容性,会提升次版本号.  
 第三个数字\(即最后一个数字\)是修订版本号,如果PHP组件修正了向后兼容的缺陷,会提升修订版本号.
-
 
 ## Change log
 
