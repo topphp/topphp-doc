@@ -39,11 +39,10 @@ $ composer require topphp/topphp-generate
 php think gen:db
 ```
 > 程序会在 `APP\model\entity`目录下创建实体类
+
 ## 效果图
 
 ![](/assets/db.png)![](/assets/gendb1.png)
-
-
 
 # 版本说明
 
