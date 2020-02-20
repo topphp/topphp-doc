@@ -36,6 +36,7 @@
   * [topphp-testing](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-testing.md)
   * [topphp-rsa](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-rsa.md)
   * [topphp-wechat](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-wechat.md)
+  * [topphp-generate](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-generate.md)
 * [为topphp做贡献](zu-jian/ru-he-wei-topphp-zuo-gong-xian.md)
 * [组件开发指南](zu-jian/zu-jian-kai-fa-zhi-nan.md)
   * [component-builder](zu-jian/topphp-swoole/guan-fang-zu-jian/component-builder.md)
