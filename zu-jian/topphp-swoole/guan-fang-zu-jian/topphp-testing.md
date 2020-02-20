@@ -3,6 +3,7 @@
 > 该组件是基于 `phpunit` 进行的二次封装, 命令行工具为 `co-phpunit`, 该工具为协程版的单元测试命令行。运行swoole代码时，要使用该命令进行单元测试。
 
 > 可以通过composer脚本进行测试:
+
 1. 打开 `composer.json` 文件,找到
 ```json
 {
@@ -11,8 +12,11 @@
     }
 }
 ```
-2. 运行 ```shell 
-
+2. 运行脚本可进行全部方法测试和指定方法测试
+  ```shell 
+# 运行全部单元测试方法
+composer test
+# 指定运行单元测试方法
 composer test -- --filter=testIndex
 ```
 
