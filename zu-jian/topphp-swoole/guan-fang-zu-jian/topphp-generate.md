@@ -32,7 +32,6 @@ $ composer require topphp/topphp-generate
 ```
 
 ## 使用方法
-
 需要先配置数据库信息 `config/database.php` 后进行命令行生成
 
 ```shell
