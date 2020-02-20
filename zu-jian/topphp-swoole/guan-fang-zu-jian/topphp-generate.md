@@ -9,7 +9,7 @@
 
 # php文件生成器
 
-1.可快速生成thinkphp的模型类,继承自 think\Model
+1.可快速生成 `thinkphp` 的模型类,继承自 `think\Model`
 
 ### 组件结构
 
