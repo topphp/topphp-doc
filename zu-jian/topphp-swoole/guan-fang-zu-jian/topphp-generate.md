@@ -37,7 +37,8 @@ $ composer require topphp/topphp-generate
 ```shell
 php think gen:db
 ```
-> 程序会在 `APP\model\entity`目录下创建实体类
+> 程序会在 `app/model/entity`目录下创建实体类
+> 需要注意的是该目录里的文件每次都会删除源文件后重新生成，所以不要手动修改目录下的任何文件，如果有特殊需要的话，应该在非本目录下的其他目录新建一个文件，并继承该实体类。
 
 ## 效果图
 ![](/assets/db.png)![](/assets/gendb1.png)
