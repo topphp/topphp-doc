@@ -9,7 +9,7 @@
 
 # php文件生成器
 
-1.可快速生成 `thinkphp` 的模型类,继承自 `think\Model`
+1.可快速生成 `thinkphp` 的模型类,继承自 `app\model\BaseModel`,`BaseModel.php`只创建第一次,以后再运行命令不会对此文件进行改变或删除.
 
 ### 组件结构
 
