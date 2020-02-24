@@ -1,26 +1,22 @@
-# topphp-rsa
+# topphp-client
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-
->这是一个RSA的非对称加密解密组件
+>这是一个客户端管理工具，包含Http请求客户端Guzzle，Redis客户端，Socket客户端等
 
 ## 包含方法
 
- - 创建公私钥文件
- - 创建CA证书文件
- - 公钥加密---私钥解密
- - 私钥加密---公钥解密
- - 签名---验签
- - CA证书公钥加密---私钥解密
+ - Http客户端请求 GET POST PUT PATCH DELETE
+ - Redis客户端 普通set get存取，list存取，哈希存取等
 
 ## 组件结构
 
 
 ```
-src/        
+config/     
+src/     
 tests/
 vendor/
 ```
@@ -28,29 +24,35 @@ vendor/
 
 ## 安装
 
+骨架安装组件
+
 ``` bash
-    composer require topphp/topphp-rsa=dev-master
+    composer require topphp/topphp-client=dev-master
 ```
 
 ## 用法
 
 ```php
-    命名空间引用：use Topphp\TopphpRsa\RSA2;
-    $rsaObj = new RSA2();
-    $data = "要加密的数据";
-    $eData = $rsaObj->cryptCode($data, "E");// E 加密
-    $dData = $rsaObj->cryptCode($eData, "D");// D 解密
-    
-    组件还包含如下方法：
-        createSecretKey() // 创建公私钥文件
-        createCertificate() // 创建CA证书文件
-        cryptReCode() // 私钥加密---公钥解密
-        getSign() // 私钥生成签名
-        checkSign() // 公钥验签
-        certEncrypt() // CA证书公钥加密
-        certDecrypt() // CA证书私钥解密
-        
-    更多详细使用方式参看单元测试文件
+    全客户端命名空间引用：
+        use Topphp\TopphpClient\Client;
+    Redis客户端助手类命名空间引用：
+        use Topphp\TopphpClient\redis\RedisHelper;
+    Http客户端助手类命名空间引用：
+        use Topphp\TopphpClient\guzzle\HttpHelper;
+    调用方式有两种：
+        1、通过原始客户端单例调用指定的客户端
+            Client::getInstance()->cli("redis")->set("arr", ["这是一个数组"], 90);
+        2、通过助手类直接调用【推荐】
+            RedisHelper::set("arr", ["这是一个数组"], 90);
+            HttpHelper::get("https://www.baidu.com");
+    注意事项：
+        1、写好对应的配置后，在骨架即可直接调用，无需传入配置，需要动态切换配置时，只需要通过骨架的config()方法动态修改即可。
+        2、还提供一种直接传入配置的方式
+            Client::getInstance($config)->cli("http")->get("https://www.baidu.com");
+        3、组价同时也提供直接暴露客户端对象句柄的方式直接调用原生客户端对象，完成更多高级操作
+            Client::getInstance()->cli("redis")->handler()->publish( $channel, $message );
+            RedisHelper::handler()->publish( $channel, $message );
+        4、默认的助手类已经提供了大部分常用场景所需的方法，更多用法可以参看单元测试文件和对应的官方文档
 ```
 
 ## 修改日志
@@ -60,7 +62,7 @@ vendor/
 ## 测试
 
 ``` bash
-   组件单元测试 ./vendor/bin/phpunit tests/RSA2Test.php
+   组件单元测试 ./vendor/bin/phpunit tests/ClientTest.php
 ```
 
 ## 贡献
