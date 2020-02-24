@@ -29,7 +29,7 @@ vendor/
 ## 安装
 
 ``` bash
-    composer require topphp/topphp-rsa=dev-master
+    composer require topphp/topphp-rsa
 ```
 
 ## 用法
@@ -60,7 +60,7 @@ vendor/
 ## 测试
 
 ``` bash
-   组件单元测试 ./vendor/bin/phpunit tests/RSA2Test.php
+   ./vendor/bin/phpunit tests/RSA2Test.php
 ```
 
 ## 贡献
