@@ -24,10 +24,8 @@ vendor/
 
 ## 安装
 
-骨架安装组件
-
 ``` bash
-    composer require topphp/topphp-client=dev-master
+    composer require topphp/topphp-client
 ```
 
 ## 用法
@@ -62,7 +60,7 @@ vendor/
 ## 测试
 
 ``` bash
-   组件单元测试 ./vendor/bin/phpunit tests/ClientTest.php
+   ./vendor/bin/phpunit tests/ClientTest.php
 ```
 
 ## 贡献
