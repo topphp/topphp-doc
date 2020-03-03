@@ -1,6 +1,6 @@
 
->jsonrpc服务基于 `topphp-swoole` 组件,使用前请先安装
-
+>jsonrpc服务基于 `topphp-swoole` 组件,底层使用tcp服务(TcpServer::class)
+使用前请先安装:
 ```shell
 conposer require topphp/topphp-swoole
 ```
