@@ -9,8 +9,31 @@ conposer require topphp/topphp-swoole
 > 服务有两种角色，一种是 服务提供者，即为其它服务提供服务的服务，另一种是 服务消费者，即依赖其它服务的服务，
 > 一个服务既可能是服务提供者，同时又是服务消费者。
  
-* 定义服务提供者
-> 通过 @Rpc 注解对一个类进行定义即可发布这个服务了：
+##### 定义服务提供者
+
+1. 通过 @Rpc 注解对一个类进行定义
+
+2. 继承 `Topphp\TopphpSwoole\services\RpcService` 
+
+3. 添加服务的容器依赖,配置 `config/service.php`
+
+```php
+<?php
+
+use app\AppService;
+use app\service\CinemaService;
+use app\service\FilmService;
+
+// 系统服务定义文件
+// 服务在完成全局初始化之后执行
+return [
+    AppService::class,
+    FilmService::class,
+    CinemaService::class,
+];
+```
+
+>即可发布这个服务了：
 
 ```php
 <?php
@@ -33,8 +56,17 @@ class FilmService extends RpcService
 }
 ```
 
+##### `@Rpc` 注解的参数解释
+
 ```php
 <?php
+/**
+ * 凯拓软件 [临渊羡鱼不如退而结网,凯拓与你一同成长]
+ * @package topphp-swoole
+ * @date 2020/3/1 01:19
+ * @author sleep <sleep@kaituocn.com>
+ */
+
 namespace Topphp\TopphpSwoole\annotation;
 
 use Doctrine\Common\Annotations\Annotation;
@@ -49,29 +81,33 @@ use Doctrine\Common\Annotations\Annotation\Target;
 final class Rpc
 {
     /**
-     * 服务名,全局唯一
+     * 全局唯一标识,服务注册时用到
+     * @Required
+     */
+    public $id;
+
+    /**
+     * 服务名
+     * 与config/topphpServer.php里的 servers.name 对应
      * @Required
      */
     public $name;
 
     /**
-     * 和 config/topphpServer.php里的 servers.name 对应
-     * @Required
-     */
-    public $server;
-    /**
+     * 服务协议,目前仅支持 jsonrpc
      * @Required
      * @Enum({"jsonrpc","http-jsonrpc"})
      */
     public $protocol;
 
     /**
+     * 暂不支持
      * @Enum({"consul"})
      */
     public $publish;
 }
 ```
-* 定义配置文件
+##### 定义服务提供者配置文件
 
 ```php
 <?php
@@ -140,3 +176,17 @@ return [
     ],
 ];
 ```
+
+##### 协议格式
+
+```json
+// 请求 method:name@id@函数名 组合成一个json字符串
+{"jsonrpc":"2.0","method":"cinema-server@cinemaService@test1","params":[9,"11"],"id":123}
+
+// 成功返回值
+{"jsonrpc":"2.0","id":123,"result":-2}
+// 失败返回值
+{"jsonrpc":"2.0","id":2,"error":{"code":-32603,"message":"Method not found"}}
+```
+
+
