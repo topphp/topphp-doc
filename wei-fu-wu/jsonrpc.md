@@ -189,9 +189,8 @@ return [
 {"jsonrpc":"2.0","id":2,"error":{"code":-32603,"message":"Method not found"}}
 ```
 
-#### 客户端调试可以用 `telent`
+##### 客户端调试可以用 `telent`
 
 ```shell
 telnet 127.0.0.1 9502
-
 ```
