@@ -37,6 +37,7 @@ vendor/
 ```php
     命名空间引用（建议直接使用助手类）：
         use Topphp\TopphpJwt\JwtHelper;
+        
     调用方式有两种：
         1、通过原始JWT单例调用
             JWT::getInstance()->setJti(10001)->setData(["test"=>"中文"])->createToken();
@@ -44,10 +45,67 @@ vendor/
             JwtHelper::handler()->setJti(10001)->setData(["test"=>"中文"])->createToken();
         3、助手类直接提供优化过的完善的快捷方法【推荐】
             JwtHelper::generateToken(10001, ["test"=>"中文"], time() + 7200);
+            
     注意事项：
         1、默认建议使用HMAC方式进行签名加密，如果对于数据加密需求比较高，提供RSA方式签名加密，只需要修改配置use_rsa为true
         2、使用RSA签名，配置文件topphpJwt中公私钥地址如果为空，默认获取根目录下 pem 中的公钥地址，可结合topphp-rsa组件创建公私钥
         3、默认的助手类已经提供了大部分常用场景所需的方法，更多用法可以参看单元测试文件和对应的官方文档
+        
+    使用示例一：
+        // 当前签发的JWT的唯一标识（例如：用户uid）
+        $id  = 1;
+        // 当前签发的JWT附带的额外数据（例如：用户信息）
+        $data = [
+            "uid"      => 1,
+            "username" => "张三"
+        ];
+        // 当前JWT有效期，时间戳格式
+        $expTime = time() + 7200;
+        
+        // 生成token
+        @param int $id jwt唯一标识（如用户UID）
+        @param array $data 【可选】附加数据（如用户信息）
+        @param string $expTime 【可选】设置过期时间（时间戳）不传默认 1 小时，传 -1 为永不过期
+        @param string $fromUrl 【可选】签发者URL
+        @param string $toUrl 【可选】接收者URL
+        $token   = JwtHelper::generateToken($id, $data, $expTime);
+        // token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjEifQ.eyJpc3MiOiJodHRwOlwvXC9kb21haW4xLmNvbSIsImp0aSI6IjEiLCJpYXQiOjE1ODMyNDAzMTMsIm5iZiI6MTU4MzI0MDMxMywiZXhwIjoxNTgzMjQ3NTEzLCJkYXRhIjoie1widWlkXCI6MSxcInVzZXJuYW1lXCI6XCJcdTVmMjBcdTRlMDlcIn0ifQ.TO-4staZCPwUi7qJp9Z7iDoj7LDmVME8Z-AHrPAag2M
+        
+        // 验证token
+        @param string $token
+        @param bool $isAll 【可选】是否验证成功返回全部数据
+        @param string $allowUrl 【可选】准许的签发者url
+        $res = JwtHelper::verifyToken((string)$token);
+        // 验证通过会返回如下数据，不通过返回false
+        array(4) {
+          ["id"]=>
+          string(1) "1"
+          ["create_time"]=>
+          string(19) "2020-03-03 21:05:05"
+          ["expire_time"]=>
+          string(19) "2020-03-03 22:05:05"
+          ["data"]=>
+          array(2) {
+            ["uid"]=>
+            int(1)
+            ["username"]=>
+            string(6) "张三"
+          }
+        }
+    使用示例二：
+        $uid  = 1;
+        $data = [
+            "uid"      => 1,
+            "username" => "张三"
+        ];
+        // $expTime = -1;// generateToken 方法允许设置永久不过期
+        $expTime = time() + 7200;// generateToken 方法允许设置指定的过期时间
+        // 生成token
+        $token   = JwtHelper::generateToken($uid, $data, $expTime, "http://domain1.com");
+        // 验证token
+        $res     = JwtHelper::verifyToken((string)$token, false, "http://domain2.com");
+        // 签发JWT时声明签发者自己的url（domain1），对方接收到JWT后按照约定的（domain2）验证，发现不符合匹配要求，返回false
+        
 ```
 
 ## 修改日志
