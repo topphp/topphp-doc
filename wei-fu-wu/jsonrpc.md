@@ -13,25 +13,7 @@ conposer require topphp/topphp-swoole
 
 1. 通过 @Rpc 注解对一个类进行定义
 
-2. 继承 `Topphp\TopphpSwoole\services\RpcService` 
-
-3. 添加服务的容器依赖,配置 `config/service.php`
-
-```php
-<?php
-
-use app\AppService;
-use app\service\CinemaService;
-use app\service\FilmService;
-
-// 系统服务定义文件
-// 服务在完成全局初始化之后执行
-return [
-    AppService::class,
-    FilmService::class,
-    CinemaService::class,
-];
-```
+2. 继承 `Topphp\TopphpSwoole\services\RpcProviderService` 
 
 >即可发布这个服务了：
 
@@ -42,16 +24,16 @@ declare (strict_types=1);
 namespace app\service;
 
 use Topphp\TopphpSwoole\annotation\Rpc;
-use Topphp\TopphpSwoole\services\RpcService;
+use Topphp\TopphpSwoole\services\RpcProviderService;
 
 /**
- * @Rpc(name="filmService",protocol="jsonrpc",server="film-server")
+ * @Rpc(serviceName="cinemaService",serverName="cinema-server",protocol="jsonrpc")
  */
-class FilmService extends RpcService
+class CinemaService extends RpcProviderService
 {
-    public static function test($a, $b)
+    public function test1($a, $b)
     {
-        return $a + $b;
+        return $a - $b;
     }
 }
 ```
@@ -60,12 +42,6 @@ class FilmService extends RpcService
 
 ```php
 <?php
-/**
- * 凯拓软件 [临渊羡鱼不如退而结网,凯拓与你一同成长]
- * @package topphp-swoole
- * @date 2020/3/1 01:19
- * @author sleep <sleep@kaituocn.com>
- */
 
 namespace Topphp\TopphpSwoole\annotation;
 
@@ -84,14 +60,14 @@ final class Rpc
      * 全局唯一标识,服务注册时用到
      * @Required
      */
-    public $id;
+    public $serviceName;
 
     /**
      * 服务名
      * 与config/topphpServer.php里的 servers.name 对应
      * @Required
      */
-    public $name;
+    public $serverName;
 
     /**
      * 服务协议,目前仅支持 jsonrpc
@@ -101,7 +77,6 @@ final class Rpc
     public $protocol;
 
     /**
-     * 暂不支持
      * @Enum({"consul"})
      */
     public $publish;
