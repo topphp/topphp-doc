@@ -176,6 +176,7 @@ telnet 127.0.0.1 9502
 #### Rpc消费端使用方法
 
 ```php
+/** @var CinemaService $a */
 $a = RpcConsumer::make(CinemaService::class);
 $a->test1(2,2);
 // resutl: 0
