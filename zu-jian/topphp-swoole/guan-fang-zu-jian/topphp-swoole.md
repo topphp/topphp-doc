@@ -18,14 +18,13 @@ php think server
 #### tcp服务
 
 
-### http服务
+#### http服务
 
 
-### rpc服务
+#### rpc服务
 详见 [微服务-jsonrpc章节](/wei-fu-wu/jsonrpc.md)
 
-
-### websocket服务
+#### websocket服务
 
 ### 事件机制
 组件支持thinkphp的事件机制,在骨架项目中 `app/subscribe` 目录可以自定义扩展swoole的全部事件回调.
