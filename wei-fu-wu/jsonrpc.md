@@ -151,15 +151,6 @@ return [
             ],
             // 客户端配置项,详情看swoole文档
             'options' => []
-        ],
-        [
-            'name'     => 'cinema-server',
-            'balancer' => 'random',
-            'nodes'    => [
-                ['host' => '192.168.31.108', 'port' => 9502],
-                ['host' => '127.0.0.1', 'port' => 9503]
-            ],
-            'options' => []
         ]
     ],
 ];
@@ -182,3 +173,5 @@ return [
 ```shell
 telnet 127.0.0.1 9502
 ```
+
+
