@@ -173,5 +173,11 @@ return [
 ```shell
 telnet 127.0.0.1 9502
 ```
+#### Rpc消费端使用方法
 
+```php
+$a = RpcConsumer::make(CinemaService::class);
+$a->test1(2,2);
+// resutl: 0
+```
 
