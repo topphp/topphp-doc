@@ -156,16 +156,13 @@ return [
 ];
 ```
 
-##### 协议格式
+#### Rpc消费端使用方法
 
-```json
-// 请求 method:name@id@函数名 组合成一个json字符串
-{"jsonrpc":"2.0","method":"cinema-server@cinemaService@test1","params":[9,"11"],"id":123}
-
-// 成功返回值
-{"jsonrpc":"2.0","id":123,"result":-2}
-// 失败返回值
-{"jsonrpc":"2.0","id":2,"error":{"code":-32603,"message":"Method not found"}}
+```php
+/** @var CinemaService $a */
+$a = RpcConsumer::make(CinemaService::class);
+$a->test1(211,2);
+// {"id":"test1_5e628e799f89e","value":209}
 ```
 
 ##### 客户端调试可以用 `telent`
@@ -173,12 +170,17 @@ return [
 ```shell
 telnet 127.0.0.1 9502
 ```
-#### Rpc消费端使用方法
 
-```php
-/** @var CinemaService $a */
-$a = RpcConsumer::make(CinemaService::class);
-$a->test1(2,2);
-// resutl: 0
+###### 原始协议格式
+
+```json
+// 请求 method:name@id@函数名 组合成一个json字符串
+{"jsonrpc":"2.0","method":"cinema-server@cinemaService@test1","params":[9,"11"],"id":123}
+
+// 成功返回值
+{"jsonrpc":"2.0","id":123,"result":-2}
+
+// 失败返回值
+{"jsonrpc":"2.0","id":2,"error":{"code":-32603,"message":"Method not found"}}
 ```
 
