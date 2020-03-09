@@ -40,6 +40,7 @@
   * [topphp-client](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-client.md)
   * [topphp-wechat](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-wechat.md)
   * [topphp-generate](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-generate.md)
+  * [topphp-consul](zu-jian/topphp-swoole/guan-fang-zu-jian/topphp-consul.md)
 * [为topphp做贡献](zu-jian/ru-he-wei-topphp-zuo-gong-xian.md)
 * [组件开发指南](zu-jian/zu-jian-kai-fa-zhi-nan.md)
   * [component-builder](zu-jian/topphp-swoole/guan-fang-zu-jian/component-builder.md)
@@ -48,7 +49,7 @@
 
 ## 微服务
 
-* [服务提供及消费-jsonrpc](wei-fu-wu/jsonrpc.md)
+* [服务注册及消费-jsonrpc](wei-fu-wu/jsonrpc.md)
 
 ## 应用部署
 
