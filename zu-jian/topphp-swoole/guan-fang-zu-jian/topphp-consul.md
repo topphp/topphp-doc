@@ -4,7 +4,8 @@
 
 #### 单独安装
 ```shell
-composer require topphp/topphp-consul
+# 运行以下命令
+$ composer require topphp/topphp-consul
 ```
 #### 配置
 > 配置文件 `config/consul.php`
@@ -18,6 +19,7 @@ return [
 
 #### 使用
 > 获取相应客户端对象
+
 ```php
 <?php
 $this->agent = App::make(Agent::class);
@@ -29,3 +31,9 @@ $services = $this->health->service($serviceName);
 $services = $this->health->service($serviceName)->json();
 
 ```
+
+# 相关api
+
+### Catalog
+
+### Session
