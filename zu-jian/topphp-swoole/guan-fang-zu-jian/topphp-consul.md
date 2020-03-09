@@ -26,5 +26,6 @@ $this->kv = App::make(KV::class);
 $this->health = App::make(Health::class);
 //返回一个 `ConsulResponse` 对象,可以通过 `->json()` 获取相应json数据
 $services = $this->health->service($serviceName);
+$services = $this->health->service($serviceName)->json();
 
 ```
