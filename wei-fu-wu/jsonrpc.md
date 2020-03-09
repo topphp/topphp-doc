@@ -77,6 +77,7 @@ final class Rpc
     public $protocol;
 
     /**
+     * 发布到服务中心,如果不写的话会去配置文件中的nodes节点
      * @Enum({"consul"})
      */
     public $publish;
