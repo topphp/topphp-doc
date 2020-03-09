@@ -29,6 +29,10 @@
 * [模型](mo-xing.md)
 * [验证器](kuai-su-ru-men/yan-zheng-qi.md)
 
+## 微服务
+
+* [服务注册及消费-jsonrpc](wei-fu-wu/jsonrpc.md)
+
 ## 组件
 
 * [官方组件库](zu-jian/topphp-swoole/guan-fang-zu-jian.md)
@@ -47,9 +51,4 @@
   * [composer.json文件说明](zu-jian/zu-jian-kai-fa-zhi-nan/composerjsonwen-jian-shuo-ming.md)
   * [组件开发流程](zu-jian/zu-jian-kai-fa-zhi-nan/zu-jian-kai-fa-liu-cheng.md)
 
-## 微服务
-
-* [服务注册及消费-jsonrpc](wei-fu-wu/jsonrpc.md)
-
 ## 应用部署
-
