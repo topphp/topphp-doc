@@ -32,6 +32,7 @@
 ## 微服务
 
 * [服务注册及消费-jsonrpc](wei-fu-wu/jsonrpc.md)
+* [服务治理](wei-fu-wu/fu-wu-zhi-li.md)
 
 ## 组件
 
@@ -52,3 +53,4 @@
   * [组件开发流程](zu-jian/zu-jian-kai-fa-zhi-nan/zu-jian-kai-fa-liu-cheng.md)
 
 ## 应用部署
+
