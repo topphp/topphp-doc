@@ -23,7 +23,7 @@
 'clients' => [
         [
             'name'     => 'film-server',
-            'balancer' => RandomBalancer::class,
+            'balancer' => \Topphp\TopphpSwoole\balancer\RandomBalancer::class,
             'nodes'    => [
                 ['host' => '0.0.0.0', 'port' => 9502, 'weight' => 0],
                 ['host' => '127.0.0.1', 'port' => 9502, 'weight' => 0]
