@@ -36,9 +36,16 @@ git clone https://github.com/swoole/sdebug.git
 #### 第二步 编译
 
 ```shell
-cd sdebug
+$ cd sdebug
 ./rebuild.sh
 
+$ vim /usr/local/etc/php/7.3/conf.d/sdebug.ini
+[xdebug]
+zend_extension="xdebug.so"
+xdebug.remote_port = 9000
+xdebug.remote_enable = 1
+xdebug.remote_connect_back = 1
+xdebug.max_nesting_level = 500
 
 $ php -v
 PHP 7.2.25 (cli) (built: Nov 22 2019 10:27:28) ( NTS )
