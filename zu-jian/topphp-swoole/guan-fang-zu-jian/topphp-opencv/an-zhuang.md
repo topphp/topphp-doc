@@ -55,7 +55,7 @@ cd php-opencv
 git checkout 3.3.0
 phpize
 ./configure --with-php-config=/usr/bin/php-config --enable-debug
-make && make install
+sudo make && sudo make install
 ```
 ### 配置php.ini
 ```shell
