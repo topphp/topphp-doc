@@ -1,3 +1,6 @@
+# topphp-opencv
+一个基于PHPOpenCV的组件库,对PHPOpenCV中的方法进行了封装.
+
 ### 什么是 PHPOpenCV？
 PHPOpenCV是一个基于OpenCV C\C++版接口开发的PHP扩展，可以理解为PHP版的OpenCV，是用于计算机视觉开发的PHP扩展。
 支持PHP7+和OpenCV4.0.0+。
