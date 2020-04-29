@@ -61,7 +61,10 @@ sudo make && sudo make install
 ```shell
 extension="opencv.so"
 ```
-
+### 安装提示工具
+```shell
+composer require topphp/topphp-opencv-ide-helper
+```
 
 ### 卸载OpenCV
 ```shell
