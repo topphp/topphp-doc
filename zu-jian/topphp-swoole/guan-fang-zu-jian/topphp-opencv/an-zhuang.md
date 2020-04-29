@@ -78,7 +78,6 @@ extension="opencv.so"
 ```shell
 composer require topphp/topphp-opencv-ide-helper
 ```
-
 ![](/assets/opencv-ide-helper-01.png)
 
 ### 卸载OpenCV
