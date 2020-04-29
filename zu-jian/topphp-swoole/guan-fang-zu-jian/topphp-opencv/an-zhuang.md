@@ -1,8 +1,11 @@
 ### 安装
+
 在安装PHPOpenCV首先需要安装OpenCV
 
 ### 安装OpenCV
+
 ##### 本文仅介绍Ubuntu系统下的环境搭建,其他Linux系统和Ubuntu类似,请自行安装
+
 ```shell
 sudo apt-get install gcc-4.8 g++-4.8
 sudo apt-get install build-essential
@@ -11,7 +14,9 @@ sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libja
 sudo apt install qt5-default
 sudo apt install python3-pip
 ```
-### 下载opencv_contrib模块
+
+### 下载opencv\_contrib模块
+
 > 该模块主要用户人脸识别等扩展功能。
 
 ```shell
@@ -22,6 +27,7 @@ cd ..
 ```
 
 ### 下载opencv
+
 ```shell
 git clone https://github.com/opencv/opencv.git
 cd opencv
@@ -36,7 +42,9 @@ sudo make install
 sudo sh -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf'
 sudo ldconfig
 ```
+
 ### 检测
+
 > 编译安装完后，可以使用pkg-config来检测是否安装成功
 
 ```shell
@@ -47,6 +55,7 @@ pkg-config --libs opencv
 ```
 
 ### 安装PHPOpenCV扩展
+
 > 下载并安装PHPOpenCV扩展库,编译过程很慢,请耐心等待.
 
 ```shell
@@ -57,16 +66,23 @@ phpize
 ./configure --with-php-config=/usr/bin/php-config --enable-debug
 sudo make && sudo make install
 ```
+
 ### 配置php.ini
+
 ```shell
 extension="opencv.so"
 ```
+
 ### 安装提示工具
+
 ```shell
 composer require topphp/topphp-opencv-ide-helper
 ```
 
+![](/assets/opencv-ide-helper-01.png)
+
 ### 卸载OpenCV
+
 ```shell
 # 进入build文件夹执行
 cd build
@@ -76,3 +92,6 @@ cd ..
 sudo rm -r build
 sudo rm -r /usr/local/include/opencv2 /usr/local/include/opencv /usr/include/opencv /usr/include/opencv2 /usr/local/share/opencv /usr/local/share/OpenCV /usr/share/opencv /usr/share/OpenCV /usr/local/bin/opencv* /usr/local/lib/libopencv*
 ```
+
+
+
