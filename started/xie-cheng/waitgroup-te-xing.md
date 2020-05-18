@@ -14,12 +14,6 @@
 4.WaitGroup对象可以复用，add、done、wait之后可以再次使用
 ```php
 <?php
-/**
- * 凯拓软件 [临渊羡鱼不如退而结网,凯拓与你一同成长]
- * Project: topphp-swoole
- * Date: 2020/2/16 23:17
- * Author: sleep <sleep@kaituocn.com>
- */
 
 namespace Topphp\Test\coroutine;
 

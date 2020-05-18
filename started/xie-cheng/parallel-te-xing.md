@@ -2,12 +2,6 @@
 `Parallel` 特性是 `topphp` 基于 `WaitGroup` 特性抽象出来的一个更便捷的使用方法，我们通过一段代码来演示一下。
 ```php
 <?php
-/**
- * 凯拓软件 [临渊羡鱼不如退而结网,凯拓与你一同成长]
- * Project: topphp-swoole
- * Date: 2020/2/16 23:49
- * Author: sleep <sleep@kaituocn.com>
- */
 
 namespace Topphp\Test\coroutine;
 
