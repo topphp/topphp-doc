@@ -6,8 +6,6 @@
 Route::miss('public/miss');
 ```
 
-复制
-
 或者使用闭包定义
 
 ```
