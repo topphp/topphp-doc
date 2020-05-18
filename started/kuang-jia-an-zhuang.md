@@ -16,6 +16,6 @@
 ###### swoole方式启动
 
 ```
-    1、需要先安装 `topphp/topphp-swoole`
+    1、需要先安装 `composer require topphp/topphp-swoole`
     2、php think server
 ```
