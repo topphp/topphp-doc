@@ -13,12 +13,6 @@
 
 ```php
 <?php
-/**
- * 凯拓软件 [临渊羡鱼不如退而结网,凯拓与你一同成长]
- * Project: topphp-swoole
- * Date: 2020/2/17 02:43
- * Author: sleep <sleep@kaituocn.com>
- */
 
 namespace Topphp\Test\coroutine;
 
