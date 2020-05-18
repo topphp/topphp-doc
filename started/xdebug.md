@@ -1,9 +1,8 @@
-## 单元测试
+## 安装xdebug扩展
 
 > 注意swoole和xdebug不可同时开启.此扩展仅支持Apache,Nginx,php-fpm环境下使用.
 swoole环境下请安装 [sdebug](/started/sdebug.md)
 
-#### 安装xdebug扩展
 
 ```shell
 pecl install xdebug
