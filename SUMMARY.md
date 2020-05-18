@@ -13,7 +13,7 @@
 * [单元测试](started/testing.md)
   * [安装xdebug扩展](started/xdebug.md)
   * [安装sdebug扩展](started/sdebug.md)
-  * [单元测试PHPStorm图解](started/dan-yuan-ce-shi-phpstorm-tu-jie.md)
+  * [单元测试PHPStorm图解](started/phpstorm-testing.md)
 
 ## 基础架构
 
