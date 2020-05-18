@@ -7,5 +7,5 @@ php网页总是出现Module 'xxx' already loaded这样的提示语,是因为这�
 ```
 您需要在您的 php.ini 配置文件增加 swoole.use_shortname = 'Off' 配置项,也可以通过以下的命令来启动服务:
 ```shell
-php -d swoole.use_shortname=Off bin/hyperf.php start
+php -d swoole.use_shortname=Off think server
 ```
