@@ -11,8 +11,8 @@
 * [开发建议](started/develop-suggest.md)
 * [框架安装](started/frame-install.md)
 * [单元测试](started/testing.md)
-  * [安装xdebug扩展](started/xdebugan-zhuang.md)
-  * [安装sdebug扩展](started/sdebugan-zhuang.md)
+  * [安装xdebug扩展](started/xdebug.md)
+  * [安装sdebug扩展](started/sdebug.md)
   * [单元测试PHPStorm图解](started/dan-yuan-ce-shi-phpstorm-tu-jie.md)
 
 ## 基础架构
