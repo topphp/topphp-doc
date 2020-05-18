@@ -4,30 +4,30 @@
 
 * [什么是TopPHP](README.md)
 * [版本更新](version-update.md)
-* [常见问题](kuai-su-ru-men/chang-jian-wen-ti.md)
+* [常见问题](started/question.md)
 
 ## 快速入门
 
-* [开发建议](kuai-su-ru-men/kai-fa-jian-yi.md)
-* [框架安装](kuai-su-ru-men/kuang-jia-an-zhuang.md)
-* [单元测试](kuai-su-ru-men/dan-yuan-ce-shi.md)
-  * [安装xdebug扩展](kuai-su-ru-men/xdebugan-zhuang.md)
-  * [安装sdebug扩展](kuai-su-ru-men/sdebugan-zhuang.md)
-  * [单元测试PHPStorm图解](kuai-su-ru-men/dan-yuan-ce-shi-phpstorm-tu-jie.md)
+* [开发建议](started/kai-fa-jian-yi.md)
+* [框架安装](started/kuang-jia-an-zhuang.md)
+* [单元测试](started/dan-yuan-ce-shi.md)
+  * [安装xdebug扩展](started/xdebugan-zhuang.md)
+  * [安装sdebug扩展](started/sdebugan-zhuang.md)
+  * [单元测试PHPStorm图解](started/dan-yuan-ce-shi-phpstorm-tu-jie.md)
 
 ## 基础架构
 
-* [依赖注入](kuai-su-ru-men/yi-lai-zhu-ru.md)
-* [协程](kuai-su-ru-men/xie-cheng.md)
-  * [defer特性](kuai-su-ru-men/xie-cheng/deferte-xing.md)
-  * [WaitGroup 特性](kuai-su-ru-men/xie-cheng/waitgroup-te-xing.md)
-  * [Parallel 特性](kuai-su-ru-men/xie-cheng/parallel-te-xing.md)
-* [路由](kuai-su-ru-men/lu-you.md)
-* [控制器](kuai-su-ru-men/kong-zhi-qi.md)
-* [注解](kuai-su-ru-men/zhu-jie.md)
-* [数据库](kuai-su-ru-men/shu-ju-ku.md)
+* [依赖注入](started/yi-lai-zhu-ru.md)
+* [协程](started/xie-cheng.md)
+  * [defer特性](started/xie-cheng/deferte-xing.md)
+  * [WaitGroup 特性](started/xie-cheng/waitgroup-te-xing.md)
+  * [Parallel 特性](started/xie-cheng/parallel-te-xing.md)
+* [路由](started/lu-you.md)
+* [控制器](started/kong-zhi-qi.md)
+* [注解](started/zhu-jie.md)
+* [数据库](started/shu-ju-ku.md)
 * [模型](mo-xing.md)
-* [验证器](kuai-su-ru-men/yan-zheng-qi.md)
+* [验证器](started/yan-zheng-qi.md)
 
 ## 微服务
 

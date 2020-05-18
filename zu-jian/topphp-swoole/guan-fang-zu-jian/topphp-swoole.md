@@ -13,7 +13,7 @@ php think server
 ```
 #### 协程
 
-`defer特性`,`WaitGroup 特性`,`Parallel 特性` 详见 [协程章节](/kuai-su-ru-men/xie-cheng.md)
+`defer特性`,`WaitGroup 特性`,`Parallel 特性` 详见 [协程章节](/started/xie-cheng.md)
 
 #### tcp服务
 
