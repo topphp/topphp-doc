@@ -1,5 +1,7 @@
 ##TopPHP 单元测试组件
 
+>单元测试组件基于phpunit，并对其进行了优化与扩展，支持http客户端请求
+
 ### 安装
 
 ```
@@ -26,7 +28,12 @@ class DemoTest extends HttpTestCase
 {
     public function testIndex()
     {
-        $res = true;
+        $url = "https://www.domain.com";
+        $postData = [
+          "id"=>1,
+          "name"=>"test"  
+        ];
+        $res = self::$httpClient->post($url, $postData);
         $this->assertTrue($res !== false);
     }
 }
