@@ -19,9 +19,9 @@
 
 * [依赖注入](started/inject.md)
 * [协程](started/xie-cheng.md)
-  * [defer特性](started/xie-cheng/deferte-xing.md)
-  * [WaitGroup 特性](started/xie-cheng/waitgroup-te-xing.md)
-  * [Parallel 特性](started/xie-cheng/parallel-te-xing.md)
+  * [defer特性](started/coroutine/deferte.md)
+  * [WaitGroup 特性](started/coroutine/waitgroup.md)
+  * [Parallel 特性](started/coroutine/parallel.md)
 * [路由](started/lu-you.md)
 * [控制器](started/kong-zhi-qi.md)
 * [注解](started/zhu-jie.md)
