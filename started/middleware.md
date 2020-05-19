@@ -434,11 +434,7 @@ return [
 
 新版内置了几个系统中间件，包括：
 
-| 中间件类 |
-| :--- |
-
-
-|  | 描述 |
+| 中间件类 | 描述 |
 | :--- | :--- |
 | think\middleware\AllowCrossDomain | 跨域请求支持 |
 | think\middleware\CheckRequestCache | 请求缓存 |
