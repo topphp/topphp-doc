@@ -14,6 +14,8 @@
   * [安装xdebug扩展](started/xdebug.md)
   * [安装sdebug扩展](started/sdebug.md)
   * [单元测试PHPStorm图解](started/phpstorm-testing.md)
+* [目录结构](started/dir-detail.md)
+* [开发规范](started/frame-standard.md)
 
 ## 基础架构
 
