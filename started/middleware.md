@@ -112,6 +112,7 @@ class Before
     }
 }
 ```
+
 下面是一个后置行为的中间件
 
 ```php
@@ -123,7 +124,7 @@ class After
 {
     public function handle($request, \Closure $next)
     {
-		$response = $next($request);
+        $response = $next($request);
 
         // 添加中间件执行代码
 
@@ -207,7 +208,7 @@ return [
 <?php
 
 return [
-	\app\middleware\Auth::class,
+    \app\middleware\Auth::class,
     'check',
     'Hello',
 ];
@@ -221,7 +222,7 @@ return [
 <?php
 
 return [
-	[\app\http\middleware\Auth::class, 'admin'],
+    [\app\http\middleware\Auth::class, 'admin'],
     'Check',
     ['hello','thinkphp'],
 ];
@@ -239,35 +240,36 @@ return [
 
 ```php
 Route::rule('hello/:name','hello')
-	->middleware(\app\middleware\Auth::class);
+    ->middleware(\app\middleware\Auth::class);
 ```
 
 支持注册多个中间件
 
 ```php
 Route::rule('hello/:name','hello')
-	->middleware([\app\middleware\Auth::class, \app\middleware\Check::class]);
+    ->middleware([\app\middleware\Auth::class, \app\middleware\Check::class]);
 ```
 
 然后，直接使用下面的方式注册中间件
 
 ```php
 Route::rule('hello/:name','hello')
-	->middleware('check');
+    ->middleware('check');
 ```
 
 支持对路由分组注册中间件
 
 ```php
 Route::group('hello', function(){
-	Route::rule('hello/:name','hello');
+    Route::rule('hello/:name','hello');
 })->middleware('auth');
 ```
+
 支持对某个域名注册中间件
 
 ```php
 Route::domain('admin', function(){
-	// 注册域名下的路由规则
+    // 注册域名下的路由规则
 })->middleware('auth');
 ```
 
@@ -275,27 +277,28 @@ Route::domain('admin', function(){
 
 ```php
 Route::rule('hello/:name','hello')
-	->middleware('auth', 'admin');
+    ->middleware('auth', 'admin');
 ```
 
 如果需要定义多个中间件，使用数组方式
 
 ```php
 Route::rule('hello/:name','hello')
-	->middleware([Auth::class, 'Check']);
+    ->middleware([Auth::class, 'Check']);
 ```
 
 可以统一传入同一个额外参数
 
 ```php
 Route::rule('hello/:name','hello')
-	->middleware(['auth', 'check'], 'admin');
+    ->middleware(['auth', 'check'], 'admin');
 ```
+
 或者分开多次调用，指定不同的参数
 
 ```php
 Route::rule('hello/:name','hello')
-	->middleware('auth', 'admin')
+    ->middleware('auth', 'admin')
         ->middleware('hello', 'thinkphp');
 ```
 
@@ -316,13 +319,13 @@ Route::rule('hello/:name','hello')
 
 ```php
 Route::group('hello', function(){
-	Route::rule('hello/:name','hello');
+    Route::rule('hello/:name','hello');
 })->middleware(function($request,\Closure $next){
     if ($request->param('name') == 'think') {
         return redirect('index/think');
     }
-    
-	return $next($request);
+
+    return $next($request);
 });
 ```
 
@@ -362,8 +365,8 @@ namespace app\controller;
 class Index
 {
     protected $middleware = [ 
-    	'auth' 	=> ['except' 	=> ['hello'] ],
-        'check' => ['only' 		=> ['hello'] ],
+        'auth'     => ['except'     => ['hello'] ],
+        'check' => ['only'         => ['hello'] ],
     ];
 
     public function index()
@@ -392,7 +395,7 @@ class Hello
     public function handle($request, \Closure $next)
     {
         $request->hello = 'ThinkPHP';
-        
+
         return $next($request);
     }
 }
@@ -403,7 +406,7 @@ class Hello
 ```php
 public function index(Request $request)
 {
-	return $request->hello; // ThinkPHP
+    return $request->hello; // ThinkPHP
 }
 ```
 
@@ -430,4 +433,18 @@ return [
 **内置中间件**
 
 新版内置了几个系统中间件，包括：
+
+| 中间件类 |
+| :--- |
+
+
+|  | 描述 |
+| :--- | :--- |
+| think\middleware\AllowCrossDomain | 跨域请求支持 |
+| think\middleware\CheckRequestCache | 请求缓存 |
+| think\middleware\LoadLangPack | 多语言加载 |
+| think\middleware\SessionInit | Session初始化 |
+| think\middleware\FormTokenCheck | 表单令牌 |
+
+这些内置中间件默认都没有定义，你可以在应用的`middleware.php`文件中、路由或者控制器中定义这些中间件，如果不需要使用的话，取消定义即可。
 
