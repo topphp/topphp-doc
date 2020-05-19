@@ -97,81 +97,38 @@ class Auth
 
 下面是一个前置行为的中间件
 
-```
-<
-```
+```php
+<?php
 
-```
-?
-php
+namespace app\middleware;
 
-namespace app\middleware
-;
-
-
-class 
-Before
+class Before
 {
+    public function handle($request, \Closure $next)
+    {
+        // 添加中间件执行代码
 
-    public 
-function
-handle
-(
-$request
-,
- \Closure $next
-)
-{
-// 添加中间件执行代码
-return
- $
-next
-(
-$request
-)
-;
-}
+        return $next($request);
+    }
 }
 ```
-
 下面是一个后置行为的中间件
 
-```
-<
-?
-php
+```php
+<?php
 
-namespace app\middleware
-;
+namespace app\middleware;
 
-
-class 
-After
+class After
 {
+    public function handle($request, \Closure $next)
+    {
+		$response = $next($request);
 
-    public 
-function
-handle
-(
-$request
-,
- \Closure $next
-)
-{
+        // 添加中间件执行代码
 
-		$response 
-=
- $
-next
-(
-$request
-)
-;
-// 添加中间件执行代码
-return
- $response
-;
-}
+        return $response;
+    }
 }
 ```
 
@@ -179,236 +136,298 @@ return
 
 来个比较实际的例子，我们需要判断当前浏览器环境是在微信或支付宝
 
-```
-namespace app\middleware
-;
+```php
+namespace app\middleware;
+
 /**
  * 访问环境检查，是否是微信或支付宝等
  */
-
-class 
-InAppCheck
+class InAppCheck
 {
-
-    public 
-function
-handle
-(
-$request
-,
- \Closure $next
-)
-{
-if
-(
-preg_match
-(
-'~micromessenger~i'
-,
- $request
--
->
-header
-(
-'user-agent'
-)
-)
-)
-{
-
-            $request
--
->
-InApp 
-=
-'WeChat'
-;
-}
-else
-if
-(
-preg_match
-(
-'~alipay~i'
-,
- $request
--
->
-header
-(
-'user-agent'
-)
-)
-)
-{
-
-            $request
--
->
-InApp 
-=
-'Alipay'
-;
-}
-return
- $
-next
-(
-$request
-)
-;
-}
+    public function handle($request, \Closure $next)
+    {
+        if (preg_match('~micromessenger~i', $request->header('user-agent'))) {
+            $request->InApp = 'WeChat';
+        } else if (preg_match('~alipay~i', $request->header('user-agent'))) {
+            $request->InApp = 'Alipay';
+        }
+        return $next($request);
+    }
 }
 ```
 
 然后在你的移动版的应用里添加一个`middleware.php`文件  
 例如：`/path/app/mobile/middleware.php`
 
-```
-return
-[
-
-    app\middleware\InAppCheck
-:
-:
-class
-,
-]
-;
+```php
+return [
+    app\middleware\InAppCheck::class,
+];
 ```
 
 然后在你的`controller`中可以通过`request()->InApp`获取相关的值
 
-## 定义中间件别名
+**定义中间件别名**
 
 可以直接在应用配置目录下的`middleware.php`中先预定义中间件（其实就是增加别名标识），例如：
 
-```
-return
-[
-'alias'
-=
->
-[
-'auth'
-=
->
- app\middleware\Auth
-:
-:
-class
-,
-'check'
-=
->
- app\middleware\Check
-:
-:
-class
-,
-]
-,
-]
-;
+```php
+return [
+    'alias' => [
+        'auth'  => app\middleware\Auth::class,
+        'check' => app\middleware\Check::class,
+    ],
+];
 ```
 
 可以支持使用别名定义一组中间件，例如：
 
-```
-return
-[
-'alias'
-=
->
-[
-'check'
-=
->
-[
-
-            app\middleware\Auth
-:
-:
-class
-,
-
-            app\middleware\Check
-:
-:
-class
-,
-]
-,
-]
-,
-]
-;
+```php
+return [
+    'alias' => [
+        'check' => [
+            app\middleware\Auth::class,
+            app\middleware\Check::class,
+        ],
+    ],
+];
 ```
 
-## 注册中间件
+**注册中间件**
 
 新版的中间件分为全局中间件、应用中间件（多应用模式下有效）、路由中间件以及控制器中间件四个组。执行顺序分别为：
 
 > 全局中间件-&gt;应用中间件-&gt;路由中间件-&gt;控制器中间件
 
-### 全局中间件
+**全局中间件**
 
 全局中间件在`app`目录下面`middleware.php`文件中定义，使用下面的方式：
 
-```
-<
-?
-php
+```php
+<?php
 
-
-return
-[
-
-	\app\middleware\Auth
-:
-:
-class
-,
-'check'
-,
-'Hello'
-,
-]
-;
+return [
+	\app\middleware\Auth::class,
+    'check',
+    'Hello',
+];
 ```
 
 中间件的注册应该使用完整的类名，如果已经定义了中间件别名（或者分组）则可以直接使用。
 
 全局中间件的执行顺序就是定义顺序。可以在定义全局中间件的时候传入中间件参数，支持两种方式传入。
 
-```
-<
-?
-php
+```php
+<?php
 
-
-return
-[
-[
-\app\http\middleware\Auth
-:
-:
-class
-,
-'admin'
-]
-,
-'Check'
-,
-[
-'hello'
-,
-'thinkphp'
-]
-,
-]
-;
+return [
+	[\app\http\middleware\Auth::class, 'admin'],
+    'Check',
+    ['hello','thinkphp'],
+];
 ```
 
 上面的定义表示 给`Auth`中间件传入`admin`参数，给`Hello`中间件传入`thinkphp`参数。
+
+**应用中间件**
+
+如果你使用了多应用模式，则支持应用中间件定义，你可以直接在应用目录下面增加middleware.php文件，定义方式和全局中间件定义一样，只是只会在该应用下面生效。
+
+**路由中间件**
+
+最常用的中间件注册方式是注册路由中间件
+
+```php
+Route::rule('hello/:name','hello')
+	->middleware(\app\middleware\Auth::class);
+```
+
+支持注册多个中间件
+
+```php
+Route::rule('hello/:name','hello')
+	->middleware([\app\middleware\Auth::class, \app\middleware\Check::class]);
+```
+
+然后，直接使用下面的方式注册中间件
+
+```php
+Route::rule('hello/:name','hello')
+	->middleware('check');
+```
+
+支持对路由分组注册中间件
+
+```php
+Route::group('hello', function(){
+	Route::rule('hello/:name','hello');
+})->middleware('auth');
+```
+支持对某个域名注册中间件
+
+```php
+Route::domain('admin', function(){
+	// 注册域名下的路由规则
+})->middleware('auth');
+```
+
+如果需要传入额外参数给中间件，可以使用
+
+```php
+Route::rule('hello/:name','hello')
+	->middleware('auth', 'admin');
+```
+
+如果需要定义多个中间件，使用数组方式
+
+```php
+Route::rule('hello/:name','hello')
+	->middleware([Auth::class, 'Check']);
+```
+
+可以统一传入同一个额外参数
+
+```php
+Route::rule('hello/:name','hello')
+	->middleware(['auth', 'check'], 'admin');
+```
+或者分开多次调用，指定不同的参数
+
+```php
+Route::rule('hello/:name','hello')
+	->middleware('auth', 'admin')
+        ->middleware('hello', 'thinkphp');
+```
+
+如果你希望某个路由中间件是全局执行（不管路由是否匹配），可以不需要在路由里面定义，支持直接在路由配置文件中定义，例如在`config/route.php`配置文件中添加：
+
+```php
+'middleware'    =>    [
+    app\middleware\Auth::class,
+    app\middleware\Check::class,
+],
+```
+
+这样，所有该应用下的请求都会执行`Auth`和`Check`中间件。
+
+**使用闭包定义中间件**
+
+你不一定要使用中间件类，在某些简单的场合你可以使用闭包定义中间件，但闭包函数必须返回`Response`对象实例。
+
+```php
+Route::group('hello', function(){
+	Route::rule('hello/:name','hello');
+})->middleware(function($request,\Closure $next){
+    if ($request->param('name') == 'think') {
+        return redirect('index/think');
+    }
+    
+	return $next($request);
+});
+```
+
+**控制器中间件**
+
+支持为控制器定义中间件，只需要在控制器中定义middleware属性，例如：
+
+```php
+<?php
+namespace app\controller;
+
+class Index
+{
+    protected $middleware = ['auth'];
+
+    public function index()
+    {
+        return 'index';
+    }
+
+    public function hello()
+    {
+        return 'hello';
+    }
+}
+```
+
+当执行`index`控制器的时候就会调用`auth`中间件，一样支持使用完整的命名空间定义。
+
+如果需要设置控制器中间的生效操作，可以如下定义：
+
+```php
+<?php
+namespace app\controller;
+
+
+class Index
+{
+    protected $middleware = [ 
+    	'auth' 	=> ['except' 	=> ['hello'] ],
+        'check' => ['only' 		=> ['hello'] ],
+    ];
+
+    public function index()
+    {
+        return 'index';
+    }
+
+    public function hello()
+    {
+        return 'hello';
+    }
+}
+```
+
+**中间件向控制器传参**
+
+可以通过给请求对象赋值的方式传参给控制器（或者其它地方），例如
+
+```php
+<?php
+
+namespace app\middleware;
+
+class Hello
+{
+    public function handle($request, \Closure $next)
+    {
+        $request->hello = 'ThinkPHP';
+        
+        return $next($request);
+    }
+}
+```
+
+然后在控制器的方法里面可以直接使用
+
+```php
+public function index(Request $request)
+{
+	return $request->hello; // ThinkPHP
+}
+```
+
+**执行优先级**
+
+如果对中间件的执行顺序有严格的要求，可以定义中间件的执行优先级。在配置文件中添加
+
+```php
+return [
+    'alias'    => [
+        'check' => [
+            app\middleware\Auth::class,
+            app\middleware\Check::class,
+        ],
+    ],
+    'priority' => [
+        think\middleware\SessionInit::class,
+        app\middleware\Auth::class,
+        app\middleware\Check::class,
+    ],
+];
+```
+
+**内置中间件**
+
+新版内置了几个系统中间件，包括：
 
