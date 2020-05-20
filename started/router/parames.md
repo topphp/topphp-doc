@@ -47,12 +47,23 @@ Route::get('new/:id', 'News/read')
 
 不同参数设置的区别如下：
 
-| 配置值 | 描述 |
+| 配置值 |
+| :--- |
+
+
+|  | 描述 |
 | :--- | :--- |
 | `false` | 禁止伪静态访问 |
 | 空字符串 | 允许任意伪静态后缀 |
 | `html` | 只允许设置的伪静态后缀 |
 | `html|htm` | 允许多个伪静态后缀 |
+
+|  | 配置值 | 描述 |
+| :--- | :--- | :--- |
+|  | `false` | 禁止伪静态访问 |
+|  | 空字符串 | 允许任意伪静态后缀 |
+|  | `html` | 只允许设置的伪静态后缀 |
+| \`html | htm\` | 允许多个伪静态后缀 |
 
 ```php
 // 定义GET请求路由规则 并设置URL后缀为html的时候有效
@@ -122,10 +133,10 @@ Route::get('new/:id', 'News/read')
 // 检查type变量
 Route::post('new/:id', 'News/save')
     ->filter('type', 1);   
-    
+
 // 检查多个请求变量
 Route::post('new/:id', 'News/save')
-    ->filter([ 'type' => 1,'status'=> 1 ]);       
+    ->filter([ 'type' => 1,'status'=> 1 ]);
 ```
 
 ### 追加额外参数
@@ -215,6 +226,4 @@ Route::get('new/:name$', 'News/read')
 ```
 
 在后续的路由行为后可以调用该路由的`rule`参数来进行权限检查。
-
-
 
