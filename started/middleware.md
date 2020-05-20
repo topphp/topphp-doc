@@ -445,3 +445,27 @@ return [
 
 默认已经定义好验证器中间件，其他内置中间件默认都没有定义，你可以在应用的`middleware.php`文件中、路由或者控制器中定义这些中间件，如果不需要使用的话，取消定义即可。
 
+**注解中间件**
+
+定义好中间件后，在控制器中我们可以通过如下注解的方式精确到操作来调用中间件：
+```php
+<?php
+namespace app\index\controller;
+
+use app\middleware\User;
+use think\annotation\route\Middleware;
+
+class Index
+{
+    /**
+     * index
+     * @return mixed
+     * @Route("index")
+     * @Middleware({User::class})
+     */
+    public function index()
+    {
+        return "Hello TopPHP!";
+    }
+}
+```
