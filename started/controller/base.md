@@ -23,7 +23,7 @@ class Index extends BaseController
 }
 ```
 
-## 控制器验证
+### 控制器验证
 
 基础控制器提供了数据验证功能，使用如下：
 
