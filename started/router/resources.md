@@ -24,7 +24,6 @@ Route::resource('blog', 'Blog');
 http://serverName/blog/
 http://serverName/blog/128
 http://serverName/blog/28/edit
-
 ```
 
 Blog控制器中的对应方法如下：
@@ -86,7 +85,7 @@ class Blog
 // 只允许index read edit update 四个操作
 Route::resource('blog', 'Blog')
     ->only(['index', 'read', 'edit', 'update']);
-    
+
 // 排除index和delete操作
 Route::resource('blog', 'Blog')
     ->except(['index', 'delete']);
@@ -106,7 +105,6 @@ Route::rest('create',['GET', '/add','add']);
 http://serverName/blog/create
 变成
 http://serverName/blog/add
-
 ```
 
 创建blog页面的对应的操作方法也变成了add。
@@ -119,6 +117,70 @@ Route::rest([
     'update' => ['PUT', '/:id', 'save'],
     'delete' => ['DELETE', '/:id', 'destory'],
 ]);
+```
+
+## 资源嵌套
+
+支持资源路由的嵌套，例如：
+
+```php
+Route::resource('blog', 'Blog');
+Route::resource('blog.comment','Comment');
+```
+
+就可以访问如下地址：
+
+```
+http://serverName/blog/128/comment/32
+http://serverName/blog/128/comment/32/edit
+
+```
+
+生成的路由规则分别是：
+
+```
+blog/:blog_id/comment/:id
+blog/:blog_id/comment/:id/edit
+
+```
+
+Comment控制器对应的操作方法如下：
+
+```php
+<?php
+
+namespace app\controller;
+
+class Comment
+{
+    public function edit($id, $blog_id)
+    {
+    }
+}
+```
+
+edit方法中的参数顺序可以随意，但参数名称必须满足定义要求。
+
+如果需要改变其中的变量名，可以使用：
+
+```php
+// 更改嵌套资源路由的blog资源的资源变量名为blogId
+Route::resource('blog.comment', 'index/comment')
+    ->vars(['blog' => 'blogId']);
+```
+
+Comment控制器对应的操作方法改变为：
+
+```php
+<?php
+namespace app\controller;
+
+class Comment
+{
+    public function edit($id, $blogId)
+    {
+    }
+}
 ```
 
 
