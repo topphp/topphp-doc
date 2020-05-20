@@ -141,19 +141,19 @@ class Index
 {
     public function hello()
     {
-    	// 输出hello,world!
+        // 输出hello,world!
         return 'hello,world!';
     }
-    
+
     public function json()
     {
-    	// 输出JSON
+        // 输出JSON
         return json($data);
     }
-    
+
     public function read()
     {
-    	// 渲染默认模板输出
+        // 渲染默认模板输出
         return view();
     }
 
@@ -182,7 +182,7 @@ class  Blog
     {
         return 'index';
     }
-    
+
 }
 ```
 
