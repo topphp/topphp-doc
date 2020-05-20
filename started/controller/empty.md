@@ -22,20 +22,20 @@ class Error
 ```php
 ├─app           应用目录
 │  ├─admin              应用目录
-│  │  ├─common.php      函数文件
+│  │  ├─common.php      
 │  │  ├─controller      控制器目录
-│  │  │  ├─Base.php     应用基础控制器抽象类
+│  │  │  ├─Base.php     
 │  │  │  ├─Error.php    空操作类
-│  │  │  ├─Index.php    Index控制器
-│  │  │  └─...          更多控制器定义
+│  │  │  ├─Index.php    
+│  │  │  └─...          
 │  │  └─ ...
 │  ├─index              应用目录
-│  │  ├─common.php      函数文件
+│  │  ├─common.php      
 │  │  ├─controller      控制器目录
-│  │  │  ├─Base.php     应用基础控制器抽象类
+│  │  │  ├─Base.php     
 │  │  │  ├─Error.php    空操作类
-│  │  │  ├─Index.php    Index控制器
-│  │  │  └─...          更多控制器定义
+│  │  │  ├─Index.php    
+│  │  │  └─...          
 ```
 
 
