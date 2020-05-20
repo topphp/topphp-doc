@@ -65,6 +65,24 @@ class Index extends Base
 }
 ```
 
+```php
+declare(strict_types=1);
+
+namespace app\admin\controller;
+
+class Index extends Base
+{
+    /**
+     * index
+     * @return string
+     */
+    public function index()
+    {
+        return "Hello TopPHP!";
+    }
+}
+```
+
 ### 控制器验证
 
 基础控制器提供了数据验证功能，使用如下：
