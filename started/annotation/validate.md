@@ -6,44 +6,44 @@ ThinkPHP支持使用注解方式定义路由和验证，需要安装额外的扩
 composer require topthink/think-annotation
 ```
 
->`注解验证器`功能依赖`注解路由`，所以只有定义了`注解路由`，才能使`注解验证器`生效
+> `注解验证器`功能依赖`注解路由`，所以只有定义了`注解路由`，才能使`注解验证器`生效
 
 然后可以直接在控制器类的方法注释中定义，例如：
 
 ```php
 <?php
-namespace app\controller;
+namespace app\admin\controller;
 
 use think\annotation\Route;
-use think\annotation\route\Validate; 
-use app\validate\IndexValidate; 
+use think\annotation\route\Validate;
+use app\admin\validate\IndexCheck;
 
-class Index
+class Index extends Base
 {
     /**
-     * @Validate(IndexValidate::class,scene="create",batch="true")
+     * @Validate(IndexCheck::class,scene="hello",batch="true")
      * @return mixed
      * @Route("hello")
      */
     public function hello()
     {
-        return 'hello, TP6 Annotation  Validate';
+        return 'hello, TP6 Annotation Validate';
     }
 }
 ```
 
-`@Route("hello/:name")`和`@Validate(IndexValidate::class)`就是注解路由和验证器的内容，请务必注意注释的规范，不能在注解路由里面使用单引号，否则可能导致注解路由解析失败，可以利用IDE生成规范的注释。如果你使用`PHPStorm`的话，建议安装`PHP Annotations`插件：[https://plugins.jetbrains.com/plugin/7320-php-annotations](https://plugins.jetbrains.com/plugin/7320-php-annotations)，可以支持注解的自动完成。
+`@Route("hello/:name")`和`@Validate(IndexCheck::class)`就是注解路由和验证器的内容，请务必注意注释的规范，不能在注解路由里面使用单引号，否则可能导致注解路由解析失败，可以利用IDE生成规范的注释。如果你使用`PHPStorm`的话，建议安装`PHP Annotations`插件：[https://plugins.jetbrains.com/plugin/7320-php-annotations](https://plugins.jetbrains.com/plugin/7320-php-annotations)，可以支持注解的自动完成。
 
 然后需要声明上面引用验证器类，例如：
 
 ```php
 <?php
 
-namespace app\validate;
+namespace app\admin\validate;
 
 use think\Validate;
 
-class IndexValidate extends Validate
+class IndexCheck extends Validate
 {
     protected $rule = [
         'name' => 'require'
@@ -54,7 +54,7 @@ class IndexValidate extends Validate
    ];
 
     protected $scene = [
-        'create' => ['name'],
+        'hello' => ['name'],
     ];
 }
 ```
@@ -73,6 +73,28 @@ class IndexValidate extends Validate
 | message | array | \[\] | 错误内容 |
 
 ### 错误访问示例：
+
+```
+http://127.0.0.1:9501/admin/hello
+```
+
+页面输出
+
+```js
+{"code":40000,"message":"姓名必须填写","data":[],"operate":"admin\/Index\/hello"}
+```
+
+### 正确访问示例：
+
+```
+http://127.0.0.1:9501/admin/hello?name=zhangsan
+```
+
+页面输出
+
+```
+hello, TP6 Annotation Validate
+```
 
 
 
