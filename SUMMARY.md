@@ -46,7 +46,7 @@
   * [空控制器](started/controller/empty.md)
   * [资源控制器](started/controller/resources.md)
   * [控制器中间件](started/controller/middleware.md)
-* [注解](started/zhu-jie.md)
+* [注解](started/annotation.md)
 * [数据库](started/shu-ju-ku.md)
 * [模型](mo-xing.md)
 * [验证器](started/yan-zheng-qi.md)

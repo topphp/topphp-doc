@@ -1,4 +1,4 @@
-#安装
+## 安装
 > composer require topthink/think-annotation
 
 # 配置
