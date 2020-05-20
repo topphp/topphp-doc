@@ -19,5 +19,24 @@ class Error
 
 > TopPHP默认在骨架`admin`应用与`index`应用下为您添加了空操作类，调用当前应用不存在的操作时会自动定位到空操作类。
 
+```php
+├─app           应用目录
+│  ├─admin              应用目录
+│  │  ├─common.php      函数文件
+│  │  ├─controller      控制器目录
+│  │  │  ├─Base.php     应用基础控制器抽象类
+│  │  │  ├─Error.php    空操作类
+│  │  │  ├─Index.php    Index控制器
+│  │  │  └─...          更多控制器定义
+│  │  └─ ...
+│  ├─index              应用目录
+│  │  ├─common.php      函数文件
+│  │  ├─controller      控制器目录
+│  │  │  ├─Base.php     应用基础控制器抽象类
+│  │  │  ├─Error.php    空操作类
+│  │  │  ├─Index.php    Index控制器
+│  │  │  └─...          更多控制器定义
+```
+
 
 
