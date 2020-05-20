@@ -7,7 +7,7 @@ composer require topthink/think-annotation
 
 ```
 
->TopPHP骨架默认已安装该组件，开发者可以直接使用
+>TopPHP骨架默认已安装该组件，开发者可以直接按照如下方式使用
 
 然后只需要直接在控制器类的方法注释中定义，例如：
 
