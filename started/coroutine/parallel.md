@@ -1,4 +1,4 @@
-### Parallel 特性
+## Parallel 特性
 `Parallel` 特性是 `topphp` 基于 `WaitGroup` 特性抽象出来的一个更便捷的使用方法，我们通过一段代码来演示一下。
 ```php
 <?php

@@ -1,4 +1,4 @@
-### WaitGroup 特性
+## WaitGroup 特性
 
 在Swoole4中可以使用channel实现协程间的通信、依赖管理、协程同步。基于channel可以很容易地实现Golang的sync.WaitGrup功能。
 
