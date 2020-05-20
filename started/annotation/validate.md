@@ -1,4 +1,4 @@
-## 概念
+## 注解验证器
 
 **什么是注解，什么是注释？**
 
@@ -15,10 +15,3 @@
 
 我们到 `Plugins` 中搜索 `PHP Annotations`，就可以找到对应的组件 <a href="https://github.com/Haehnchen/idea-php-annotation-plugin">PHP Annotations</a>。然后安装组件，重启 `PhpStorm`，就可以愉快的使用注解功能了，主要提供了为注解类增加自动跳转和代码提醒支持，使用注解时自动引用注解对应的命名空间等非常便捷有用的功能。
 
-**安装**
-
-```
-composer require topthink/think-annotation
-```
-
->TopPHP骨架默认已集成ThinkPHP注解组件
