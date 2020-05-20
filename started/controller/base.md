@@ -86,7 +86,7 @@ class Index extends Base
 
 ### 控制器验证
 
-基础控制器提供了数据验证功能，使用如下：
+ThinkPHP的基础控制器提供了数据验证功能，使用如下：
 
 ```php
 namespace app\controller;
