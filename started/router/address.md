@@ -2,7 +2,7 @@
 
 路由地址表示定义的路由表达式最终需要路由到的实际地址（或者响应对象）以及一些需要的额外参数，支持下面几种方式定义：
 
-## 路由到控制器/操作
+### 路由到控制器/操作
 
 这是最常用的一种路由方式，把满足条件的路由规则路由到相关的控制器和操作，然后由系统调度执行相关的操作，格式为：
 
@@ -50,7 +50,7 @@ index/controller/group/Blog
 Route::get(':action/blog/:id', 'Blog/:action');
 ```
 
-## 路由到类的方法
+### 路由到类的方法
 
 这种方式的路由可以支持执行任何类的方法，而不局限于执行控制器的操作方法。
 
@@ -75,7 +75,7 @@ Route::get('blog/:id','\app\index\service\Blog@read');
 Route::get('blog/:id','\app\index\service\Blog::read');
 ```
 
-## 重定向路由
+### 重定向路由
 
 可以直接使用`redirect`方法注册一个重定向路由
 
@@ -83,7 +83,7 @@ Route::get('blog/:id','\app\index\service\Blog::read');
 Route::redirect('blog/:id', 'http://blog.thinkphp.cn/read/:id', 302);
 ```
 
-## 路由到模板
+### 路由到模板
 
 支持路由直接渲染模板输出。
 
@@ -107,7 +107,7 @@ Hello,{$name}--{$city}！
 
 ```
 
-## 路由到响应对象
+### 路由到响应对象
 
 支持在路由中直接指定响应对象输出，例如：
 
@@ -125,7 +125,7 @@ Route::get('hello/:name', response()
 Route::get('static', response()->code(404));
 ```
 
-## 路由到闭包
+### 路由到闭包
 
 我们可以使用闭包的方式定义一些特殊需求的路由，而不需要执行控制器的操作方法了，例如：
 
