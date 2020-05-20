@@ -21,4 +21,4 @@
 composer require topthink/think-annotation
 ```
 
->TopPHP骨架默认已集成ThinkPHP注解组件
+>TopPHP骨架默认已集成ThinkPHP注解组件，注意，注解功能（`注解路由`、`注解中间件`、`注解验证器`）都是基于ThinkPHP的注解路由实现的，所以如果需要使用`注解中间件`、`注解验证器`，请务必使用`注解路由`定义请求。
