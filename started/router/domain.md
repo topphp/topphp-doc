@@ -59,7 +59,7 @@ Route::domain('blog', ':\app\blog\controller');
 Route::domain('blog', '\app\blog\controller\Article');
 ```
 
-## 绑定到Response对象
+### 绑定到Response对象
 
 可以直接绑定某个域名到`Response`对象，例如：
 
@@ -79,7 +79,7 @@ Route::domain('blog', function () {
 
 在`blog`域名下面定义了一个`new/:id`的路由规则，指向`index`应用，而其它的路由则绑定到`blog`应用。
 
-## 路由参数
+### 路由参数
 
 域名路由本身也是一个路由分组，所以可以和路由分组一样定义公共的路由参数，例如：
 
