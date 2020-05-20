@@ -68,7 +68,7 @@ http://localhost/index.php/HelloWorld/hello
 http://localhost/hello_world/hello
 ```
 
-## 多应用模式
+### 多应用模式
 
 多应用模式下，控制器类定义仅仅是命名空间有所区别，例如：
 
@@ -97,7 +97,7 @@ app\shop\controller\User.php
 http://localhost/index.php/shop/user/login
 ```
 
-## 控制器后缀
+### 控制器后缀
 
 如果你希望避免引入同名模型类的时候冲突，可以在`route.php`配置文件中设置
 
@@ -127,7 +127,7 @@ class UserController
 app\controller\UserController.php
 ```
 
-## 渲染输出
+### 渲染输出
 
 默认情况下，控制器的输出全部采用`return`的方式，无需进行任何的手动输出，系统会自动完成渲染内容的输出。
 
@@ -168,7 +168,7 @@ class Index
 halt('输出测试');
 ```
 
-## 多级控制器
+### 多级控制器
 
 支持任意层次级别的控制器，并且支持路由，例如：
 
