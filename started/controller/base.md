@@ -47,6 +47,24 @@ abstract class Base extends BaseController
 
 > TopPHP规范应用下的所有控制器应继承于应用基础控制器抽象类`Base.php`。
 
+```php
+declare(strict_types=1);
+
+namespace app\admin\controller;
+
+class Index extends Base
+{
+    /**
+     * index
+     * @return string
+     */
+    public function index()
+    {
+        return "Hello TopPHP!";
+    }
+}
+```
+
 ### 控制器验证
 
 基础控制器提供了数据验证功能，使用如下：
