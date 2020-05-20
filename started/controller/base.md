@@ -141,5 +141,7 @@ class Index extends BaseController
 }
 ```
 
+> TopPHP对此做了优化，提供自动验证器中间件，开发者无需关注如何验证的，只需要知道如何配置验证器类如`app\admin\validate\IndexCheck.php`即可。
+
 
 
