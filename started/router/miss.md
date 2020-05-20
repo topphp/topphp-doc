@@ -28,7 +28,7 @@ Route::miss(function() {
 Route::miss('public/miss', 'get');
 ```
 
-## 分组MISS路由
+### 分组MISS路由
 
 分组支持独立的`MISS`路由，例如如下定义：
 
@@ -75,7 +75,7 @@ Route::group('v2', function () {
 });
 ```
 
-## 域名MISS路由
+### 域名MISS路由
 
 支持给某个域名设置单独的`MISS`路由
 
