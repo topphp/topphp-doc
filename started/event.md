@@ -111,7 +111,6 @@ Event::listen('UserLogin', 'app\listener\UserLogin');
 
 ```
 php think make:listener UserLogin
-
 ```
 
 默认会生成一个`app\listener\UserLogin`事件监听类，也可以指定完整类名生成。
@@ -154,7 +153,6 @@ return [
 
 ```
 php think make:subscribe User
-
 ```
 
 默认会生成`app\subscribe\User`类，或者你可以指定完整类名生成。
@@ -253,6 +251,52 @@ return [
 ```php
 Event::subscribe('app\subscribe\User');
 ```
+
+## 内置事件
+
+内置的系统事件包括：
+
+| 事件 | 描述 | 参数 |
+| :--- | :--- | :--- |
+| AppInit | 应用初始化标签位 | 无 |
+| HttpRun | 应用开始标签位 | 无 |
+| HttpEnd | 应用结束标签位 | 当前响应对象实例 |
+| LogWrite | 日志write方法标签位 | 当前写入的日志信息 |
+| RouteLoaded | 路由加载完成 | 无 |
+
+> `AppInit`事件定义必须在全局事件定义文件中定义，其它事件支持在应用的事件定义文件中定义。
+
+原来`5.1`的一些行为标签已经废弃，所有取消的标签都可以使用中间件更好的替代。可以把中间件看成处理请求以及响应输出相关的特殊事件。事实上，中间件的`handler`方法只是具有特殊的参数以及返回值而已。
+
+数据库操作的回调也称为查询事件，是针对数据库的CURD操作而设计的回调方法，主要包括：
+
+| 事件 | 描述 |
+| :--- | :--- |
+| before\_select | `select`查询前回调 |
+| before\_find | `find`查询前回调 |
+| after\_insert | `insert`操作成功后回调 |
+| after\_update | `update`操作成功后回调 |
+| after\_delete | `delete`操作成功后回调 |
+
+> 查询事件的参数就是当前的查询对象实例。
+
+模型事件包含：
+
+| 钩子 | 对应操作 |
+| :--- | :--- |
+| after\_read | 查询后 |
+| before\_insert | 新增前 |
+| after\_insert | 新增后 |
+| before\_update | 更新前 |
+| after\_update | 更新后 |
+| before\_write | 写入前 |
+| after\_write | 写入后 |
+| before\_delete | 删除前 |
+| after\_delete | 删除后 |
+
+`before_write`和`after_write`事件无论是新增还是更新都会执行。
+
+> 模型事件方法的参数就是当前的模型对象实例。
 
 
 
