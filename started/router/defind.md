@@ -154,23 +154,8 @@ Route::get('new/:cate', 'News/category');
 
 开启全局完全匹配后，如果需要对某个路由关闭完全匹配，可以使用
 
-```
-Route
-:
-:
-get
-(
-'new/:cate'
-,
-'News/category'
-)
--
->
-completeMatch
-(
-false
-)
-;
+```php
+Route::get('new/:cate', 'News/category')->completeMatch(false);
 ```
 
 ### 额外参数
