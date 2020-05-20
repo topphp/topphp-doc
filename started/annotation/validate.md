@@ -23,9 +23,9 @@ class Index
      * @return mixed
      * @Route("hello")
      */
-	public function hello()
+    public function hello()
     {
-    	return 'hello, TP6 Annotation  Validate';
+        return 'hello, TP6 Annotation  Validate';
     }
 }
 ```
