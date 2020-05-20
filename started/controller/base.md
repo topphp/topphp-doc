@@ -50,16 +50,20 @@ abstract class Base extends BaseController
 
 ```php
 ├─app           应用目录
-│  ├─app_name           应用目录
+│  ├─admin              应用目录
 │  │  ├─common.php      函数文件
 │  │  ├─controller      控制器目录
+│  │  │  ├─Base.php     应用基础控制器抽象类
+│  │  │  ├─Index.php    Index控制器
+│  │  │  └─...          更多控制器定义
 │  │  ├─model           模型目录
 │  │  ├─view            视图目录
 │  │  ├─config          配置目录
+│  │  ├─middleware      中间件目录
 │  │  ├─route           路由目录
-│  │  │  ├─route.php    路由定义
-│  │  │  ├─api.php      路由定义
-│  │  │  └─...          更多路由定义
+│  │  ├─service         服务目录
+│  │  ├─validate        验证器目录
+│  │  └─ ...            更多类库目录
 ```
 
 ```php
