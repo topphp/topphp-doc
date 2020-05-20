@@ -25,6 +25,7 @@
   * [WaitGroup 特性](started/coroutine/waitgroup.md)
   * [Parallel 特性](started/coroutine/parallel.md)
 * [中间件](started/middleware.md)
+* [事件系统](started/event.md)
 * [路由](started/router.md)
   * [路由定义](started/router/defind.md)
   * [变量规则](started/router/rule.md)
