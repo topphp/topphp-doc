@@ -22,6 +22,7 @@ class Index extends BaseController
     }
 }
 ```
+
 > TopPHP在此基础控制器的基础上进行了优化与扩展。
 
 对于一个常规项目来讲，难免少不了后台管理模块和前台应用模块，所以TopPHP骨架默认为多应用模式，自带`admin`应用与`index`应用，同时鉴于不同应用间业务是相互隔离的，为了相互解耦，TopPHP规范在对应的应用`controller`目录增加`Base.php`抽象类，该类继承于`app\BaseController`，可以沿用`app\BaseController`的所有公共特性的同时，还可以增加当前应用的独有公共特性。下面是关系示例：
@@ -48,21 +49,17 @@ abstract class Base extends BaseController
 > TopPHP规范应用下的所有控制器应继承于应用基础控制器抽象类`Base.php`。
 
 ```php
-declare(strict_types=1);
-
-namespace app\admin\controller;
-
-class Index extends Base
-{
-    /**
-     * index
-     * @return string
-     */
-    public function index()
-    {
-        return "Hello TopPHP!";
-    }
-}
+├─app           应用目录
+│  ├─app_name           应用目录
+│  │  ├─common.php      函数文件
+│  │  ├─controller      控制器目录
+│  │  ├─model           模型目录
+│  │  ├─view            视图目录
+│  │  ├─config          配置目录
+│  │  ├─route           路由目录
+│  │  │  ├─route.php    路由定义
+│  │  │  ├─api.php      路由定义
+│  │  │  └─...          更多路由定义
 ```
 
 ```php
