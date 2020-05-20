@@ -52,7 +52,7 @@ Route::get('new/:id', 'News/read')
 | `false` | 禁止伪静态访问 |
 | 空字符串 | 允许任意伪静态后缀 |
 | `html` | 只允许设置的伪静态后缀 |
-| `html | htm\` | 允许多个伪静态后缀 |
+| `html,htm` | 允许多个伪静态后缀 |
 
 ```php
 // 定义GET请求路由规则 并设置URL后缀为html的时候有效
