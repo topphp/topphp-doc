@@ -16,7 +16,7 @@ echo \think\facade\Route::buildUrl();
 $url = (string) \think\facade\Route::buildUrl();
 ```
 
-## 使用路由标识
+### 使用路由标识
 
 对使用不同的路由地址方式，地址表达式的定义有所区别。参数单独通过第二个参数传入，假设我们定义了一个路由规则如下：
 
@@ -70,7 +70,7 @@ Route::buildUrl('blog_read', ['id' => 5, 'name' => 'thinkphp']);
 
 > 需要注意的是，URL地址生成不会检测路由的有效性，只是按照给定的路由地址和参数生成符合条件的路由规则。
 
-## 使用路由地址
+### 使用路由地址
 
 我们也可以直接使用路由地址来生成URL，例如：
 
@@ -93,7 +93,7 @@ Route::buildUrl('/blog/5');
 
 ```
 
-## URL后缀
+### URL后缀
 
 默认情况下，系统会自动读取`url_html_suffix`配置参数作为URL后缀（默认为html），如果我们设置了：
 
@@ -127,7 +127,7 @@ Route::buildUrl('/blog/5');
 Route::buildUrl('blog/read', ['id'=>5])->suffix('shtml');
 ```
 
-## 域名生成
+### 域名生成
 
 默认生成的URL地址是不带域名的，如果你采用了多域名部署或者希望生成带有域名的URL地址的话，就需要传入第四个参数，该参数有两种用法：
 
@@ -182,7 +182,7 @@ Route::buildUrl('index/blog/read@blog',  ['id'=>5]);
 Route::buildUrl('index/blog/read@blog.thinkphp.cn',  ['id'=>5]);
 ```
 
-## 生成锚点
+### 生成锚点
 
 支持生成URL的锚点，可以直接在URL地址参数中使用：
 
@@ -199,7 +199,7 @@ http://blog.thinkphp.cn/read/id/5.html#anchor
 
 ```
 
-## 加上入口文件
+### 加上入口文件
 
 有时候我们生成的URL地址可能需要加上`index.php`或者去掉`index.php`，大多数时候系统会自动判断，如果发现自动生成的地址有问题，可以使用下面的方法：
 
@@ -207,7 +207,7 @@ http://blog.thinkphp.cn/read/id/5.html#anchor
 Route::buildUrl('index/blog/read', ['id'=>5])->root('/index.php');
 ```
 
-## 助手函数
+### 助手函数
 
 系统提供了一个`url`助手函数用于完成相同的功能，例如：
 
