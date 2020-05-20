@@ -2,13 +2,13 @@
 
 如果希望在没有匹配到所有的路由规则后执行一条设定的路由，可以注册一个单独的`MISS`路由：
 
-```
+```php
 Route::miss('public/miss');
 ```
 
 或者使用闭包定义
 
-```
+```php
 Route::miss(function() {
     return '404 Not Found!';
 });
@@ -22,7 +22,7 @@ Route::miss(function() {
 
 你可以限制`MISS`路由的请求类型
 
-```
+```php
 // 只有GET请求下MISS路由有效
 
 Route::miss('public/miss', 'get');
@@ -32,7 +32,7 @@ Route::miss('public/miss', 'get');
 
 分组支持独立的`MISS`路由，例如如下定义：
 
-```
+```php
 Route::group('blog', function () {
     Route::rule(':id', 'blog/read');
     Route::rule(':name', 'blog/read');
@@ -43,7 +43,7 @@ Route::group('blog', function () {
 
 多应用下分组支持独立的`MISS`路由，例如如下多版本API路由定义：
 
-```
+```php
 // api 版本路由【以下路由配置在api应用route文件夹下的route.php中，且路由顺序不可更改】
 // 请求URL实例：http://domain/api/v1/控制器/方法名
 Route::group('v1', function () {
@@ -79,7 +79,7 @@ Route::group('v2', function () {
 
 支持给某个域名设置单独的`MISS`路由
 
-```
+```php
 Route::domain('blog', function () {
     // 动态注册域名的路由规则
     Route::rule('new/:id', 'news/read');
@@ -87,3 +87,6 @@ Route::domain('blog', function () {
     Route::miss('blog/miss');
 });
 ```
+
+
+
