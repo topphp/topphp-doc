@@ -22,6 +22,10 @@ class Index extends BaseController
     }
 }
 ```
+> TopPHP在此基础控制器的基础上进行了优化与扩展。
+
+对于一个常规项目来讲，难免少不了后台管理模块和前台应用模块，所以TopPHP骨架默认为多应用模式，自带admin应用与index应用，同时鉴于不同应用间业务是相互隔离的，为了相互解耦，TopPHP规范在对应的应用`controller`目录增加`Base.php`抽象类，该类继承于`
+
 
 ### 控制器验证
 
