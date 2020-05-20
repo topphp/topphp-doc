@@ -127,7 +127,6 @@ Route::get('new/:cate$', 'News/category');
 
 ```
 http://serverName/index.php/new/info
-
 ```
 
 会匹配成功,而
@@ -216,7 +215,7 @@ url('News/read', ['id' => 10]);
 在路由配置文件中设置
 
 ```php
-'url_route_must'		=>  true,
+'url_route_must'        =>  true,
 ```
 
 将开启强制使用路由，这种方式下面必须严格给每一个访问地址定义路由规则（**包括首页**），否则将抛出异常。
