@@ -32,7 +32,6 @@ event('app\event\UserLogin');
 
 ```
 php think make:event UserLogin
-
 ```
 
 默认会生成一个`app\event\UserLogin`事件类，也可以指定完整类名生成。
@@ -90,6 +89,169 @@ event('UserLogin', $user);
 ```php
 // user是当前登录用户对象实例
 event(new UserLogin($user));
+```
+
+## 事件监听
+
+你可以手动注册一个事件监听
+
+```php
+Event::listen('UserLogin', function($user) {
+    // 
+});
+```
+
+或者使用监听类来执行监听
+
+```php
+Event::listen('UserLogin', 'app\listener\UserLogin');
+```
+
+可以通过命令行快速生成一个事件监听类
+
+```
+php think make:listener UserLogin
+
+```
+
+默认会生成一个`app\listener\UserLogin`事件监听类，也可以指定完整类名生成。
+
+事件监听类只需要定义一个`handle`方法，支持依赖注入。
+
+```php
+<?php
+namespace app\listener;
+
+class UserLogin
+{
+    public function handle($user)
+    {
+        // 事件监听处理
+    }   
+}
+```
+
+在`handle`方法中如果返回了`false`，则表示监听中止，将不再执行该事件后面的监听。
+
+一般建议直接在事件定义文件中定义对应事件的监听。
+
+```php
+return [
+    'bind'    =>    [
+        'UserLogin' => 'app\event\UserLogin',
+        // 更多事件绑定
+    ],
+    'listen'  =>    [
+        'UserLogin'    =>    ['app\listener\UserLogin'],
+        // 更多事件监听
+    ],
+];
+```
+
+## 事件订阅
+
+可以通过事件订阅机制，在一个监听器中监听多个事件，例如通过命令行生成一个事件订阅者类，
+
+```
+php think make:subscribe User
+
+```
+
+默认会生成`app\subscribe\User`类，或者你可以指定完整类名生成。
+
+然后你可以在事件订阅类中添加不同事件的监听方法，例如。
+
+```php
+<?php
+namespace app\subscribe;
+
+class User
+{
+    public function onUserLogin($user)
+    {
+        // UserLogin事件响应处理
+    }
+
+    public function onUserLogout($user)
+    {
+        // UserLogout事件响应处理
+    }
+}
+```
+
+监听事件的方法命名规范是`on`+事件标识（驼峰命名），如果希望统一添加事件前缀标识，可以定义`eventPrefix`属性。
+
+```php
+<?php
+namespace app\subscribe;
+
+class User
+{
+    protected $eventPrefix = 'User';
+
+    public function onLogin($user)
+    {
+        // UserLogin事件响应处理
+    }
+
+    public function onLogout($user)
+    {
+        // UserLogout事件响应处理
+    }
+}
+```
+
+如果希望自定义订阅方式（或者方法规范），可以定义`subscribe`方法实现。
+
+```php
+<?php
+namespace app\subscribe;
+
+use think\Event;
+
+class User
+{
+    public function onUserLogin($user)
+    {
+        // UserLogin事件响应处理
+    }
+
+    public function onUserLogout($user)
+    {
+        // UserLogout事件响应处理
+    }
+
+    public function subscribe(Event $event)
+    {
+        $event->listen('UserLogin', [$this,'onUserLogin']);
+        $event->listen('UserLogout',[$this,'onUserLogout']);
+    }
+}
+```
+
+然后在事件定义文件注册事件订阅者
+
+```php
+return [
+    'bind'    =>    [
+        'UserLogin' => 'app\event\UserLogin',
+        // 更多事件绑定
+    ],
+    'listen'  =>    [
+        'UserLogin'    =>    ['app\listener\UserLogin'],
+        // 更多事件监听
+    ],
+    'subscribe'    =>    [
+       'app\subscribe\User',
+        // 更多事件订阅
+    ],
+];
+```
+
+如果需要动态注册，可以使用
+
+```php
+Event::subscribe('app\subscribe\User');
 ```
 
 
