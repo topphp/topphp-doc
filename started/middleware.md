@@ -432,7 +432,7 @@ return [
 
 **内置中间件**
 
-新版内置了几个系统中间件，包括：
+内置了几个系统中间件，包括：
 
 | 中间件类 | 描述 |
 | :--- | :--- |
@@ -441,6 +441,7 @@ return [
 | think\middleware\LoadLangPack | 多语言加载 |
 | think\middleware\SessionInit | Session初始化 |
 | think\middleware\FormTokenCheck | 表单令牌 |
+| app\middleware\Check | 验证器中间件 |
 
-这些内置中间件默认都没有定义，你可以在应用的`middleware.php`文件中、路由或者控制器中定义这些中间件，如果不需要使用的话，取消定义即可。
+默认已经定义好验证器中间件，其他内置中间件默认都没有定义，你可以在应用的`middleware.php`文件中、路由或者控制器中定义这些中间件，如果不需要使用的话，取消定义即可。
 
