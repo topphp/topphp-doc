@@ -41,10 +41,10 @@ class Index
     {
         return redirect('/hello')->with('name','thinkphp');
     }
-    
+
     public function hello()
     {
-    	$name = session('name');
+        $name = session('name');
         return 'hello,'.$name.'!';
     }    
 }
@@ -97,7 +97,7 @@ class Index
 
 ### SendMsg 发送重定向响应
 
->推荐使用`TopPHP`的`SendMsg`类直接向客户端发送重定向的header Location请求，此种方式可以完美支持`topphp/topphp-swoole`组件环境下的重定向。
+> 推荐使用`TopPHP`的`SendMsg`类直接向客户端发送重定向的header Location请求，此种方式可以完美支持`topphp/topphp-swoole`组件环境下的重定向。
 
 ```php
 $url = "http://www.domain.com";
@@ -118,14 +118,14 @@ $url = "/admin/index/index";
 return SendMsg::jsonJump($url);
 ```
 
-或者我们可以通过ThinkPHP的助手函数url()构造地址：
+或者我们可以通过ThinkPHP的助手函数url\(\)构造地址：
 
 ```php
 $url = url('@admin/index/index');
 return SendMsg::jsonJump($url);
 ```
 
->`SendMsg`类的`jsonJump`支持自定义`http`状态码和添加`header`信息，`http`状态码默认`302`。
+> `SendMsg`类的`jsonJump`支持自定义`http`状态码和添加`header`信息，`http`状态码默认`302`。
 
 ```php
 $url = url('@admin/index/index');
@@ -134,3 +134,6 @@ $header = [
 ];
 return SendMsg::jsonJump($url, 301, $header);
 ```
+
+
+
