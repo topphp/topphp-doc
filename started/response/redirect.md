@@ -95,6 +95,8 @@ class Index
 }
 ```
 
-  
+### SendMsg 发送重定向响应
+
+
 
 
