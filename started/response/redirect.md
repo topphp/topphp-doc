@@ -111,4 +111,11 @@ $url = request()->domain() . "/admin";
 return SendMsg::jsonJump($url);
 ```
 
+还可以直接：
+
+```php
+$url = "/admin/index/index";
+return SendMsg::jsonJump($url);
+```
+
 
