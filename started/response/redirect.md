@@ -118,6 +118,11 @@ $url = "/admin/index/index";
 return SendMsg::jsonJump($url);
 ```
 
-或者我们
+或者我们可以通过ThinkPHP的助手函数url()构造地址：
+
+```php
+$url = url('@admin/index/index');
+return SendMsg::jsonJump($url);
+```
 
 
