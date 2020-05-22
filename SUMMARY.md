@@ -59,6 +59,7 @@
   * [参数绑定](started/request/bind.md)
   * [请求缓存](started/request/cache.md)
 * [响应](started/response.md)
+  * [Code 响应](started/response/code.md)
 * [数据库](started/shu-ju-ku.md)
 * [模型](mo-xing.md)
 * [验证器](started/yan-zheng-qi.md)
