@@ -104,6 +104,11 @@ $url = "http://www.domain.com";
 return SendMsg::jsonJump($url);
 ```
 
+如果是站内地址可以：
 
+```php
+$url = request()->domain() . "/admin";
+return SendMsg::jsonJump($url);
+```
 
 
