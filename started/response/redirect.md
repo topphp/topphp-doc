@@ -107,7 +107,7 @@ return SendMsg::jsonJump($url);
 如果是站内地址可以：
 
 ```php
-$url = request()->domain() . "/admin";
+$url = request()->domain() . "/admin/index/index";
 return SendMsg::jsonJump($url);
 ```
 
