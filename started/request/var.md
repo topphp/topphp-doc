@@ -1,3 +1,5 @@
+## 输入变量
+
 可以通过`Request`对象完成全局输入变量的检测、获取和安全过滤，支持包括`$_GET`、`$_POST`、`$_REQUEST`、`$_SERVER`、`$_SESSION`、`$_COOKIE`、`$_ENV`等系统变量，以及文件上传信息。
 
 为了方便说明，本篇内容的所有示例代码均使用`Facade`方式，因此需要首先引入
@@ -10,16 +12,16 @@ use think\facade\Request;
 
 主要内容包括：
 
-* [检测变量是否设置](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_14)
-* [变量获取](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_25)
-* [默认值](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_88)
-* [变量过滤](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_100)
-* [获取部分变量](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_141)
-* [变量修饰符](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_190)
-* [中间件变量](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_216)
-* [助手函数](https://www.kancloud.cn/manual/thinkphp6_0/1037519#_238)
+* [检测变量是否设置](#itm1)
+* [变量获取](#itm2)
+* [默认值](#itm3)
+* [变量过滤](#itm4)
+* [获取部分变量](#itm5)
+* [变量修饰符](#itm6)
+* [中间件变量](#itm7)
+* [助手函数](#itm8)
 
-## 检测变量是否设置
+### <a id="itm1">检测变量是否设置</a>
 
 可以使用`has`方法来检测一个变量参数是否设置，如下：
 
@@ -30,7 +32,7 @@ Request::has('name','post');
 
 变量检测可以支持所有支持的系统变量，包括`get/post/put/request/cookie/server/session/env/file`。
 
-## 变量获取
+### <a id="itm2">变量获取</a>
 
 变量获取使用`\think\Request`类的如下方法及参数：
 
@@ -94,7 +96,7 @@ echo Request::param('name'); // 输出thinkphp
 
 > 除了`server`和`env`方法的变量名不区分大小写（会自动转为大写后获取），其它变量名区分大小写。
 
-## 默认值
+### <a id="itm3">默认值</a>
 
 获取输入变量的时候，可以支持默认值，例如当URL中不包含`$_GET['name']`的时候，使用下面的方式输出的结果比较。
 
@@ -106,7 +108,7 @@ Request::get('name','default'); // 返回值为default
 
 前面提到的方法都支持在第二个参数中传入默认值的方式。
 
-## 变量过滤
+### <a id="itm4">变量过滤</a>
 
 > 框架默认没有设置任何全局过滤规则，你可以在`app\Request`对象中设置`filter`全局过滤属性：
 
@@ -149,7 +151,7 @@ Request::get('name', '', null);
 
 > 对于body中提交的`json`对象，你无需使用`php://input`去获取，可以直接当做表单提交的数据使用，因为系统已经自动处理过了
 
-## 获取部分变量
+### <a id="itm5">获取部分变量</a>
 
 如果你只需要获取当前请求的部分参数，可以使用：
 
@@ -198,7 +200,7 @@ Request::except(['id','name'], 'get');
 Request::except(['id','name'], 'post');
 ```
 
-## 变量修饰符
+### <a id="itm6">变量修饰符</a>
 
 支持对变量使用修饰符功能，可以一定程度上简单过滤变量，更为严格的过滤请使用前面提过的变量过滤功能。
 
@@ -224,7 +226,7 @@ Request::post('name/s');
 Request::post('ids/a');
 ```
 
-## 中间件变量
+### <a id="itm7">中间件变量</a>
 
 可以在中间件里面设置和获取请求变量的值，这个值的改变不会影响`PARAM`变量的获取。
 
@@ -246,7 +248,7 @@ class Check
 }
 ```
 
-## 助手函数
+### <a id="itm8">助手函数</a>
 
 为了简化使用，还可以使用系统提供的`input`助手函数完成上述大部分功能。
 
