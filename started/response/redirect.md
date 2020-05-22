@@ -125,4 +125,12 @@ $url = url('@admin/index/index');
 return SendMsg::jsonJump($url);
 ```
 
+>`SendMsg`类的`jsonJump`支持自定义`http`状态码和添加`header`信息，`http`状态码默认`302`。
 
+```php
+$url = url('@admin/index/index');
+$header = [
+    "Cache-Control" => "no-cache"
+];
+return SendMsg::jsonJump($url, 301, $header);
+```
