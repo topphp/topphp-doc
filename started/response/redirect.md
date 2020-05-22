@@ -97,6 +97,13 @@ class Index
 
 ### SendMsg 发送重定向响应
 
+>推荐使用`TopPHP`的`SendMsg`类直接向客户端发送header重定向的Location请求，此种方式可以完美支持`topphp/topphp-swoole`组件环境下的重定向。
+
+```php
+$url = "http://www.domain.com";
+return SendMsg::jsonJump($url);
+```
+
 
 
 
