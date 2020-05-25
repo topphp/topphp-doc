@@ -100,5 +100,7 @@ return SendMsg::jsonData($data, 500);
 ```
 如果是浏览器访问的话，我们会在`Network`的`headers`下看到如下响应：
 
+![code 500](/assets/500.png)
+
 
 
