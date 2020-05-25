@@ -40,7 +40,7 @@ class User extends Base
 }
 ```
 
-我们将得到如下结果:
+访问`index/User/index`我们将得到如下结果:
 
 ```js
 {
@@ -55,6 +55,8 @@ class User extends Base
     "operate":"index/User/index"
 }
 ```
+
+其中的`operate`参数仅在应用开启了`DEBUG`模式时返回，标识当前访问的操作。
 
 
 
