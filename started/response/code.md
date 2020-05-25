@@ -40,7 +40,7 @@ class User extends Base
 }
 ```
 
-我们将得到如下结果
+我们将得到如下结果:
 
 ```js
 
