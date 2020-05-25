@@ -77,7 +77,7 @@ class User extends Base
 }
 ```
 
-> 无论是否开启`show_http_status`参数，都不影响我们实际响应给客户端的http状态。我们可以通过`jsonData`的第二个参数来自定义响应给客户端的`http`状态。
+> 无论是否开启`show_http_status`参数，都不影响我们实际响应给客户端的`http`状态。我们可以通过`jsonData`的第二个参数来自定义响应给客户端的`http`状态。
 
 ```php
 return SendMsg::jsonData($data, 500);
