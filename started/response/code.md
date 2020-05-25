@@ -77,4 +77,26 @@ class User extends Base
 }
 ```
 
+> 无论是否开启`show_http_status`参数，都不影响我们实际响应给客户端的http状态。我们可以通过`jsonData`的第二个参数来自定义响应给客户端的`http`状态。
+
+```php
+return SendMsg::jsonData($data, 500);
+```
+上面的例子将会返回如下效果：
+
+```json
+{
+    "code":10000,
+    "message":"success",
+    "data":{
+        "id":1,
+        "username":"zhangsan",
+        "email":"abc@domain.com",
+        "phone":"186****1234"
+    },
+    "StatusCode":500,
+    "operate":"index/User/index"
+}
+```
+
 
