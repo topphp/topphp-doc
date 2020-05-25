@@ -102,5 +102,14 @@ return SendMsg::jsonData($data, 500);
 
 ![code 500](/assets/500.png)
 
+> `jsonData`同样支持直接在`data`参数返回字符串的情况：
+
+```php
+$data = "操作成功";
+return SendMsg::jsonData($data);
+```
+
+
+
 
 
