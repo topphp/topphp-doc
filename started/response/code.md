@@ -43,7 +43,6 @@ class User extends Base
 我们将得到如下结果:
 
 ```js
-
 {
     "code":10000,
     "message":"success",
@@ -53,8 +52,9 @@ class User extends Base
         "email":"abc@domain.com",
         "phone":"186****1234"
     },
-    "operate":"admin/Index/index"
+    "operate":"index/User/index"
 }
-
 ```
+
+
 
