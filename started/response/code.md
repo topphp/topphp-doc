@@ -56,7 +56,9 @@ class User extends Base
 }
 ```
 
-其中的`operate`参数仅在应用开启了`DEBUG`模式时返回，标识当前访问的操作。
+其中的`operate`参数仅在应用开启了`DEBUG`模式时返回，标识当前访问的操作。`jsonData`固定返回`code`码为 `10000`，通常用于返回给客户端接口请求成功的状态。
+
+我们还可以
 
 
 
