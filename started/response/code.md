@@ -108,7 +108,15 @@ return SendMsg::jsonData($data, 500);
 $data = "操作成功";
 return SendMsg::jsonData($data);
 ```
-
+```json
+{
+    "code":10000,
+    "message":"success",
+    "data":"操作成功",
+    "StatusCode":200,
+    "operate":"admin/Index/index"
+}
+```
 
 
 
