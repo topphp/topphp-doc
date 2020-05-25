@@ -58,7 +58,7 @@ class User extends Base
 
 其中的`operate`参数仅在应用开启了`DEBUG`模式时返回，标识当前访问的操作。`jsonData`固定返回`code`码为 `10000`，通常用于返回给客户端接口请求成功的状态。
 
-我们还可以
+我们还可以在`app\common\enumerate\CommonCodeEnum.php`枚举文件中自定义返回成功的状态码为多少，属性类型为`int`型。不推荐设置为`0`或`1`，建议保留`TopPHP`默认的`10000`成功，`40000`失败。
 
 
 
