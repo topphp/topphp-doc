@@ -9,7 +9,7 @@
 {"code":10000,"message":"success","data":{"id":"1"}}
 
 // 操作失败的响应示例
-{"code":40000,"message":"系统异常","data":[]}
+{"code":40000,"message":"fail","data":[]}
 ```
 
 #### 返回数据--jsonData
