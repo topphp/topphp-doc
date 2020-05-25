@@ -18,5 +18,25 @@
 
 通常我们需要向客户端响应一个数据内容时（例如展示用户信息，展示一条数据库数据的编辑信息等），我们可以在控制器中使用这个方法。
 
-\`\`\`php
+```php
+declare(strict_types=1);
+
+namespace app\index\controller;
+
+use lib\SendMsg;
+
+class User extends Base
+{
+    public function index()
+    {
+        $data = [
+            "id"       => 1,
+            "username" => "zhangsan",
+            "email"    => "abc@domain.com",
+            "phone"    => "186****1234"
+        ];
+        return SendMsg::jsonData($data);
+    }
+}
+```
 
