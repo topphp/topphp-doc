@@ -114,7 +114,7 @@ return SendMsg::jsonData($data);
     "message":"success",
     "data":"操作成功",
     "StatusCode":200,
-    "operate":"admin/Index/index"
+    "operate":"index/User/index"
 }
 ```
 
