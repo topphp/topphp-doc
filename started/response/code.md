@@ -12,7 +12,7 @@
 {"code":40000,"message":"系统异常","data":[]}
 ```
 
-#### 返回数据
+#### 返回数据--jsonData
 
 > SendMsg::jsonData\("数据内容（支持数组）","http状态码（默认200）"\);
 
