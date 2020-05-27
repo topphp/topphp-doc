@@ -118,6 +118,48 @@ return SendMsg::jsonData($data);
 }
 ```
 
+如果你需要将返回的信息传递给`message`参数，那么我们可以使用`jsonAlert`方法
 
+#### 返回弹层/提示/消息/警告等信息--jsonAlert
+
+> SendMsg::jsonAlert\("错误信息", "code码", "附加数据（支持数组）", "http状态码（默认200）", "header信息（数组）"\);
+
+```php
+return SendMsg::jsonAlert("操作成功");
+```
+
+`jsonAlert`方法应用场景常用于给客户端一个提示消息，或者警告消息等，故默认的`code`返回值是`40000`，`http`状态码默认`200`。上面的例子将会返回如下结果：
+
+```json
+{
+    "code":40000,
+    "message":"操作成功",
+    "data":[
+
+    ],
+    "operate":"index/User/index"
+}
+```
+
+显然我们需要的是一个成功的提示，而不是一个异常的提示，所以我们可以通过如下方式定义：
+
+```php
+return SendMsg::jsonAlert("操作成功", 10000);
+// 或者通过枚举类定义
+return SendMsg::jsonAlert("操作成功", CommonCodeEnum::SUCCESS);
+```
+
+得到结果：
+
+```json
+{
+    "code":10000,
+    "message":"操作成功",
+    "data":[
+
+    ],
+    "operate":"index/User/index"
+}
+```
 
 
