@@ -220,3 +220,4 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 | HttpStatusEnum::VALIDATE_ERROR | 422 | 参数验证错误 |
 | HttpStatusEnum::SERVER_ERROR | 500 | 服务器异常 |
 
+> 关于重定向，我们可以参考[重定向](/started/response/redirect.md)章节的`jsonJump`方式进行重定向的处理。
