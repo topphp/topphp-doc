@@ -162,4 +162,30 @@ return SendMsg::jsonAlert("操作成功", CommonCodeEnum::SUCCESS);
 }
 ```
 
+通常情况下，前端不需要根据返回信息去判断是否成功，而是通过code码来判断成功与否，所以如果不是特殊的业务需求，建议操作成功的返回使用`jsonData`方法。
 
+为了满足需要后端来控制成功的提示语的这种需求，所以`SendMsg`提供像上面这种定义方式来实现。而`jsonAlert`方法主要的作用场景依旧是`错误`或`异常`或是`操作失败`的提示。
+
+如果我们需要在提示错误的信息同时，还需要返回一些详细的错误内容，可以传入第三个参数，支持传入`数组`或`字符串`：
+
+```php
+$data = [
+    "status" => 0,
+    "error"  => "调用第三方api接口异常"
+];
+return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data);
+```
+
+得到结果：
+
+```json
+{
+    "code":40000,
+    "message":"操作失败",
+    "data":{
+        "status":0,
+        "error":"调用第三方api接口异常"
+    },
+    "operate":"index/User/index"
+}
+```
