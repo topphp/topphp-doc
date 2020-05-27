@@ -82,6 +82,7 @@ class User extends Base
 ```php
 return SendMsg::jsonData($data, 500);
 ```
+
 上面的例子将会返回如下效果：
 
 ```json
@@ -98,6 +99,7 @@ return SendMsg::jsonData($data, 500);
     "operate":"index/User/index"
 }
 ```
+
 如果是浏览器访问的话，我们会在`Network`的`headers`下看到如下响应：
 
 ![code 500](/assets/500.png)
@@ -108,6 +110,7 @@ return SendMsg::jsonData($data, 500);
 $data = "操作成功";
 return SendMsg::jsonData($data);
 ```
+
 ```json
 {
     "code":10000,
@@ -211,13 +214,16 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 | 静态调用 | http状态码 | 含义 |
 | :--- | :--- | :--- |
 | HttpStatusEnum::SUCCESS | 200 | 访问成功 |
-| HttpStatusEnum::NO_CONTENT | 204 | 接口调用成功，但无返回内容 |
+| HttpStatusEnum::NO\_CONTENT | 204 | 接口调用成功，但无返回内容 |
 | HttpStatusEnum::REDIRECT | 302 | 临时重定向 |
-| HttpStatusEnum::SYSTEM_INVALID | 400 | 系统参数错误 |
-| HttpStatusEnum::PARAMS_ERROR | 401 | 接口参数错误 |
+| HttpStatusEnum::SYSTEM\_INVALID | 400 | 系统参数错误 |
+| HttpStatusEnum::PARAMS\_ERROR | 401 | 接口参数错误 |
 | HttpStatusEnum::FORBIDDEN | 403 | 禁止访问（黑名单） |
-| HttpStatusEnum::NOT_FOUND | 404 | 页面不存在 |
-| HttpStatusEnum::VALIDATE_ERROR | 422 | 参数验证错误 |
-| HttpStatusEnum::SERVER_ERROR | 500 | 服务器异常 |
+| HttpStatusEnum::NOT\_FOUND | 404 | 页面不存在 |
+| HttpStatusEnum::VALIDATE\_ERROR | 422 | 参数验证错误 |
+| HttpStatusEnum::SERVER\_ERROR | 500 | 服务器异常 |
 
 > 关于重定向，我们可以参考[重定向](/started/response/redirect.md)章节的`jsonJump`方式进行重定向的处理。
+
+
+
