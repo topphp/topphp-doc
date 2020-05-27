@@ -210,7 +210,7 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 
 | 静态调用 | http状态码 | 含义 |
 | :--- | :--- | :--- |
-| HttpStatusEnum::SUCCESS | 200 | 成功 |
+| HttpStatusEnum::SUCCESS | 200 | 访问成功 |
 | HttpStatusEnum::NO_CONTENT | 204 | 接口调用成功，但无返回内容 |
 | HttpStatusEnum::REDIRECT | 302 | 重定向 |
 | HttpStatusEnum::SYSTEM_INVALID | 400 | 系统参数错误 |
