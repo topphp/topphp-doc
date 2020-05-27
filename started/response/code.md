@@ -208,3 +208,14 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 
 > `TopPHP`提供`http`状态枚举类`HttpStatusEnum`。上面的`SERVER_ERROR`即是`500`。另外提供如下常用`http`状态码枚举：
 
+| 静态调用 | http状态码 | 含义 |
+| :--- | :--- | :--- |
+| HttpStatusEnum::SUCCESS | 200 | 成功 |
+| HttpStatusEnum::NO_CONTENT | 204 | 接口调用成功，但无返回内容 |
+| HttpStatusEnum::REDIRECT | 302 | 重定向 |
+| HttpStatusEnum::SYSTEM_INVALID | 400 | 系统参数错误 |
+| HttpStatusEnum::PARAMS_ERROR | 401 | 接口参数错误 |
+| HttpStatusEnum::FORBIDDEN | 403 | 禁止访问（黑名单） |
+| HttpStatusEnum::NOT_FOUND | 404 | 页面不存在 |
+| HttpStatusEnum::VALIDATE_ERROR | 422 | 参数验证错误 |
+| HttpStatusEnum::SERVER_ERROR | 500 | 服务器异常 |
