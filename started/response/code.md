@@ -219,3 +219,4 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 | HttpStatusEnum::NOT_FOUND | 404 | 页面不存在 |
 | HttpStatusEnum::VALIDATE_ERROR | 422 | 参数验证错误 |
 | HttpStatusEnum::SERVER_ERROR | 500 | 服务器异常 |
+
