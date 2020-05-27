@@ -212,7 +212,7 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 | :--- | :--- | :--- |
 | HttpStatusEnum::SUCCESS | 200 | 访问成功 |
 | HttpStatusEnum::NO_CONTENT | 204 | 接口调用成功，但无返回内容 |
-| HttpStatusEnum::REDIRECT | 302 | 重定向 |
+| HttpStatusEnum::REDIRECT | 302 | 临时重定向 |
 | HttpStatusEnum::SYSTEM_INVALID | 400 | 系统参数错误 |
 | HttpStatusEnum::PARAMS_ERROR | 401 | 接口参数错误 |
 | HttpStatusEnum::FORBIDDEN | 403 | 禁止访问（黑名单） |
