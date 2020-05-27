@@ -205,3 +205,6 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 ```
 
 ![code header](/assets/header.png)
+
+> `TopPHP`提供`http`状态枚举类`HttpStatusEnum`。上面的`SERVER_ERROR`即是`500`。另外提供如下常用`http`状态码枚举：
+
