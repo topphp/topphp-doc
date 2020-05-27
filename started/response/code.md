@@ -14,7 +14,7 @@
 
 #### 返回数据--jsonData
 
-> SendMsg::jsonData\("数据内容（支持数组）","http状态码（默认200）"\);
+> SendMsg::jsonData\("数据内容（支持数组）","http状态码（默认200）", "header信息（数组）"\);
 
 通常我们需要向客户端响应一个数据内容时（例如展示用户信息，展示一条数据库数据的编辑信息等），我们可以在控制器中使用这个方法。
 
@@ -225,5 +225,7 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 
 > 关于重定向，我们可以参考[重定向](/started/response/redirect.md)章节的`jsonJump`方式进行重定向的处理。
 
+#### 返回List（数据列表形式）--jsonList
 
+> SendMsg::jsonList\("列表内容（数组）","http状态码（默认200）", "header信息（数组）"\);
 
