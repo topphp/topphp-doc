@@ -189,3 +189,19 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data);
     "operate":"index/User/index"
 }
 ```
+
+我们还可以自定义`http`状态码和`header`内容：
+
+```php
+$data    = [
+    "status" => 0,
+    "error"  => "调用第三方api接口异常"
+];
+$headers = [
+    "Cache-Control" => "no-cache, must-revalidate",
+    "Pragma"        => "no-cache"
+];
+return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatusEnum::SERVER_ERROR, $headers);
+```
+
+![code header](/assets/header.png)
