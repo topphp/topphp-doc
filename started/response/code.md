@@ -354,3 +354,27 @@ return SendMsg::jsonList($data);
 ```
 
 同样如果你选择使用`jsonList`也可以。具体如何定义，还需要前后端配合协商处理。
+
+#### 直接抛出信息--jsonThrow
+
+> SendMsg::jsonThrow\("错误信息", "code码", "附加数据（支持数组）", "http状态码（默认200）", "header信息（数组）"\);
+
+有些使用场景需要我们直接抛出异常，并直接响应给客户端，我们就可以使用`jsonThrow`的方式进行抛出。使用了`jsonThrow`后，代码执行将在此句终止，并直接响应给客户端或浏览器，例如：你在控制器中调用的任何其他类方法中直接使用`jsonThrow`返回的话，将会直接抛出你的异常信息：
+
+```php
+return SendMsg::jsonThrow("请先绑定用户");
+```
+```json
+{
+    "code":40000,
+    "message":"请先绑定用户",
+    "data":[
+
+    ],
+    "operate":"index/User/index"
+}
+```
+
+`jsonThrow`方法其实就是常规的throw抛出，但是如果您的方法被try catch捕获，那么将不会直接抛出响应了。`jsonThrow`方法的参数使用规则与`jsonAlert`基本一致，区别就是一个是强制抛出，一个是正常响应。
+
+我们不推荐全部以这种方式进行响应，好的编码习惯，业务逻辑就应该尽量不使用强制抛出，而是try catch逐层返回。
