@@ -414,6 +414,8 @@ public function edit()
 
 `是否强制抛出`表示是否以throw方式响应，效果类似于`jsonThrow`，我们更推荐这样的需求直接使用`jsonThrow`方法进行响应。
 
+`jsonSend`的第二个参数为`true`时返回值的效果与`jsonList`相同。
+
 ```php
 $data = [
     "id"       => 1,
