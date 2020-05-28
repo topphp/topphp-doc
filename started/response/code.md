@@ -516,3 +516,5 @@ class UserService
 > 以上示例完全可以体现出`code`码在日常接口开发中的作用，开发者可以根据业务自定义`code`码的规则，前端根据不同的`code`码进行不同的操作处理。
 
 事实上`jsonData`、`jsonList`、`jsonAlert`、`jsonThrow`四个方法也都是基于`arrayData`和`arrayAlert`实现的。
+
+#### `SendMsg`提供类似`jsonXXX`系列的`xmlXXX`系列方法，用法与`jsonXXX`系列方法一致
