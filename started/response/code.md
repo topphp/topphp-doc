@@ -377,4 +377,7 @@ return SendMsg::jsonThrow("请先绑定用户");
 
 `jsonThrow`方法其实就是常规的throw抛出，但是如果您的方法被try catch捕获，那么将不会直接抛出响应了。`jsonThrow`方法的参数使用规则与`jsonAlert`基本一致，区别就是一个是强制抛出，一个是正常响应。
 
-我们不推荐全部以`jsonThrow`这种方式进行响应，好的编码习惯，业务逻辑就应该尽量不使用强制抛出，而是try catch逐层返回。
+我们不推荐全部以`jsonThrow`这种方式进行响应，好的编码习惯，业务逻辑就应该尽量不使用强制抛出，而是try catch逐层返回。所以`SendMsg`提供另一种响应使用方案`arrayData`或`arrayAlert`结合`jsonSend`进行响应。
+
+#### 向客户端发送响应--jsonSend
+
