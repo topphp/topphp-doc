@@ -381,3 +381,27 @@ return SendMsg::jsonThrow("请先绑定用户");
 
 #### 向客户端发送响应--jsonSend
 
+> SendMsg::jsonSend\("`arrayData`或`arrayAlert`返回的数据数组", "是否`data`键数据返回`list`形式（bool值）", "http状态码（默认200）", "header信息（数组）"\);
+
+通常情况下上面的`jsonData`、`jsonList`、`jsonAlert`、`jsonThrow`四个方法已经基本满足我们需求了。
+
+如果你有类似调用第三方接口或者有需要在其他的扩展类方法或是模型方法中返回一个操作是否成功的逻辑判断的返回需求时，通常我们的做法是返回一个`array`数组，数组里会包含是否成功的`key`和成功的数据或者是失败的提示：
+
+```php
+public function edit()
+{
+    $update = (new User())->where("id",1)->update(["username"=>"lisi"]);
+    if($update){
+        return [
+           "status" => 1,
+           "msg" => "编辑成功" 
+        ];
+    }
+    return [
+        "status" => 0,
+        "msg" => "编辑失败" 
+    ];
+}
+```
+
+上面仅是一个简单的示例，实际我们的业务可能要比它复杂很多，为了保持这样的返回数据全局统一规范，所以衍生出`arrayData`和`arrayAlert`两种仅返回数组的方法供开发者使用。
