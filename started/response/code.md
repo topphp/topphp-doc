@@ -410,11 +410,11 @@ public function edit()
 
 > SendMsg::arrayAlert\("code码", "错误信息", "附加数据（支持数组）", "是否强制抛出（bool值）", "http状态码（默认200）"\);
 
-`arrayData`返回的`code`固定是`10000`，`arrayAlert`返回的`code`默认是`40000`（可自定义）。
+* `arrayData`返回的`code`固定是`10000`，`arrayAlert`返回的`code`默认是`40000`（可自定义）。
 
-`是否强制抛出`表示是否以throw方式响应，效果类似于`jsonThrow`，我们更推荐这样的需求直接使用`jsonThrow`方法进行响应。
+* `是否强制抛出`表示是否以throw方式响应，效果类似于`jsonThrow`，我们更推荐这样的需求直接使用`jsonThrow`方法进行响应。
 
-`jsonSend`的第二个参数为`true`时返回值的效果与`jsonList`相同。
+* `jsonSend`的第二个参数为`true`时返回值的效果与`jsonList`相同。
 
 ```php
 $data = [
