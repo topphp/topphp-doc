@@ -510,3 +510,5 @@ class UserService
     "operate":"index/User/index"
 }
 ```
+
+以上示例可以体现出`code`码的作用，开发者可以根据业务自定义`code`码的规则，前端根据不同的`code`码进行不同的操作处理。
