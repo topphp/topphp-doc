@@ -322,3 +322,35 @@ return SendMsg::jsonList($data);
 ```
 
 这样前端就可以依据返回数据的`data.list`遍历循环数据，这样也同样避免了键名重复导致的前端代码可读性降低的问题。同样也方便前端封装请求与响应的公共方法。
+
+如过你需求是在传入`list`的同时，还要增加其他额外的参数，那就需要服务端自行构建返回数据的结构了，例如使用ThinkPHP的分页功能返回数据，我们可以直接把查询出来的数据结果依旧传给`jsonData`方法进行处理得到：
+
+```json
+{
+    "code":10000,
+    "message":"success",
+    "data":{
+        "total":2,
+        "per_page":15,
+        "current_page":1,
+        "last_page":1,
+        "data":[
+            {
+                "id":1,
+                "username":"zhangsan",
+                "email":"abc@domain.com",
+                "phone":"186****1234"
+            },
+            {
+                "id":2,
+                "username":"lisi",
+                "email":"123@domain.com",
+                "phone":"186****5678"
+            }
+        ]
+    },
+    "operate":"index/User/index"
+}
+```
+
+同样如果您选择使用`jsonList`也可以。
