@@ -405,3 +405,18 @@ public function edit()
 ```
 
 上面仅是一个简单的示例，实际我们的业务可能要比它复杂很多，为了保持这样的返回数据全局统一规范，所以衍生出`arrayData`和`arrayAlert`两种仅返回数组的方法供开发者使用。
+
+> SendMsg::arrayData\("数据内容（支持数组）","http状态码（默认200）"\);
+
+```php
+$data = [
+    "id"       => 1,
+    "username" => "zhangsan",
+    "email"    => "abc@domain.com",
+    "phone"    => "186****1234"
+];
+// 注意：我们不能在控制器直接返回 arrayData 的数组
+$res = SendMsg::arrayData($data);
+// 所以才需要使用 jsonSend 来把数据传递给ThinkPHP的response对象进行客户端响应
+return SendMsg::jsonSend($res);
+```
