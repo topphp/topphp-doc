@@ -1,30 +1,30 @@
 ## 查询构造器
 
-[查询数据](https://www.kancloud.cn/manual/thinkphp6_0/1037533)
+[查询数据](/started/database/query/select.md)
 
-[添加数据](https://www.kancloud.cn/manual/thinkphp6_0/1037534)
+[添加数据](/started/database/query/add.md)
 
-[更新数据](https://www.kancloud.cn/manual/thinkphp6_0/1037535)
+[更新数据](/started/database/query/update.md)
 
-[删除数据](https://www.kancloud.cn/manual/thinkphp6_0/1037536)
+[删除数据](/started/database/query/delete.md)
 
-[查询表达式](https://www.kancloud.cn/manual/thinkphp6_0/1037537)
+[查询表达式](/started/database/query/where.md)
 
-[链式操作](https://www.kancloud.cn/manual/thinkphp6_0/1037538)
+[链式操作](/started/database/query/chain.md)
 
-[聚合查询](https://www.kancloud.cn/manual/thinkphp6_0/1037564)
+[聚合查询](/started/database/query/polymerization.md)
 
-[分页查询](https://www.kancloud.cn/manual/thinkphp6_0/1037638)
+[分页查询](/started/database/query/page.md)
 
-[时间查询](https://www.kancloud.cn/manual/thinkphp6_0/1037565)
+[时间查询](/started/database/query/time.md)
 
-[高级查询](https://www.kancloud.cn/manual/thinkphp6_0/1037566)
+[高级查询](/started/database/query/senior.md)
 
-[视图查询](https://www.kancloud.cn/manual/thinkphp6_0/1037567)
+[视图查询](/started/database/query/view.md)
 
-[JSON字段](https://www.kancloud.cn/manual/thinkphp6_0/1037568)
+[JSON字段](/started/database/query/json.md)
 
-[子查询](https://www.kancloud.cn/manual/thinkphp6_0/1037569)
+[子查询](/started/database/query/child.md)
 
-[原生查询](https://www.kancloud.cn/manual/thinkphp6_0/1037570)
+[原生查询](/started/database/query/original.md)
 
