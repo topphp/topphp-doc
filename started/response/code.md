@@ -229,5 +229,96 @@ return SendMsg::jsonAlert("操作失败", CommonCodeEnum::FAIL, $data, HttpStatu
 
 > SendMsg::jsonList\("列表内容（数组）","http状态码（默认200）", "header信息（数组）"\);
 
+当我们需要给前端返回一个数组形式的列表数据时，往往需要在响应信息的`data`键传入对应的二维数组，`jsonList`与`jsonData`的区别在于`jsonList`会在你传入的`data`数据外层套一层`list`的`key`。好处就是方便前端遍历处理，如果是直接传入`data`，我们将得到如下的`json`数据：
 
+```php
+$data = [
+    [
+        "id"       => 1,
+        "username" => "zhangsan",
+        "email"    => "abc@domain.com",
+        "phone"    => "186****1234"
+    ],
+    [
+        "id"       => 2,
+        "username" => "lisi",
+        "email"    => "123@domain.com",
+        "phone"    => "186****5678"
+    ],
+];
 
+return SendMsg::jsonData($data);
+```
+
+得到结果：
+
+```json
+{
+    "code":10000,
+    "message":"success",
+    "data":[
+        {
+            "id":1,
+            "username":"zhangsan",
+            "email":"abc@domain.com",
+            "phone":"186****1234"
+        },
+        {
+            "id":2,
+            "username":"lisi",
+            "email":"123@domain.com",
+            "phone":"186****5678"
+        }
+    ],
+    "operate":"index/User/index"
+}
+```
+
+我们可以发现，上面的返回数据并不是一个标准的`json`对象形式，前端获取的`data`实际是一个数组，这不利于前端获取数据遍历循环。而使用`jsonList`返回的就是如下效果：
+
+```php
+$data = [
+    [
+        "id"       => 1,
+        "username" => "zhangsan",
+        "email"    => "abc@domain.com",
+        "phone"    => "186****1234"
+    ],
+    [
+        "id"       => 2,
+        "username" => "lisi",
+        "email"    => "123@domain.com",
+        "phone"    => "186****5678"
+    ],
+];
+
+return SendMsg::jsonList($data);
+```
+
+得到结果：
+
+```json
+{
+    "code":10000,
+    "message":"success",
+    "data":{
+        "list":[
+            {
+                "id":1,
+                "username":"zhangsan",
+                "email":"abc@domain.com",
+                "phone":"186****1234"
+            },
+            {
+                "id":2,
+                "username":"lisi",
+                "email":"123@domain.com",
+                "phone":"186****5678"
+            }
+        ]
+    },
+    "operate":"index/User/index"
+}
+```
+
+这样前端就可以依据返回数据的`data.list`遍历循环数据，这样也同样避免了键名重复导致的前端代码可读性降低的问题。同样也方便前端封装请求与响应的公共方法。
