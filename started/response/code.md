@@ -408,6 +408,8 @@ public function edit()
 
 > SendMsg::arrayData\("数据内容（支持数组）","http状态码（默认200）"\);
 
+> SendMsg::arrayAlert\("code码", "错误信息", "附加数据（支持数组）", "是否强制抛出（bool值）", "http状态码（默认200）"\);
+
 ```php
 $data = [
     "id"       => 1,
@@ -419,4 +421,47 @@ $data = [
 $res = SendMsg::arrayData($data);
 // 所以才需要使用 jsonSend 来把数据传递给ThinkPHP的response对象进行客户端响应
 return SendMsg::jsonSend($res);
+```
+上面仅是一个模拟示例，实际我们的`res`应该是调用的另一个类方法返回的信息，可能是成功，亦可能是失败：
+
+```php
+declare(strict_types=1);
+
+namespace app\index\controller;
+
+use app\index\service\UserService;
+use lib\SendMsg;
+
+class User extends Base
+{
+    public function index()
+    {
+        $res = (new UserService())->edit();
+        return SendMsg::jsonSend($res);
+    }
+}
+
+...
+
+declare(strict_types=1);
+
+namespace app\index\service;
+
+use app\index\model\UserDao;
+
+class UserService
+{
+    public function edit()
+    {
+        $detail = (new UserDao())->where("id",1)->find();
+        if(empty($detail)){
+            return SendMsg::arrayAlert(40001, "数据不存在");
+        }
+        $update = (new UserDao())->where("id",1)->update(["username"=>"lisi"]);
+        if($update){
+            return SendMsg::arrayData();
+        }
+        return SendMsg::arrayAlert(40002, "编辑失败");
+    }
+}
 ```
