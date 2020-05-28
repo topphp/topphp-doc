@@ -353,4 +353,4 @@ return SendMsg::jsonList($data);
 }
 ```
 
-同样如果您选择使用`jsonList`也可以。
+同样如果你选择使用`jsonList`也可以。具体如何定义，还需要前后端配合协商处理。
