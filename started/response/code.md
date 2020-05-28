@@ -410,6 +410,10 @@ public function edit()
 
 > SendMsg::arrayAlert\("code码", "错误信息", "附加数据（支持数组）", "是否强制抛出（bool值）", "http状态码（默认200）"\);
 
+`arrayData`返回的`code`固定是`10000`，`arrayAlert`返回的`code`默认是`40000`（可自定义）。
+
+`是否强制抛出`表示是否以throw方式响应，效果类似于`jsonThrow`，我们更推荐这样的需求直接使用`jsonThrow`方法进行响应。
+
 ```php
 $data = [
     "id"       => 1,
@@ -463,5 +467,46 @@ class UserService
         }
         return SendMsg::arrayAlert(40002, "编辑失败");
     }
+}
+```
+
+上面的示例将有可能返回三种情况：
+
+1、操作成功
+
+```json
+{
+    "code":10000,
+    "message":"success",
+    "data":[
+
+    ],
+    "operate":"index/User/index"
+}
+```
+
+2、数据不存在
+
+```json
+{
+    "code":40001,
+    "message":"数据不存在",
+    "data":[
+
+    ],
+    "operate":"index/User/index"
+}
+```
+
+3、编辑失败
+
+```json
+{
+    "code":40002,
+    "message":"编辑失败",
+    "data":[
+
+    ],
+    "operate":"index/User/index"
 }
 ```
