@@ -518,3 +518,7 @@ class UserService
 事实上`jsonData`、`jsonList`、`jsonAlert`、`jsonThrow`四个方法也都是基于`arrayData`和`arrayAlert`实现的。
 
 #### `SendMsg`提供类似`jsonXXX`系列的`xmlXXX`系列方法，用法与`jsonXXX`系列方法一致
+
+`xmlData`、`xmlList`、`xmlAlert`、`xmlThrow`、`xmlSend`这些方法统一返回的都是xml数据结构。
+
+> `app`配置文件的`default_ajax_return`参数可以直接控制`jsonXXX`系列的方法返回什么样的响应类型，支持全局改变为`json`、`jsonp`、`xml`。
