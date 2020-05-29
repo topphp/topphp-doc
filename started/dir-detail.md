@@ -192,5 +192,4 @@ www  WEB部署目录（或者子目录）
 >
 > `Request.php`TopPHP已做相关兼容性处理，不推荐移动。
 
-### TopPHP编程规范
 
