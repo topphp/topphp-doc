@@ -1,3 +1,5 @@
+## 链式操作
+
 数据库提供的链式操作方法，可以有效的提高数据存取的代码清晰度和开发效率，并且支持所有的CURD操作（原生查询不支持链式操作）。
 
 使用也比较简单，假如我们现在要查询一个User表的满足状态为1的前10条记录，并希望按照用户的创建时间排序 ，代码如下：
@@ -27,7 +29,7 @@ Db::table('think_user')
     ->where('id',1)
     ->field('id,name,email')
     ->find(); 
-    
+
 Db::table('think_user')
     ->where('status',1)
     ->where('id',1)
@@ -41,7 +43,7 @@ $user = Db::table('user');
 $user->order('create_time')
     ->where('status',1)
     ->select();
-    
+
 // 会自动带上前面的where条件和order排序的值    
 $user->where('id', '>', 0)->select();
 ```
@@ -53,10 +55,10 @@ $user = Db::table('think_user');
 $user->order('create_time')
     ->where('status',1)
     ->select();
-    
+
 // 清空where查询条件值 保留其它链式操作   
 $user->removeOption('where')
-	->where('id', '>', 0)
+    ->where('id', '>', 0)
     ->select();
 ```
 
