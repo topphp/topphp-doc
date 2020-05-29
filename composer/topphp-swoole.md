@@ -22,7 +22,7 @@ php think server
 
 
 #### rpc服务
-详见 [微服务-jsonrpc章节](/wei-fu-wu/jsonrpc.md)
+详见 [微服务-jsonrpc章节](/microservice/jsonrpc.md)
 
 #### websocket服务
 

@@ -6,4 +6,4 @@
 下面面将介绍如何开发一个属于你自己的 `topphp` 的组件。
 ~~~
 
-了解: [组件开发指南](/zu-jian/zu-jian-kai-fa-zhi-nan.md)
+了解: [组件开发指南](/composer/development.md)
