@@ -138,7 +138,7 @@ class User extends Model
 
     protected $pk = 'id';
 
-    protected $table = 'topphp_admin';
+    protected $table = 'topphp_user';
 
     protected $schema = [
         'id' => 'int',
