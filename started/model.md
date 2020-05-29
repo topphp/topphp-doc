@@ -20,4 +20,4 @@
 │ │ └─... 更多公共模型类
 ```
 
-`entity`即为模型实体类目录，用于存放各个表结构信息，其中的每个类都应该继承`think\Model`，并且应仅允许包含`$pk`主键名、`$table`表名、`$schema`数据表结构三个属性。可以参考`Demo.php`中的定义方式，或者直接使用[`topphp/topphp-generate`组件](/composer/topphp-generate.md)自动生成。
+`entity`即为模型实体类目录，用于存放各个表结构信息，其中的每个类都应该继承`think\Model`，并且应仅允许包含`$pk`主键名、`$table`表名、`$schema`数据表结构三个属性。可以参考`Demo.php`中的定义方式，或者直接使用[`topphp/topphp-generate`](/composer/topphp-generate.md)组件自动生成。
