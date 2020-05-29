@@ -153,7 +153,7 @@ class User extends Model
 }
 ```
 
-> 实际上`app\model\entity\XXX`数据表实体类不需要我们手动定义，通过`topphp/topphp-generate`组件即可帮助我们自动创建`UserDao`和定义好`User`实体类。
+> 实际上`app\model\entity\XXX`数据表实体类不需要我们手动定义，通过[`topphp/topphp-generate`](/composer/topphp-generate.md)组件即可帮助我们自动创建`UserDao`和定义好`User`实体类。
 
 ## 模型初始化
 
