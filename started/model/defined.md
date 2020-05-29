@@ -111,6 +111,48 @@ class UserDao extends User
 }
 ```
 
+`app\model\entity\User`结构如下：
+
+```php
+<?php
+declare(strict_types=1);
+
+namespace app\model\entity;
+
+use app\model\BaseModel;
+use think\Model;
+
+/**
+ * @property int $id
+ * @property string $account 登录账号
+ * @property string $password 登录密码
+ * @property string $username 用户名
+ * @property string $tel 电话
+ * @property string $create_time 添加时间
+ * @property string $update_time 更新时间
+ * @property string $delete_time 删除时间
+ */
+class User extends Model
+{
+    use BaseModel;
+
+    protected $pk = 'id';
+
+    protected $table = 'topphp_admin';
+
+    protected $schema = [
+        'id' => 'int',
+        'account' => 'varchar',
+        'password' => 'varchar',
+        'username' => 'varchar',
+        'tel' => 'varchar',
+        'create_time' => 'timestamp',
+        'update_time' => 'timestamp',
+        'delete_time' => 'timestamp',
+    ];
+}
+```
+
 ## 模型初始化
 
 模型支持初始化，只需要定义`init`方法，例如：
