@@ -35,7 +35,8 @@ php think optimize:schema
 
 运行后会自动生成数据表的字段信息缓存。使用命令行缓存的优势是Db类的查询仍然有效。
 
-> `TopPHP`骨架设计结构已经把上述情况考虑进去，所以默认情况下，你无需手动定义模型字段，直接使用[`topphp/topphp-generate`](/composer/topphp-generate.md)组件自动创建数据表实体类即可。
+> `TopPHP`骨架设计结构已经把上述情况考虑进去，所以默认情况下，你无需手动定义模型字段，
+直接使用[`topphp/topphp-generate`](/composer/topphp-generate.md)组件自动创建数据表实体类即可。
 
 ## 字段类型
 
