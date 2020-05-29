@@ -111,7 +111,7 @@ class UserDao extends User
 }
 ```
 
-> `app\model\entity\User`结构如下：
+> `app\model\entity\User`数据表实体类结构如下：
 
 ```php
 <?php
