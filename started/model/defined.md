@@ -1,6 +1,6 @@
 ## 模型定义
 
-定义一个模型类很简单，例如下面是一个`User`模型：
+定义一个模型类很简单，例如下面是一个单应用的`User`模型：
 
 ```php
 <?php
@@ -93,6 +93,22 @@ class User extends Model
 | disuse | 数据表废弃字段（数组） |
 
 > 模型不支持对数据表的前缀单独设置，并且也不推荐使用数据表的前缀设计，应该用不同的库区分。当你的数据表没有前缀的时候，`name`和`table`属性的定义是没有区别的，定义任何一个即可。
+
+以上定义方式在`TopPHP`骨架下按照如下方式定义：
+
+
+```php
+<?php
+declare(strict_types=1);
+
+namespace app\index\model;
+
+use app\model\entity\User;
+
+class UserDao extends User
+{
+}
+```
 
 ## 模型初始化
 
