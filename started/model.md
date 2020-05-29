@@ -6,4 +6,6 @@
 
 默认情况下`TopPHP`骨架中的`BaseModel`类是一个空的类，这是因为考虑到开发者可能习惯自己定义相应的公共模型方法，故留空给开发者。如果你想使用`TopPHP`自带的`BaseModel`中的方法，需要安装`topphp/topphp-generate`组件。
 
-骨架`app`目录下会存在一个`model`的文件夹
+骨架`app`目录下会存在一个`model`的文件夹：
+
+```php
