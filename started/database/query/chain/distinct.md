@@ -4,7 +4,7 @@ DISTINCT 方法用于返回唯一不同的值 。
 
 例如数据库表中有以下数据
 
-![](https://box.kancloud.cn/40a5052a920304db58034be7d60b7612_639x149.png)
+![](/assets/distinct.png)
 
 以下代码会返回`user_login`字段不同的数据
 
