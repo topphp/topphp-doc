@@ -11,6 +11,5 @@
 'query' =>   'think\mongo\Query',
 ```
 
-  
 
 
