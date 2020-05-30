@@ -194,4 +194,7 @@ dump($user->getModelError());
 例如：我们需要把一个角色`id`和角色`name`更新到一批管理员用户身上：
 
 
+> `updateAll`与`updateField`还有一个不同的地方就是`updateAll`会自动过滤掉数据表不存在的字段，而`updateField`则会报出`fields not exists:[xxx]`的异常。
+
+
 
