@@ -19,8 +19,8 @@ $user->save();
 
 ```php
 $user = User::where('status',1)
-	->where('name','liuchen')
-	->find();
+    ->where('name','liuchen')
+    ->find();
 $user->name     = 'thinkphp';
 $user->email    = 'thinkphp@qq.com';
 $user->save();
@@ -43,7 +43,7 @@ $user->force()->save();
 $user = User::find(1);
 $user->name     = 'thinkphp';
 $user->email    = 'thinkphp@qq.com';
-$user->score	=  Db::raw('score+1');
+$user->score    =  Db::raw('score+1');
 $user->save();
 ```
 
@@ -120,7 +120,7 @@ User::update(['name' => 'thinkphp', 'email' => 'thinkphp@qq.com'], ['id' => 1], 
 
 ## 最佳实践
 
-> 更新的最佳实践原则是：如果需要使用模型事件，那么就先查询后更新，如果不需要使用事件或者不查询直接更新，直接使用静态的`Update`方法进行条件更新，如非必要，尽量不要使用批量更新。
+> 更新的最佳实践原则是：如果需要使用模型事件，那么就先查询后更新，如果不需要使用事件或者不查询直接更新，直接使用静态的`Update`方法进行条件更新，如非必要，尽量不要使用批量更新，或者使用`TopPHP`的[`topphp/topphp-generate`](/composer/topphp-generate.md)组件提供的`BaseModel`类的`edit`方法进行编辑数据，`updateField`方法进行指定条件更新，`updateAll`方法进行批量更新。
 
 
 
