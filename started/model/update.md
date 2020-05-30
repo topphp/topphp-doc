@@ -174,3 +174,16 @@ $user->updateField($where, $data);
 $user = new UserDao;
 $user->updateField(1, "name", "topphp");
 ```
+
+> `updateField`方法返回的是`bool`值，更新成功返回`true`，失败返回`false`。
+
+如果你需要查看失败的原因可以使用`getModelError`方法进行获取：
+
+```php
+$user = new UserDao;
+$user->updateField(2, "name", "topphp");
+dump($user->getModelError());
+```
+
+> 事实上`BaseModel`的所有方法都可以通过`getModelError`获取异常信息。
+
