@@ -143,5 +143,5 @@ $user = new UserDao;
 $user->edit($data);
 ```
 
-> 需要注意的是`edit`方法默认会过滤软删除数据，如果你的数据已经被软删除，将不会更新成功，也不会查询出来。更详尽的用法可以参看[`topphp/topphp-generate`](/composer/topphp-generate.md)组件章节。
+> 需要注意的是`edit`方法默认会过滤软删除数据，如果你的数据已经被软删除，将不会更新成功，也不会查询出来。`edit`更详尽的用法可以参看[`topphp/topphp-generate`](/composer/topphp-generate.md)组件章节。
 
