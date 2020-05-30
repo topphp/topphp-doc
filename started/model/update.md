@@ -145,3 +145,32 @@ $user->edit($data);
 
 > 需要注意的是`edit`方法默认会过滤软删除数据，如果你的数据已经被软删除，将不会更新成功，也不会查询出来。`edit`更详细的用法可以参看[`topphp/topphp-generate`](/composer/topphp-generate.md)组件章节。
 
+如果你需要仅更新指定的字段，或者是根据指定的条件更新，你可以使用`updateField`：
+
+```php
+$where = [
+    'name' => 'thinkphp'
+];
+$user = new UserDao;
+$user->updateField($where, "name", "topphp");
+```
+多个字段可以使用数组形式：
+
+```php
+$data = [
+    'name'  => 'topphp',
+    'email' => 'topphp@domain.com'
+];
+$where = [
+    'name' => 'thinkphp'
+];
+$user = new UserDao;
+$user->updateField($where, $data);
+```
+
+还可以直接通过主键进行更新：
+
+```php
+$user = new UserDao;
+$user->updateField(1, "name", "topphp");
+```
