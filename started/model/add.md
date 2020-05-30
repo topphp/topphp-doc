@@ -148,4 +148,5 @@ $data = [
 $user = new UserDao;
 $user->add($data);
 ```
+> `add`方法不同于`save`方法，它的新增返回的是包含自增主键值的当前新增数据信息。
 
