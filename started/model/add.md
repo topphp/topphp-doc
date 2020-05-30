@@ -140,5 +140,12 @@ $user = User::create([
 
 > 新增数据的最佳实践原则：使用`create`方法新增数据，使用`saveAll`批量新增数据，或者使用`TopPHP`的[`topphp/topphp-generate`](/composer/topphp-generate.md)组件提供的`BaseModel`类的`add`方法进行新增，`addAll`方法进行批量新增。
 
-
+```php
+$data = [
+    'name' = 'thinkphp';
+    'email' = 'thinkphp@qq.com';
+];
+$user = new UserDao;
+$user->add($data);
+```
 
