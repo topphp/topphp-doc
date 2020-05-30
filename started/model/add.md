@@ -150,3 +150,14 @@ $user->add($data);
 ```
 > `add`方法不同于`save`方法，它的新增返回的是包含自增主键值的当前新增数据信息。
 
+批量新增可以使用`addAll`：
+
+```php
+$user = new UserDao;
+$list = [
+    ['name'=>'thinkphp','email'=>'thinkphp@qq.com'],
+    ['name'=>'onethink','email'=>'onethink@qq.com']
+];
+$user->addAll($list);
+```
+> `addAll`方法返回的是包含自增主键值的当前新增数据信息。
