@@ -126,11 +126,22 @@ User::update(['name' => 'thinkphp', 'email' => 'thinkphp@qq.com'], ['id' => 1], 
 
 ```php
 $data = [
-    'id' = 1;
+    'id' => 1
 ];
 $user = new UserDao;
 $user->edit($data);
 ```
 
+当我们修改信息，再次提交时，添加了修改的字段信息，编辑方法会实时更新数据，并返回最新的数据：
 
+```php
+$data = [
+    'id' => 1,
+    'name' => 'thinkphp'
+];
+$user = new UserDao;
+$user->edit($data);
+```
+
+> 需要注意的是`edit`方法默认会过滤软删除数据，如果你的数据已经被软删除，将不会更新成功，也不会查询出来。更详尽的用法可以参看[`topphp/topphp-generate`](/composer/topphp-generate.md)组件章节。
 

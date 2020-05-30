@@ -142,8 +142,8 @@ $user = User::create([
 
 ```php
 $data = [
-    'name' = 'thinkphp';
-    'email' = 'thinkphp@qq.com';
+    'name' => 'thinkphp',
+    'email' => 'thinkphp@qq.com'
 ];
 $user = new UserDao;
 $user->add($data);
