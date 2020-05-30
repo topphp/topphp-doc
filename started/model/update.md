@@ -189,5 +189,9 @@ dump($user->getModelError());
 
 > 事实上`BaseModel`的所有方法都可以通过`getModelError`获取异常信息。
 
+`updateField`其实是支持按照条件批量更新的，但是如果你是更复杂的多条件批量更新或者希望通过主键进行批量更新可以使用`updateAll`方法。
+
+例如：
+
 
 
