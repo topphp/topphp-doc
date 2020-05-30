@@ -122,5 +122,13 @@ User::update(['name' => 'thinkphp', 'email' => 'thinkphp@qq.com'], ['id' => 1], 
 
 > 更新的最佳实践原则是：如果需要使用模型事件，那么就先查询后更新，如果不需要使用事件或者不查询直接更新，直接使用静态的`Update`方法进行条件更新，如非必要，尽量不要使用批量更新，或者使用`TopPHP`的[`topphp/topphp-generate`](/composer/topphp-generate.md)组件提供的`BaseModel`类的`edit`方法进行编辑数据，`updateField`方法进行指定条件更新，`updateAll`方法进行批量更新。
 
+`edit`方法主要针对数据表单的更新操作，例如我们有一个需要对于用户信息编辑的页面，我们可以直接调用编辑的方法进行展示数据：
 
+```php
+$data = [
+    'id' = 1;
+];
+$user = new UserDao;
+$user->edit($data);
+```
 
