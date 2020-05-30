@@ -154,6 +154,7 @@ $where = [
 $user = new UserDao;
 $user->updateField($where, "name", "topphp");
 ```
+
 多个字段可以使用数组形式：
 
 ```php
@@ -175,8 +176,8 @@ $user = new UserDao;
 $user->updateField(1, "name", "topphp");
 ```
 
-> `updateField`方法返回的是`bool`值，更新成功返回`true`，失败返回`false`。
-注意：`updateField`方法不会自动过滤软删除数据，如果你有过滤软删除这种特殊的需求，可以自行在`where`条件中加入筛选判断，如`$where = [["id", ">", 10], ["delete_time", "<>", null]]`;
+> `updateField`方法返回的是`bool`值，更新成功返回`true`，失败返回`false`。  
+> 注意：`updateField`方法不会自动过滤软删除数据，如果你有过滤软删除这种特殊的需求，可以自行在`where`条件中加入筛选判断，如`$where = [["id", ">", 10], ["delete_time", "<>", null]]`;
 
 如果你需要查看失败的原因可以使用`getModelError`方法进行获取：
 
@@ -187,4 +188,6 @@ dump($user->getModelError());
 ```
 
 > 事实上`BaseModel`的所有方法都可以通过`getModelError`获取异常信息。
+
+
 
