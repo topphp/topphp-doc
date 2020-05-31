@@ -247,7 +247,7 @@ $data = [
 $admin->updateAll(1, $data);
 ```
 
-> `updateAll`与`updateField`还有一个不同的地方就是`updateAll`会自动过滤掉数据表不存在的字段，而`updateField`则会报出`fields not exists:[xxx]`的异常。我们推荐的用法是如果你不需要获取更新成功的记录数或者仅需要更新单一字段推荐使用`updateField`，如果需要获取更新成功的记录数，或者需要通过主键进行批量更新，使用`updateAll`。
+> `updateAll`与`updateField`还有一个不同的地方就是`updateAll`会自动过滤掉数据表不存在的字段，而`updateField`则会报出`fields not exists:[xxx]`的异常。我们推荐的用法是如果你不需要获取更新成功的记录数或者仅需要更新单一字段使用`updateField`，如果需要获取更新成功的记录数，或者需要通过主键进行批量更新，使用`updateAll`。
 
 
 
