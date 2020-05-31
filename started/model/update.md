@@ -219,16 +219,32 @@ UPDATE `topphp_admin`  SET `role_id` = '1' , `role_name` = '财务' , `update_ti
 
 ```php
 $admin = new AdminDao;
-$data = [
-    "role_id" => 1,
-    "role_name" => "财务"
+$data  = [
+    [
+        "id"        => 1,
+        "role_id"   => 1,
+        "role_name" => "财务"
+    ],
+    [
+        "id"        => 2,
+        "role_id"   => 3,
+        "role_name" => "总经理"
+    ],
 ];
-$ids  = [1, 6, 10];
-$where = function ($query) use ($ids) {
-    $query->where("id", "in", $ids);
-    $query->whereOr("id", ">", 32);
-};
-$admin->updateAll($where, $data);
+$admin->updateAll($data);
+```
+
+我们可以在`updateAll`的第一个参数传入包含主键`id`的二维更新数组，`updateAll`会将所有满足条件的数据进行对应的批量更新。
+
+`updateAll`同样也支持主键多字段修改：
+
+```php
+$admin = new AdminDao;
+$data = [
+    "role_id" => 2,
+    "role_name" => "行政"
+];
+$admin->updateAll(1, $data);
 ```
 
 > `updateAll`与`updateField`还有一个不同的地方就是`updateAll`会自动过滤掉数据表不存在的字段，而`updateField`则会报出`fields not exists:[xxx]`的异常。我们推荐的用法是如果你不需要获取更新成功的记录数使用`updateField`，如果需要获取更新成功的记录数，或者需要通过主键进行批量更新，使用`updateAll`。
