@@ -221,7 +221,7 @@ UPDATE `topphp_admin`  SET `role_id` = '1' , `role_name` = '财务' , `update_ti
 $admin = new AdminDao;
 $data  = [
     [
-        "id"        => 10,
+        "id"        => 11,
         "role_id"   => 1,
         "role_name" => "财务"
     ],
