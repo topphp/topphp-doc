@@ -213,7 +213,9 @@ $admin->updateAll($where, $data);
 UPDATE `topphp_admin`  SET `role_id` = '1' , `role_name` = '财务' , `update_time` = '2020-05-31 18:20:37'  WHERE  ( `id` IN (1,6,10) OR `id` > 32 )
 ```
 
-上面的写法是一个典型的闭包查询条件，利用闭包查询，我们可以构造很多复杂的查询条件。`updateAll`方法返回的是更新成功的记录数。上面的用法其实使用`updateField`也可以做到，区别就是两个方法的返回值不同。但是如果你想通过主键`id`进行批量更新，那么只有`updateAll`才能做到了：
+上面的写法是一个典型的闭包查询条件，利用闭包查询，我们可以构造很多复杂的查询条件。`BaseModel`的很多方法的`where`条件参数几乎都支持这种闭包的写法。
+
+`updateAll`方法返回的是更新成功的记录数。上面的用法其实使用`updateField`也可以做到，区别就是两个方法的返回值不同。但是如果你想通过主键`id`进行批量更新，那么只有`updateAll`才能做到了：
 
 ```php
 $admin = new AdminDao;
