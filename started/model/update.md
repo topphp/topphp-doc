@@ -236,7 +236,7 @@ $admin->updateAll($data);
 
 我们可以在`updateAll`的第一个参数传入包含主键`id`的二维更新数组，`updateAll`会将所有满足条件的数据进行对应的批量更新。
 
-`updateAll`同样也支持主键多字段修改：
+`updateAll`同样也支持像`updateField`那样通过主键进行多字段修改：
 
 ```php
 $admin = new AdminDao;
