@@ -49,5 +49,5 @@ php think gen:db -b
 ```
   a、每次执行 php think gen:db 创建的模型实体类都会重置一遍，所以请不要直接编辑操作`app/model/entity`下的模型实体类。
   b、每次执行 php think gen:db 对于已存在的模型Dao不会清空代码，对于不存在的模型Dao会自动创建（例如中途添加新的数据表场景）。
-  c、每次执行 php think gen:db 以后使用传统环境（apache或nginx）部署在Linux系统下的注意统一修改一次文件夹权限（如：chown -R www:www www.domain.com/）
+  c、每次执行 php think gen:db 以后使用传统环境（apache或nginx）部署在Linux系统下的注意执行以后的文件夹权限，如果不一致，需统一修改一次文件夹权限（如：chown -R www:www www.domain.com/）
 ```
