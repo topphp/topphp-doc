@@ -33,5 +33,5 @@ php think gen:db
 
 ![](/assets/db.png)![](/assets/gendb1.png)![](/assets/gendb2.png)
 
-> 同时会在所有的应用目录创建对应的`xxxDao.php`的模型文件。`gen:db`命令会根据你是否创建了对应的应用模块（如admin）下的model的文件夹来判断是否自动创建对应的model文件
+> 同时会在所有的应用目录创建对应的`xxxDao.php`的模型文件。`gen:db`命令会根据你是否创建了对应的应用模块（如`admin`）下的`model`的文件夹来判断是否自动创建对应的`model`文件，如果存在`model`该文件夹，就会自动创建。
 
