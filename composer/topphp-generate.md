@@ -31,7 +31,7 @@ php think gen:db
 
 ## 效果图
 
-![](/assets/db.png)![](/assets/gendb1.png)
+![](/assets/db.png)![](/assets/gendb1.png)![](/assets/gendb2.png)
 
 # 版本说明
 
