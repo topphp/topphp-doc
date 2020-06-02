@@ -42,11 +42,12 @@ php think gen:db -b
 ### 注意事项
 
 * 自动生成：在topphp骨架里，多应用情况下，gen:db组件会根据你是否创建了对应的应用模块（如admin）下的model的文件夹来判断是否自动创建对应的model文件
-* 创建规范：应用模块（如admin）下的model文件统一会继承app/model/entity下的模型实体类,并全部以Dao.php结尾（此Dao层主要用于编写数据库业务）
+* 创建规范：应用模块（如admin）下的model文件统一会继承`app/model/entity`下的模型实体类,并全部以Dao.php结尾（此Dao层主要用于编写数据库业务）
 * 添加新的表：如果开发过程中需要添加新的数据表，可以执行 php think gen:db 进行自动更新模型实体类与模型Dao
+* `BaseModel`类：需要使用`TopPHP`提供的`BaseModel`类时，请先备份并删除`app/model`下原有的`BaseModel`，然后执行`php think gen:db -b`命令。
 * 特别说明：
 ```
-  a、每次执行 php think gen:db 模型实体类都会重置一遍，所以请不要直接编辑操作模型实体类
+  a、每次执行 php think gen:db 创建的模型实体类都会重置一遍，所以请不要直接编辑操作`app/model/entity`下的模型实体类。
   b、每次执行 php think gen:db 对于已存在的模型Dao不会清空代码，对于不存在的模型Dao会自动创建（例如中途添加新的数据表场景）。
   c、每次执行 php think gen:db 以后使用传统环境（apache或nginx）部署在Linux系统下的注意统一修改一次文件夹权限（如：chown -R www:www www.domain.com/）
 ```
