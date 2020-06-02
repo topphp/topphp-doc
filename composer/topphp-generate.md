@@ -29,7 +29,7 @@ php think gen:db
 
 > 程序会在 `app/model/entity`目录下创建实体类，文件名以不包含表前缀的数据表名命名，如：`topphp_user`表，即为`User.php`。
 
-*效果图*
+**效果图**
 
 ![](/assets/db.png)![](/assets/gendb1.png)![](/assets/gendb2.png)
 
