@@ -29,40 +29,9 @@ php think gen:db
 
 > 程序会在 `app/model/entity`目录下创建实体类，文件名以不包含表前缀的数据表名命名，如：`topphp_user`表，即为`User.php`。
 
-## 效果图
+*效果图*
 
 ![](/assets/db.png)![](/assets/gendb1.png)![](/assets/gendb2.png)
 
-# 版本说明
-
-现代的PHP组件都使用语义版本方案\([http://semver.org](http://semver.org)\), 版本号由三个点\(.\)分数字组成\(例如:1.13.2\).第一个数字是主版本号,如果PHP组件更新破坏了向后兼容性,会提升主版本号.  
-第二个数字是次版本号,如果PHP组件小幅更新了功能,而且没有破坏向后兼容性,会提升次版本号.  
-第三个数字\(即最后一个数字\)是修订版本号,如果PHP组件修正了向后兼容的缺陷,会提升修订版本号.
-
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Testing
-
-```bash
-$ composer test
-```
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE\_OF\_CONDUCT](CODE_OF_CONDUCT.md) for details.
-
-## Security
-
-If you discover any security related issues, please email sleep@kaituocn.com instead of using the issue tracker.
-
-## Credits
-
-* [topphp](https://github.com/topphp)
-* [All Contributors](../../contributors)
-
-## License
-
-The MIT License \(MIT\). Please see [License File](LICENSE.md) for more information.
+> 同时会在所有的应用目录创建对应的`xxxDao.php`的模型文件。`gen:db`命令会根据你是否创建了对应的应用模块（如admin）下的model的文件夹来判断是否自动创建对应的model文件
 
