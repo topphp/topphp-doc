@@ -13,10 +13,16 @@ composer require topphp/topphp-generate
 
 ### 使用方法
 
-需要先配置数据库信息 `config/database.php` 后进行命令行生成。
+需要先配置数据库信息 `config/database.php` 后进行命令行生成：
 
 ```shell
 php think gen:db
+```
+
+需要使用`TopPHP`提供的`BaseModel`类的话执行：
+
+```shell
+php think gen:db -b
 ```
 
 > 程序会在 `app/model/entity`目录下创建实体类，文件名以不包含表前缀的数据表名命名，如：`topphp_user`表，即为`User.php`。
