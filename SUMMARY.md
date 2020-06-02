@@ -160,6 +160,8 @@
   * [topphp-client](composer/topphp-client.md)
   * [topphp-wechat](composer/topphp-wechat.md)
   * [topphp-generate](composer/topphp-generate.md)
+    * [BaseModel](composer/topphp-generate/BaseModel.md)
+        * [新增](composer/topphp-generate/BaseModel/add.md)
   * [topphp-consul](composer/topphp-consul.md)
   * [topphp-opencv](composer/topphp-opencv.md)
     * [PHPOpenCV环境安装](composer/topphp-opencv/install.md)
