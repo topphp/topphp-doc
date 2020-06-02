@@ -4,7 +4,6 @@
 
 `BaseModel.php`为基础模型公共类，用于编写常用的增删改查公共方法，或者有关项目的模型公共方法。仅在不存在`BaseModel.php`文件时自动创建，以后再运行命令不会对此文件进行改变或删除，所以用户可自己更改里面的代码。
 
-
 ### 安装
 
 ```bash
@@ -46,8 +45,9 @@ php think gen:db -b
 * 添加新的表：如果开发过程中需要添加新的数据表，可以执行 php think gen:db 进行自动更新模型实体类与模型Dao
 * `BaseModel`类：需要使用`TopPHP`提供的`BaseModel`类时，请先备份并删除`app/model`下原有的`BaseModel`，然后执行`php think gen:db -b`命令。
 * 特别说明：
-```
-  a、每次执行 php think gen:db 创建的模型实体类都会重置一遍，所以请不要直接编辑操作`app/model/entity`下的模型实体类。
-  b、每次执行 php think gen:db 对于已存在的模型Dao不会清空代码，对于不存在的模型Dao会自动创建（例如中途添加新的数据表场景）。
-  c、每次执行 php think gen:db 以后使用传统环境（apache或nginx）部署在Linux系统下的注意执行以后的文件夹权限，如果不一致，需统一修改一次文件夹权限（如：chown -R www:www www.domain.com/）
-```
+      a、每次执行 php think gen:db 创建的模型实体类都会重置一遍，所以请不要直接编辑操作`app/model/entity`下的模型实体类。
+      b、每次执行 php think gen:db 对于已存在的模型Dao不会清空代码，对于不存在的模型Dao会自动创建（例如中途添加新的数据表场景）。
+      c、每次执行 php think gen:db 以后使用传统环境（apache或nginx）部署在Linux系统下的注意执行以后的文件夹权限，如果不一致，需统一修改一次文件夹权限（如：chown -R www:www www.domain.com/）
+
+
+
