@@ -1,15 +1,8 @@
-# topphp-generate
+# topphp-generate 数据库实体类生成组件
 
-[![](https://img.shields.io/packagist/v/topphp/topphp-generate.svg?style=flat-square)](https://packagist.org/packages/topphp/topphp-generate)  
-[![](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)  
-[![](https://img.shields.io/travis/topphp/topphp-generate/master.svg?style=flat-square)](https://travis-ci.org/topphp/topphp-generate)  
-[![](https://img.shields.io/scrutinizer/coverage/g/topphp/topphp-generate.svg?style=flat-square)](https://scrutinizer-ci.com/g/topphp/topphp-generate/code-structure)  
-[![](https://img.shields.io/scrutinizer/g/topphp/topphp-generate.svg?style=flat-square)](https://scrutinizer-ci.com/g/topphp/topphp-generate)  
-[![](https://img.shields.io/packagist/dt/topphp/topphp-generate.svg?style=flat-square)](https://packagist.org/packages/topphp/topphp-generate)
+该组件可快速生成 `ThinkPHP` 的模型类，命名统一为`xxxDao`，继承自 `app\model\entity\XXX.php`数据模型实体类，自动`use BaseModel;`Trait类。
 
-# php文件生成器
-
-1.可快速生成 `thinkphp` 的模型类,继承自 `app\model\BaseModel`,`BaseModel.php`只创建第一次,以后再运行命令不会对此文件进行改变或删除,所以用户可自己更改里面的代码
+`BaseModel.php`为基础模型公共类，用于编写常用的增删改查公共方法，或者有关项目的模型公共方法。只创建第一次,以后再运行命令不会对此文件进行改变或删除，所以用户可自己更改里面的代码。
 
 ### 组件结构
 
