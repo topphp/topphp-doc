@@ -8,7 +8,7 @@
 ### 安装
 
 ```bash
-$ composer require topphp/topphp-generate
+composer require topphp/topphp-generate
 ```
 
 ## 使用方法
