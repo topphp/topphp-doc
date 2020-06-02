@@ -5,9 +5,7 @@
 `BaseModel.php`为基础模型公共类，用于编写常用的增删改查公共方法，或者有关项目的模型公共方法。仅在不存在`BaseModel.php`文件时自动创建，以后再运行命令不会对此文件进行改变或删除，所以用户可自己更改里面的代码。
 
 
-## 安装
-
-Via Composer
+### 安装
 
 ```bash
 $ composer require topphp/topphp-generate
