@@ -11,9 +11,9 @@
 composer require topphp/topphp-generate
 ```
 
-## 使用方法
+### 使用方法
 
-需要先配置数据库信息 `config/database.php` 后进行命令行生成
+需要先配置数据库信息 `config/database.php` 后进行命令行生成。
 
 ```shell
 php think gen:db
@@ -27,8 +27,7 @@ php think gen:db
           c、每次执行 php think gen:db 以后使用传统环境（apache或nginx）部署在Linux系统下的注意统一修改一次文件夹权限（如：chown -R www:www www.domain.com/）
 ```
 
-> 程序会在 `app/model/entity`目录下创建实体类  
-> 需要注意的是该目录里的文件每次都会删除源文件后重新生成，所以不要手动修改目录下的任何文件，如果有特殊需求想重新该实体类，name应该在非本目录下的其他目录新建一个文件，并继承该实体类。
+> 程序会在 `app/model/entity`目录下创建实体类，文件名以不包含表前缀的数据表名命名，如：`topphp_user`表，即为`User.php`。
 
 ## 效果图
 
