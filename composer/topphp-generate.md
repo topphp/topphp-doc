@@ -1,20 +1,9 @@
-# topphp-generate 数据库实体类生成组件
+## topphp-generate 数据库实体类生成组件
 
 该组件可快速生成 `ThinkPHP` 的模型类，命名统一为`xxxDao`，继承自 `app\model\entity\XXX.php`数据模型实体类，自动创建并`use BaseModel;`Trait类。
 
 `BaseModel.php`为基础模型公共类，用于编写常用的增删改查公共方法，或者有关项目的模型公共方法。仅在不存在`BaseModel.php`文件时自动创建，以后再运行命令不会对此文件进行改变或删除，所以用户可自己更改里面的代码。
 
-### 组件结构
-
-```
-bin/        
-build/
-docs/
-config/
-src/
-tests/
-vendor/
-```
 
 ## 安装
 
