@@ -40,4 +40,16 @@ $list = [
 $user->addAll($list);
 ```
 
-> addAll方法返回的是包含自增主键值的当前新增数据信息。
+> `addAll`方法返回的是包含自增主键值的当前新增数据信息。同样`addAll`支持第二个参数`$isModel`值为`true`，返回模型对象进行链式操作的方式。
+
+```php
+$user = new UserDao;
+$list = [
+    ['name'=>'thinkphp','email'=>'thinkphp@qq.com'],
+    ['name'=>'onethink','email'=>'onethink@qq.com']
+];
+$pageConfig = $user->getPaginateConfig(10);
+$user->addAll($list, true)->paginate($pageConfig)->toArray();
+```
+
+上面的方法将返回包含了新增数据的所有数据集的分页数据（每页显示10条记录），这样即可达到新增与返回查询分页一气呵成。关于分页的说明可以查看[`分页及其他`](/composer/topphp-generate/BaseModel/page.md)板块。

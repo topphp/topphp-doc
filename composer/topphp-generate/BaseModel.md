@@ -20,4 +20,6 @@
 
 [关联查询](/composer/topphp-generate/BaseModel/select/join.md)
 
+[分页及其他](/composer/topphp-generate/BaseModel/page.md)
+
 > 捕获`BaseModel`类中的错误，我们可以在模型`Dao`层通过`$this->getModelError()`方法进行获取。
