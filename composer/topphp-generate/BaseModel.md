@@ -17,3 +17,5 @@
 [limit查询](/composer/topphp-generate/BaseModel/select/limit.md)
 
 [关联查询](/composer/topphp-generate/BaseModel/select/join.md)
+
+> 捕获`BaseModel`类中的错误，我们可以在模型`Dao`层通过`$this->getModelError()`方法进行获取。
