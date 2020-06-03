@@ -1,6 +1,6 @@
 ## BaseModel Trait类
 
-`BaseModel`为你提供常用的公共**增删改查**操作，以及一些便捷的快速查询的方法。主要包含如下几大类方法：
+`BaseModel`为你提供常用的公共 **增删改查** 操作，以及一些便捷的快速查询的方法。主要包含如下几大类方法：
 
 [新增](/composer/topphp-generate/BaseModel/add.md)
 
