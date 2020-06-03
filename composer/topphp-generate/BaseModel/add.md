@@ -29,3 +29,13 @@ $this->add($data, true)->where($idName, $this->$idName)->find();
 
 ### 批量新增
 
+如果你想批量新增，可以使用`addAll`方法：
+
+```php
+$user = new UserDao;
+$list = [
+    ['name'=>'thinkphp','email'=>'thinkphp@qq.com'],
+    ['name'=>'onethink','email'=>'onethink@qq.com']
+];
+$user->addAll($list);
+```
