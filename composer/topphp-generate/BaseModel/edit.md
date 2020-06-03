@@ -33,3 +33,8 @@ $user->edit($data, 'withSoft');
 ```
 枚举类对应的软删除类型为：
 
+| type | 枚举常量 | 说明 |
+| :--- | :--- | :--- |
+| excludeSoft | MethodEnum::EXCLUDE_SOFT | 排除软删除 |
+| withSoft | MethodEnum::WITH_SOFT | 包含软删除 |
+| onlySoft | MethodEnum::ONLY_SOFT | 仅查询软删除 |
