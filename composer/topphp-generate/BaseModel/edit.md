@@ -8,3 +8,28 @@
 $user = new UserDao;
 $user->edit(['id' => 1]);
 ```
+当我们修改信息，再次提交时，添加了修改的字段信息，编辑方法会实时更新数据，并返回最新的数据：
+
+```php
+$data = [
+    'id' => 1,
+    'name' => 'thinkphp'
+];
+$user = new UserDao;
+$user->edit($data);
+```
+> 需要注意的是`edit`方法默认会过滤软删除数据，如果你的数据已经被软删除，将不会更新成功，也不会查询出来。
+
+如果你需要编辑软删除的数据，我们提供第二个参数`$queryType`来过滤软删除数据：
+
+```php
+$data = [
+    'id' => 1,
+    'name' => 'thinkphp'
+];
+$user = new UserDao;
+$user->edit($data, 'withSoft');
+// $user->edit($data, MethodEnum::WITH_SOFT);// 或者使用枚举类
+```
+枚举类对应的软删除类型为：
+
