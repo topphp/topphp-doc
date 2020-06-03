@@ -1,5 +1,7 @@
 ## BaseModel Trait类
 
+`BaseModel`为你提供常用的公共**增删改查**操作，以及一些便捷的快速查询的方法。
+
 [新增](/composer/topphp-generate/BaseModel/add.md)
 
 [修改/编辑](/composer/topphp-generate/BaseModel/edit.md)
