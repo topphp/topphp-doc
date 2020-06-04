@@ -38,3 +38,16 @@ $user->edit($data, 'withSoft');
 | excludeSoft | MethodEnum::EXCLUDE_SOFT | 排除软删除 |
 | withSoft | MethodEnum::WITH_SOFT | 包含软删除 |
 | onlySoft | MethodEnum::ONLY_SOFT | 仅查询软删除 |
+
+有的时候我们需要编辑完返回列表数据，常规情况是一个编辑接口，一个列表接口，前端编辑完，再次调用列表接口，这样会产生两次调用请求，`edit`方法的第三个参数同样支持直接返回模型对象，供我们链式调用：
+
+```php
+$data = [
+    'id' => 1,
+    'name' => 'thinkphp'
+];
+$user = new UserDao;
+$pageConfig = $user->getPaginateConfig(10);
+$user->edit($data, MethodEnum::EXCLUDE_SOFT, true)->paginate($pageConfig)->toArray();
+```
+上面的方式将直接返回编辑完的数据列表最新分页数据，前端可以直接根据返回值进行渲染，不需要再次调用查询列表接口了。
