@@ -23,3 +23,7 @@
 [分页及其他](/composer/topphp-generate/BaseModel/page.md)
 
 > 捕获`BaseModel`类中的错误，我们可以在模型`Dao`层通过`$this->getModelError()`方法进行获取。
+
+### 注意事项
+
+> 如果你使用了`TopPHP`提供的`BaseModel`类，请务必每次更新数据表结构或者新增数据表时执行一遍`php think gen:db`命令。
