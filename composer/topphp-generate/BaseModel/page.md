@@ -165,3 +165,28 @@ $userNameList = $this->getSourceColumn($list, "username");
 上面将会返回`id`大于`10`的用户名字段值组成的数组，效果与`ThinkPHP`的`column`查询相似，提供这个方法主要是为了增加业务处理数据的灵活性。
 
 > `getSourceColumn`方法第一个参数必须是二维数组，第二个参数为第二维的数据`key`名。
+
+### 获取数据表字段结构信息
+
+`BaseModel`提供`public`属性的`getTableFieldName`用于获取数据模型字段信息：
+
+```php
+$fields = $this->getTableFieldName();
+```
+
+`$fields`将会返回类似如下字段名数组：
+
+```php
+array (
+  0 => "id"
+  1 => "username"
+  2 => "password"
+  3 => "email"
+  4 => "tel"
+  5 => "login_time"
+  6 => "login_ip"
+  7 => "create_time"
+  8 => "update_time"
+  9 => "delete_time"
+)
+```
