@@ -25,7 +25,7 @@ array (
 $user = new UserDao;
 $pageLimit = 10;// 每页显示条数
 $pageConfig = $this->getPaginateConfig($pageLimit);
-$user->paginate($pageConfig)->toArray();
+$this->paginate($pageConfig)->toArray();
 ```
 
 当我们访问如`https://www.domain.com/index/user/list?page=2`这样的地址时，将会获取到用户列表的第二页数据。
