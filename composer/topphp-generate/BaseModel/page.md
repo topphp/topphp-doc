@@ -117,7 +117,51 @@ const ONE_PAGE_LIMIT = [
 
 像上面的方式，整个`User`控制器将会使用每页显示`5`条数据的分页规则。
 
-> `getPaginateConfig`的每页显示条数参数规则为：优先获取手动传入的数值，如果不传或传`0`将会自动获取`PaginateEnum`枚举类的配置，如果都没有配置，将会使用默认值`15`。
+> `getPaginateConfig`的每页显示条数参数优先级规则为：优先获取手动传入的数值，如果不传或传`0`将会自动获取`PaginateEnum`枚举类的配置，如果都没有配置，将会使用默认值`15`。
 
+### 数组分页
 
+`BaseModel`提供`protected`属性的`dataPage`数组分页方法，主要针对小数据量的分页场景，如你有一个固定数量的数据集，你需要将该数据进行自定义的拆分处理：
 
+```php
+$list = [
+    ["id" => 1, "city" => "北京"],
+    ["id" => 2, "city" => "天津"],
+    ["id" => 3, "city" => "河北"],
+    ...
+];
+$page = 1;// 当前页
+$limit = 10;// 每页显示10条
+$this->dataPage($list, $page, $limit);
+```
+
+`dataPage`会根据`$page`页码，在全部数据`$list`中按照`$limit`的每页显示数量返回指定页的数据。
+
+### 返回数组维度
+
+`BaseModel`提供`protected`属性的`arrayLevel`获取数组维度的方法，该方法返回传入的数组是几维数组`int`值。
+
+```php
+$list = [
+    ["id" => 1, "city" => "北京"],
+    ["id" => 2, "city" => "天津"],
+    ["id" => 3, "city" => "河北"],
+    ...
+];
+$this->arrayLevel($list);
+```
+
+上面将会返回`int`型的数字`2`，表示`$list`是个二维数组。
+
+### 获取资源数据指定列的数组
+
+`BaseModel`提供`protected`属性的`getSourceColumn`获取查询结果集中指定列的数据：
+
+```php
+$list = $this->where("id", ">", 10)->select();
+$userNameList = $this->getSourceColumn($list, "username");
+```
+
+上面将会返回`id`大于`10`的用户名字段值组成的数组，效果与`ThinkPHP`的`column`查询相似，提供这个方法主要是为了增加业务处理数据的灵活性。
+
+> `getSourceColumn`方法第一个参数必须是二维数组，第二个参数为第二维的数据`key`名。
