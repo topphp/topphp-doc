@@ -22,26 +22,53 @@ array (
 默认的请求分页参数名为`page`，无论是`post`请求，还是`get`请求，只要在请求参数中加入`page`键，即表示当前页数在第几页，模型会自动获取该参数，查询时会自动定位到指定页数据。如：
 
 ```php
-$user = new UserDao;
-$pageLimit = 10;// 每页显示条数
-$pageConfig = $this->getPaginateConfig($pageLimit);
-$this->paginate($pageConfig)->toArray();
+namespace app\index\model;
+
+use app\model\entity\User;
+
+class UserDao extends User
+{
+    public function getUserList()
+    {
+        $pageLimit = 10;// 每页显示条数
+        $pageConfig = $this->getPaginateConfig($pageLimit);
+        return $this->paginate($pageConfig)->toArray();
+    }
+}
 ```
 
 当我们访问如`https://www.domain.com/index/user/list?page=2`这样的地址时，将会获取到用户列表的第二页数据。
 
 > `getPaginateConfig`的每页显示条数参数`$pageLimit`默认为`0`，表示会自动根据`TopPHP`骨架的`PaginateEnum`枚举类配置自动获取。
 
-你可以像上面的方式手动传入每页显示条数，但我们更推荐使用枚举类来管理分页配置，例如我们在`index/user/list`操作中直接像如下方式使用：
+你可以像上面的方式手动传入每页显示条数，但我们更推荐使用枚举类来管理分页配置，例如我们在`index/User/list`操作中直接像如下方式使用：
 
 ```php
+namespace app\index\model;
+
+use app\model\entity\User;
+
+class UserDao extends User
+{
+    public function getUserList()
+    {
+        $pageConfig = $this->getPaginateConfig();
+        return $this->paginate($pageConfig)->toArray();
+    }
+}
+
+...
+
+namespace app\index\controller;
+
+use app\index\model\UserDao;
+
 class User extends Base
 {
     public function list()
     {
         $user = new UserDao;
-        $pageConfig = $user->getPaginateConfig();
-        return $user->paginate($pageConfig)->toArray();
+        dump($user->getUserList());
     }
 }
 ```
