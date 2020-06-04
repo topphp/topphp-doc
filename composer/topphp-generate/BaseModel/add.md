@@ -83,3 +83,13 @@ $user->addLimitAll($list, 50);
 > `addLimitAll`方法第三个参数`$autoTime`用来控制是否自动时间戳，仅数据表存在 `create_time` 或 `update_time` 字段有效，默认为`true`开启状态。
 
 如果你的数据表不存在 `create_time` 或 `update_time` 字段也不会影响插入。当你的数据是从旧的数据导入进来时，你又想保留原有的 `create_time` 或 `update_time` 字段数据，可能就需要将`$autoTime`参数设为`false`了。
+
+```php
+$user = new UserDao;
+$list = [
+    ['name'=>'thinkphp','email'=>'thinkphp@qq.com','create_time'=>'1999-01-01 13:36:25'],
+    ['name'=>'onethink','email'=>'onethink@qq.com','create_time'=>'2000-10-05 10:50:30'],
+    ...
+];
+$user->addLimitAll($list, 50, false);
+```
