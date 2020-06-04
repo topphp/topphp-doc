@@ -40,7 +40,7 @@ class User extends Base
     public function list()
     {
         $user = new UserDao;
-        $pageConfig = $this->getPaginateConfig();
+        $pageConfig = $user->getPaginateConfig();
         return $user->paginate($pageConfig)->toArray();
     }
 }
@@ -91,4 +91,6 @@ const ONE_PAGE_LIMIT = [
 像上面的方式，整个`User`控制器将会使用每页显示`5`条数据的分页规则。
 
 > `getPaginateConfig`的每页显示条数参数规则为：优先获取手动传入的数值，如果不传或传`0`将会自动获取`PaginateEnum`枚举类的配置，如果都没有配置，将会使用默认值`15`。
+
+
 
