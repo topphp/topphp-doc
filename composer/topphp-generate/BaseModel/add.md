@@ -53,3 +53,33 @@ $user->addAll($list, true)->paginate($pageConfig)->toArray();
 ```
 
 上面的方法将返回包含了新增数据的所有数据集的分页数据（每页显示10条记录），这样即可达到新增与返回查询分页一气呵成。关于分页的说明可以查看[`分页及其他`](/composer/topphp-generate/BaseModel/page.md)板块。
+
+### 大数据量批量新增
+
+如果你的数据量特别大，直接批量新增可能会导致数据库卡死或者是超时，使用`addLimitAll`方法分批次插入数据是个更好的选择，`addLimitAll`一般应用于批量数据超千条的场景：
+
+```php
+$user = new UserDao;
+$list = [
+    ['name'=>'thinkphp','email'=>'thinkphp@qq.com'],
+    ['name'=>'onethink','email'=>'onethink@qq.com'],
+    ...
+];
+$user->addLimitAll($list);
+```
+
+> `addLimitAll`方法返回的是插入成功的记录数，支持传入第二个参数`$limit`来控制每次执行插入的数量限制，默认`100`。
+
+```php
+$user = new UserDao;
+$list = [
+    ['name'=>'thinkphp','email'=>'thinkphp@qq.com'],
+    ['name'=>'onethink','email'=>'onethink@qq.com'],
+    ...
+];
+$user->addLimitAll($list, 50);
+```
+
+> `addLimitAll`方法第三个参数`$autoTime`用来控制是否自动时间戳，仅数据表存在 `create_time` 或 `update_time` 字段有效，默认为`true`开启状态。
+
+如果你的数据表不存在 `create_time` 或 `update_time` 字段也不会影响插入。当你的数据是从旧的数据导入进来时，你又想保留原有的 `create_time` 或 `update_time` 字段数据，可能就需要将`$autoTime`参数设为`false`了。
