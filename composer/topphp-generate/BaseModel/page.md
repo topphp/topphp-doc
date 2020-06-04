@@ -69,7 +69,7 @@ const ONE_PAGE_LIMIT = [
 ```php
 // 默认每页显示条数 default
 const ONE_PAGE_LIMIT = [
-    "default"         => 15,// BaseModel全局默认分页每页显示条数
+    "default"         => 15,
     "index/User/list" => 5 
 ];
 ```
@@ -78,5 +78,17 @@ const ONE_PAGE_LIMIT = [
 
 > 配置`ONE_PAGE_LIMIT`参数需要注意控制器和方法名，请严格按照**开发规范**的命名规则命名，例如：控制器类的命名采用驼峰法（首字母大写），多层级或多版本控制器需按照上面的`api`应用配置方式配置；操作方法名使用驼峰法（首字母小写）。
 
+`ONE_PAGE_LIMIT`参数支持通配符配置：
 
+```php
+// 默认每页显示条数 default
+const ONE_PAGE_LIMIT = [
+    "default"      => 15,
+    "index/User/*" => 5 
+];
+```
+
+像上面的方式，整个`User`控制器将会使用每页显示`5`条数据的分页规则。
+
+> `getPaginateConfig`的每页显示条数参数规则为：优先获取手动传入的数值，如果不传或传`0`将会自动获取`PaginateEnum`枚举类的配置，如果都没有配置，将会使用默认值`15`。
 
