@@ -38,7 +38,7 @@ php think gen:db -b
 
 你还可以使用`TopPHP`为你提供的`BaseModel`基础模型公共方法类的同时，向类中增加你特有的方法，每次执行`php think gen:db`时并不会覆盖掉你的方法。
 
-> 使用了`TopPHP`骨架的`entity`数据表实体类与`xxxDao`业务模型类这种模式进行对数据库的操作，请务必每次更新数据表结构或者新增数据表时执行一遍`php think gen:db`命令。
+> 使用了`TopPHP`骨架的`entity`数据表实体类与`xxxDao`业务模型类这种模式进行对数据库的操作，请务必每次更新数据表结构或者新增数据表时执行一遍`php think gen:db`命令，更新实体类`表`或`字段`信息。
 
 ### 注意事项
 
