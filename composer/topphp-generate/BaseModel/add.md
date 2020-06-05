@@ -60,7 +60,7 @@ $user->addAll($list, true)->paginate($pageConfig)->toArray();
 
 ### 大数据量批量新增
 
-> addAll ( '数据二维数组', '\[ int \]分批插入限制条数', '\[ bool \]是否自动时间戳' );
+> addLimitAll ( '数据二维数组', '\[ int \]分批插入限制条数', '\[ bool \]是否自动时间戳' );
 
 如果你的数据量特别大，直接批量新增可能会导致数据库卡死或者是超时，使用`addLimitAll`方法分批次插入数据是个更好的选择，`addLimitAll`一般应用于批量数据超千条的场景：
 
