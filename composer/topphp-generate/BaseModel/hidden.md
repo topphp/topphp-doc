@@ -40,7 +40,7 @@ class UserDao extends User
         "password",
         "delete_time",
     ];
-    
+
     public function editUser($data = ["id" => 1])
     {
         // data 参数只传主键 id 时默认返回的是查询数据，edit方法的详细说明可以参看【修改和编辑】章节
@@ -51,9 +51,11 @@ class UserDao extends User
         dump($res);
         // 此时操作成功返回的 $res 数据是不包含 password 字段的，我们调用 getModelData 方法，即可以获取到全部数据。
         $res = $this->getModelData();
-        dump($res);
+        dump($res);// 此时数据中已经包含了隐藏字段的信息了
         return SendMsg::arrayData($res);
     }
 }
 ```
+
+
 
