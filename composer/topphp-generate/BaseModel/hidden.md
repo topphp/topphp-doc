@@ -43,7 +43,7 @@ class UserDao extends User
     
     public function editUser($data = ["id" => 1])
     {
-        // data 参数只传主键 id 时默认返回的是查询数据，详细说明可以参看【修改和编辑】章节
+        // data 参数只传主键 id 时默认返回的是查询数据，edit方法的详细说明可以参看【修改和编辑】章节
         $res = $this->edit($data);
         if ($res === false) {
             return SendMsg::arrayAlert(40000, "操作失败");
