@@ -48,8 +48,10 @@ class UserDao extends User
         if ($res === false) {
             return SendMsg::arrayAlert(40000, "操作失败");
         }
+        dump($res);
         // 此时操作成功返回的 $res 数据是不包含 password 字段的，我们调用 getModelData 方法，即可以获取到全部数据。
         $res = $this->getModelData();
+        dump($res);
         return SendMsg::arrayData($res);
     }
 }
