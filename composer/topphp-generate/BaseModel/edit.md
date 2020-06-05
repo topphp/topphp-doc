@@ -148,4 +148,28 @@ $data = [
 $admin->updateAll(1, $data);
 ```
 
-> `updateAll`与`updateField`还有一个不同的地方就是`updateAll`会自动过滤掉数据表不存在的字段，而`updateField`则会报出`fields not exists:[xxx]`的异常。我们推荐的用法是如果你不需要获取更新成功的记录数或者仅需要更新单一字段，使用`updateField`，如果需要获取更新成功的记录数，或者需要通过主键进行批量更新，使用`updateAll`。
+> `updateAll`与`updateField`还有一个不同的地方就是`updateAll`会自动过滤掉数据表不存在的字段，而`updateField`则会报出`fields not exists:[xxx]`的异常。
+
+`updateAll`的第三个参数`$isOr`表示`where`条件是否是`OR`查询，默认`string`类型的`and`，构造时相当于使用`ThinkPHP`的链式`$model->where()`，如果你传入字符串`or`，构造时相当于使用`ThinkPHP`的链式`$model->whereOr()`。
+
+```php
+$admin = new AdminDao;
+$data = [
+    "role_id" => 1,
+    "role_name" => "财务"
+];
+$ids  = [1, 6, 10];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 32]
+];
+$admin->updateAll($where, $data, "or");
+```
+
+上面的写法其实与第一个闭包形式的结果是一样的。
+
+> 我们推荐的用法是：
+
+* 如果你是需要编辑一条数据表单，使用`edit`
+* 如果你不需要获取更新成功的记录数或者仅需要更新单一字段，使用`updateField`
+* 如果需要获取更新成功的记录数，或者需要通过主键进行批量更新，使用`updateAll`
