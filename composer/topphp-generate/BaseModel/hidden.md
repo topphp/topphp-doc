@@ -16,7 +16,7 @@ class UserDao extends User
 }
 ```
 
-这种方式是永久隐藏的方式，如果你仅需要某些特殊情况临时去隐藏字段可以使用`ThinkPHP`模型中的链式操作`hidden()`方法进行隐藏。
+这种方式是永久隐藏的方式，如果你仅需要某些特殊情况临时去隐藏字段可以使用`ThinkPHP`模型中的链式操作`hidden()`方法进行隐藏：
 
 ```php
 $user = User::find(1);
