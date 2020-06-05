@@ -2,7 +2,7 @@
 
 ### 编辑数据
 
-> edit ( '数据数组', '\[ excludeSoft \]软删除过滤判断', '\[ bool \]是否返回当前模型' );
+> edit \( '数据数组', '\[ excludeSoft \]软删除过滤判断', '\[ false \]是否返回当前模型' \);
 
 `edit`方法主要针对数据表单的更新操作，例如我们有一个需要对于用户信息编辑的页面，我们可以直接调用编辑的方法进行展示数据，编辑方法在仅传入主键id时会根据主键自动查询数据并返回：
 
@@ -10,6 +10,7 @@
 $user = new UserDao;
 $user->edit(['id' => 1]);
 ```
+
 当我们修改信息，再次提交时，添加了修改的字段信息，编辑方法会实时更新数据，并返回最新的数据：
 
 ```php
@@ -20,6 +21,7 @@ $data = [
 $user = new UserDao;
 $user->edit($data);
 ```
+
 > 需要注意的是`edit`方法默认会过滤软删除数据，如果你的数据已经被软删除，将不会更新成功，也不会查询出来。
 
 如果你需要编辑软删除的数据，我们提供第二个参数`$queryType`来过滤软删除数据：
@@ -33,13 +35,14 @@ $user = new UserDao;
 $user->edit($data, 'withSoft');
 // $user->edit($data, MethodEnum::WITH_SOFT);// 或者使用枚举类
 ```
+
 枚举类对应的软删除类型为：
 
 | queryType | 枚举常量 | 说明 |
 | :--- | :--- | :--- |
-| excludeSoft | MethodEnum::EXCLUDE_SOFT | 排除软删除 |
-| withSoft | MethodEnum::WITH_SOFT | 包含软删除 |
-| onlySoft | MethodEnum::ONLY_SOFT | 仅查询软删除 |
+| excludeSoft | MethodEnum::EXCLUDE\_SOFT | 排除软删除 |
+| withSoft | MethodEnum::WITH\_SOFT | 包含软删除 |
+| onlySoft | MethodEnum::ONLY\_SOFT | 仅查询软删除 |
 
 有的时候我们需要编辑完返回列表数据，常规情况是一个编辑接口，一个列表接口，前端编辑完，再次调用列表接口，这样会产生两次调用请求，`edit`方法的第三个参数`$isModel`同样支持直接返回模型对象，供我们链式调用：
 
@@ -52,11 +55,12 @@ $user = new UserDao;
 $pageConfig = $user->getPaginateConfig(10);
 $user->edit($data, MethodEnum::EXCLUDE_SOFT, true)->paginate($pageConfig)->toArray();
 ```
+
 上面的方式将直接返回编辑完的数据列表最新分页数据，前端可以直接根据返回值进行渲染，不需要再次调用查询列表接口了。
 
 ### 更新指定字段值
 
-> updateField ( '查询条件', '字段名/字段键值对数组', '字段值/不传' );
+> updateField \( '查询条件', '字段名/字段键值对数组', '字段值/不传' \);
 
 如果你需要仅更新指定的字段，或者是根据指定的条件更新，你可以使用`updateField`方法，如我们将`name`为`thinkphp`的记录字段`name`更新为`topphp`：
 
@@ -94,7 +98,7 @@ $user->updateField(1, "name", "topphp");
 
 ### 多条件批量更新
 
-> updateAll ( '查询条件/包含主键的字段键值对二维数组', '字段键值对数组/不传', '\[ string \]是否OR查询/不传默认AND' );
+> updateAll \( '查询条件/包含主键的字段键值对二维数组', '字段键值对数组/不传', '\[ and \]是否or查询/不传' \);
 
 `updateField`其实是支持按照条件批量更新的，但是如果你是更复杂的多条件批量更新或者希望通过主键进行批量更新可以使用`updateAll`方法。
 
@@ -179,3 +183,6 @@ $admin->updateAll($where, $data, "or");
 * 如果你是需要编辑一条数据表单，使用`edit`
 * 如果你不需要获取更新成功的记录数或者仅需要更新单一字段，使用`updateField`
 * 如果需要获取更新成功的记录数，或者需要通过主键进行批量更新，使用`updateAll`
+
+
+
