@@ -1,6 +1,6 @@
 ## 新增
 
-> add ( '数据数组', '\[ bool \]是否返回当前模型' );
+> add \( '数据数组', '\[ bool false \]是否返回当前模型' \);
 
 通常我们新增一条数据只需要构造存储数据数组直接传给`add`方法即可：
 
@@ -12,6 +12,7 @@ $data = [
 $user = new UserDao;
 $user->add($data);
 ```
+
 > `add`方法不同于`ThinkPHP`的`save`方法，它的新增返回的是包含自增主键值的当前新增数据信息，省去了开发者再次获取自增主键并赋值的步骤，默认会过滤数据库不存在的字段。
 
 如果你想新增成功以后还要对此模型进行其他的操作，可以传入第二个参数`$isModel`值为`true`，返回模型对象进行链式操作。
@@ -31,7 +32,7 @@ $this->add($data, true)->where($idName, $this->$idName)->find();
 
 ### 批量新增
 
-> addAll ( '数据二维数组', '\[ bool \]是否返回当前模型' );
+> addAll \( '数据二维数组', '\[ bool \]是否返回当前模型' \);
 
 如果你想批量新增，可以使用`addAll`方法：
 
@@ -60,7 +61,7 @@ $user->addAll($list, true)->paginate($pageConfig)->toArray();
 
 ### 大数据量批量新增
 
-> addLimitAll ( '数据二维数组', '\[ int \]分批插入限制条数', '\[ bool \]是否自动时间戳' );
+> addLimitAll \( '数据二维数组', '\[ int \]分批插入限制条数', '\[ bool \]是否自动时间戳' \);
 
 如果你的数据量特别大，直接批量新增可能会导致数据库卡死或者是超时，使用`addLimitAll`方法分批次插入数据是个更好的选择，`addLimitAll`一般应用于批量数据超千条的场景：
 
@@ -99,3 +100,6 @@ $list = [
 ];
 $user->addLimitAll($list, 50, false);
 ```
+
+
+
