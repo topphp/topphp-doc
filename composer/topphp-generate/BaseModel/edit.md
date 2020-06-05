@@ -87,3 +87,65 @@ $user->updateField(1, "name", "topphp");
 
 > `updateField`方法返回的是`bool`值，更新成功返回`true`，失败返回`false`。  
 > 注意：`updateField`方法不会自动过滤软删除数据，如果你有过滤软删除这种特殊的需求，可以自行在`where`条件中加入筛选判断，如`$where = [["id", ">", 10], ["delete_time", "=", null]]`;
+
+### 多条件批量更新
+
+`updateField`其实是支持按照条件批量更新的，但是如果你是更复杂的多条件批量更新或者希望通过主键进行批量更新可以使用`updateAll`方法。
+
+例如：我们需要把一个角色`id`和角色`name`更新到一批管理员用户身上：
+
+```php
+$admin = new AdminDao;
+$data = [
+    "role_id" => 1,
+    "role_name" => "财务"
+];
+$ids  = [1, 6, 10];
+$where = function ($query) use ($ids) {
+    $query->where("id", "in", $ids);
+    $query->whereOr("id", ">", 32);
+};
+$admin->updateAll($where, $data);
+```
+
+上面的调用将会生成如下SQL:
+
+```php
+UPDATE `topphp_admin`  SET `role_id` = '1' , `role_name` = '财务' , `update_time` = '2020-05-31 18:20:37'  WHERE  ( `id` IN (1,6,10) OR `id` > 32 )
+```
+
+上面的写法是一个典型的闭包查询条件，利用闭包查询，我们可以构造很多复杂的查询条件。`BaseModel`的很多方法的`where`条件参数几乎都支持这种闭包的写法。
+
+`updateAll`方法返回的是更新成功的记录数。上面的用法其实使用`updateField`也可以做到，区别就是两个方法的返回值不同。但是如果你想通过主键`id`进行批量更新，那么只有`updateAll`才能做到了：
+
+```php
+$admin = new AdminDao;
+$data  = [
+    [
+        "id"        => 11,
+        "role_id"   => 1,
+        "role_name" => "财务"
+    ],
+    [
+        "id"        => 20,
+        "role_id"   => 3,
+        "role_name" => "总经理"
+    ],
+];
+$admin->updateAll($data);
+```
+
+我们可以在`updateAll`的第一个参数传入包含主键`id`的二维更新数组，`updateAll`会将所有满足条件的数据进行对应的批量更新。
+
+`updateAll`同样也支持像`updateField`那样通过主键进行多字段修改：
+
+```php
+$admin = new AdminDao;
+$data = [
+    "role_id" => 2,
+    "role_name" => "行政"
+];
+$admin->updateAll(1, $data);
+```
+
+> `updateAll`与`updateField`还有一个不同的地方就是`updateAll`会自动过滤掉数据表不存在的字段，而`updateField`则会报出`fields not exists:[xxx]`的异常。我们推荐的用法是如果你不需要获取更新成功的记录数或者仅需要更新单一字段，使用`updateField`，如果需要获取更新成功的记录数，或者需要通过主键进行批量更新，使用`updateAll`。
