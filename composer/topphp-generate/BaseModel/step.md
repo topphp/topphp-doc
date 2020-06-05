@@ -87,3 +87,26 @@ $user->fieldDec(1, "score");
 ### 多字段自增/自减
 
 > fieldStep \( '查询条件', '字段表达式二维数组' \);
+
+`fieldStep`的第二个参数规则为：\[\['字段名1','inc','步进值1'\],\['字段名2','dec','步进值2'\]\]
+
+如果你有多字段自增自减的需求可以使用`fieldStep`方法，比如商品表的购买数量自增，库存自减：
+
+```php
+$goods = new GoodsDao;
+$where = ["goods_id", "in", [1,3,6]];
+$fields = [
+    ["buy_num", "inc", 1],
+    ["stock", "dec", 1]
+];
+$goods->fieldStep($where, $fields);
+```
+
+`fieldStep`方法的`$fields`也支持一围数组的表达式形式的自增或自减：
+
+```php
+$goods = new GoodsDao;
+$where = ["goods_id", "in", [1,3,6]];
+$fields = ["stock", "inc", 100];
+$goods->fieldStep($where, $fields);
+```
