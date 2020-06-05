@@ -56,6 +56,8 @@ $user->edit($data, MethodEnum::EXCLUDE_SOFT, true)->paginate($pageConfig)->toArr
 
 ### 更新指定字段值
 
+> updateField( '查询条件', '字段名/字段键值对数组', '字段值/不传' );
+
 如果你需要仅更新指定的字段，或者是根据指定的条件更新，你可以使用`updateField`方法，如我们将`name`为`thinkphp`的记录字段`name`更新为`topphp`：
 
 ```php
