@@ -31,6 +31,8 @@ $this->add($data, true)->where($idName, $this->$idName)->find();
 
 ### 批量新增
 
+> addAll('数据二维数组', '\[ bool \]是否返回当前模型');
+
 如果你想批量新增，可以使用`addAll`方法：
 
 ```php
@@ -57,6 +59,8 @@ $user->addAll($list, true)->paginate($pageConfig)->toArray();
 上面的方法将返回包含了新增数据的所有数据集的分页数据（每页显示10条记录），这样即可达到新增与返回查询分页一气呵成。关于分页的说明可以查看[`分页及其他`](/composer/topphp-generate/BaseModel/page.md)板块。
 
 ### 大数据量批量新增
+
+> addAll('数据二维数组', '\[ int \]分批插入限制条数', '\[ bool \]是否自动时间戳');
 
 如果你的数据量特别大，直接批量新增可能会导致数据库卡死或者是超时，使用`addLimitAll`方法分批次插入数据是个更好的选择，`addLimitAll`一般应用于批量数据超千条的场景：
 
