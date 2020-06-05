@@ -8,6 +8,8 @@
 
 [字段自增/自减](/composer/topphp-generate/BaseModel/step.md)
 
+[隐藏字段](/composer/topphp-generate/BaseModel/hidden.md)
+
 [删除/软删除](/composer/topphp-generate/BaseModel/delete.md)
 
 [查询/链式操作](/composer/topphp-generate/BaseModel/select.md)
