@@ -30,5 +30,21 @@
 
 > 如果你使用了`TopPHP`提供的`BaseModel`类，请务必每次更新数据表结构或者新增数据表时执行一遍`php think gen:db`命令。
 
+在模型中定义方法名时，请注意避免与`BaseModel`类的方法名重复问题，如一个编辑方法，我们可以像如下的方式命名：
+
+```php
+namespace app\index\model;
+
+use app\model\entity\User;
+
+class UserDao extends User
+{    
+    public function editUser($data)
+    {
+        return $this->edit($data);
+    }
+}
+```
+
 
 
