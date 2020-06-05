@@ -51,3 +51,6 @@ $pageConfig = $user->getPaginateConfig(10);
 $user->edit($data, MethodEnum::EXCLUDE_SOFT, true)->paginate($pageConfig)->toArray();
 ```
 上面的方式将直接返回编辑完的数据列表最新分页数据，前端可以直接根据返回值进行渲染，不需要再次调用查询列表接口了。
+
+### 更新指定字段值
+
