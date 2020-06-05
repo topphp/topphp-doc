@@ -54,3 +54,36 @@ $user->edit($data, MethodEnum::EXCLUDE_SOFT, true)->paginate($pageConfig)->toArr
 
 ### 更新指定字段值
 
+如果你需要仅更新指定的字段，或者是根据指定的条件更新，你可以使用`updateField`方法，如我们将`name`为`thinkphp`的记录字段`name`更新为`topphp`：
+
+```php
+$where = [
+    'name' => 'thinkphp'
+];
+$user = new UserDao;
+$user->updateField($where, "name", "topphp");
+```
+
+> `where`条件支持传入主键`id`、关联数组、表达式形式的索引数组（多条件的可以是二维数组）、闭包。
+
+多个字段可以使用数组形式：
+
+```php
+$data = [
+    'name'  => 'topphp',
+    'email' => 'topphp@domain.com'
+];
+$where = ['name', '=', 'thinkphp'];
+$user = new UserDao;
+$user->updateField($where, $data);
+```
+
+还可以直接通过主键进行更新：
+
+```php
+$user = new UserDao;
+$user->updateField(1, "name", "topphp");
+```
+
+> `updateField`方法返回的是`bool`值，更新成功返回`true`，失败返回`false`。  
+> 注意：`updateField`方法不会自动过滤软删除数据，如果你有过滤软删除这种特殊的需求，可以自行在`where`条件中加入筛选判断，如`$where = [["id", ">", 10], ["delete_time", "=", null]]`;
