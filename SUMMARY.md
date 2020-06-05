@@ -164,6 +164,7 @@
       * [新增](composer/topphp-generate/BaseModel/add.md)
       * [修改和编辑](composer/topphp-generate/BaseModel/edit.md)
       * [字段自增](composer/topphp-generate/BaseModel/step.md)
+      * [隐藏字段](composer/topphp-generate/BaseModel/hidden.md)
       * [删除与软删除](composer/topphp-generate/BaseModel/delete.md)
       * [查询与链式操作](composer/topphp-generate/BaseModel/select.md)
         * [查询一条](composer/topphp-generate/BaseModel/select/one.md)
