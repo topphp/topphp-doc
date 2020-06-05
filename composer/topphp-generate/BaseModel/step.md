@@ -65,3 +65,5 @@ $where = ["goods_id", "in", [1,3,6]];
 $fields = ["stock", "inc", 100];
 $goods->fieldStep($where, $fields);
 ```
+
+> `fieldStep`的返回值为`bool`，`true`为成功，`false`为失败。
