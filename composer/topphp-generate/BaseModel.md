@@ -20,6 +20,8 @@
 
 [limit查询](/composer/topphp-generate/BaseModel/select/limit.md)
 
+[根据字段筛选](/composer/topphp-generate/BaseModel/select/field.md)
+
 [关联查询](/composer/topphp-generate/BaseModel/select/join.md)
 
 [分页及其他](/composer/topphp-generate/BaseModel/page.md)
