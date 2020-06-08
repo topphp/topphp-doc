@@ -39,3 +39,59 @@ class UserDao extends User
 ### 使用
 
 > remove \( '查询条件', '\[ false \]是否是真删除', '\[ and \]是否or查询' \);
+
+如果需要删除一条数据，只需要：
+
+```php
+$user = new UserDao;
+$user->remove(1);
+```
+
+按照指定条件删除：
+
+```php
+$user = new UserDao;
+$ids = [4, 5, 6];
+$where = ["id", "in", $ids];
+$user->remove($where);
+```
+
+> `remove`方法默认软删除，条件支持传入主键`id`、关联数组、表达式形式的索引数组（多条件的可以是二维数组）、闭包。
+
+如果你需要真实删除，也很简单，只需要传入第二个参数`$isTrueDel`为`true`即可：
+
+```php
+$user = new UserDao;
+$where = [
+    "name" => "topphp"
+];
+$user->remove($where, true);
+```
+
+> `remove`方法真实删除，将直接删除满足条件的数据，无论该数据是否已软删除。
+
+可以通过第三个参数来控制删除条件是否是`or`条件：
+
+```php
+$user = new UserDao;
+$ids  = [2, 7, 10];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 32]
+];
+$user->remove($where, false, "or");
+```
+
+或者闭包传入`or`条件：
+
+```php
+$user = new UserDao;
+$ids  = [2, 7, 10];
+$where = function ($query) use ($ids) {
+    $query->where("id", "in", $ids);
+    $query->whereOr("id", ">", 32);
+};
+$user->remove($where);
+```
+
+上面的两种方式都可以达到同一种效果。
