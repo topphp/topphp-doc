@@ -25,3 +25,6 @@ class UserDao extends User
 > 默认软删除字段名为`delete_time`，自定义软删除字段名时，请定义该软删除字段类型，如果没定义，默认会通过数据表实体类的`schema`属性来自动识别。
 
 软删除字段类型支持 `timestamp` `datetime` `year` `date` `time` `int` 数据库字段类型，如果你定义的软删除字段不是以上字段类型，将会抛出异常。
+
+> 当数据表实体类的`schema`属性既不存在`delete_time`字段名，且我们也没自定义软删除字段信息时，使用`BaseModel`的`remove`方法将会自动识别为真实删除。
+
