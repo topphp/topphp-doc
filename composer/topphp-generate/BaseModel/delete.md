@@ -8,3 +8,20 @@
 
 如果你有自定义软删除字段名的需求，可以在对应的模型`Dao`中定义`protected`关键字的`$deleteTime`属性：
 
+```php
+namespace app\index\model;
+
+use app\model\entity\User;
+
+class UserDao extends User
+{
+    // 自定义软删除字段名
+    protected $deleteTime = 'del_time';
+    // 定义软删除字段类型，支持 timestamp datetime year date time int 数据库字段类型
+    protected $deleteTimeType = 'timestamp';
+}
+```
+
+> 默认软删除字段名为`delete_time`，自定义软删除字段名时，请定义该软删除字段类型，如果没定义，默认会通过数据表实体类的`schema`属性来自动识别。
+
+软删除字段类型支持 `timestamp` `datetime` `year` `date` `time` `int` 数据库字段类型，如果你定义的软删除字段不是以上字段类型，将会抛出异常。
