@@ -32,7 +32,7 @@ $user->queryChain($where)->select();
 | withSoft | MethodEnum::WITH\_SOFT | 包含软删除 |
 | onlySoft | MethodEnum::ONLY\_SOFT | 仅查询软删除 |
 
-`queryChain`默认自动排除软删除数据。
+`queryChain`的`$queryType`参数默认`excludeSoft`，自动排除软删除数据。
 
 ### 查询条件
 
