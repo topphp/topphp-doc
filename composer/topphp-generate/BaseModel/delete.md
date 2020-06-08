@@ -35,3 +35,7 @@ class UserDao extends User
 * 如果使用`TopPHP`提供的`BaseModel`类，请将数据表的时间字段设计为`timestamp`类型的`create_time`、`update_time`、`delete_time`字段，每次更新字段名或者新增表使用`php think gen:db`初始化`app\model\entity`下的数据表实体类，无需定义`$deleteTime`和`$deleteTimeType`即可实现全自动处理软删除业务。
 * 如果你需要使用`ThinkPHP`的软删除功能也可以`use SoftDelete;`，`TopPHP`提供的`BaseModel`类中的方法也兼容`ThinkPHP`的软删除，如非必要，不推荐同时使用两者。
 * 如果你是自定义的`BaseModel`，并没有使用`TopPHP`提供的`BaseModel`类，那么软删除就需要使用`ThinkPHP`的软删除，或者你在空的`BaseModel`类自行实现。
+
+### 使用
+
+> remove \( '查询条件', '\[ false \]是否是真删除', '\[ and \]是否or查询' \);
