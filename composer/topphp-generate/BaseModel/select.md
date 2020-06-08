@@ -63,6 +63,14 @@ $where = ["id", ">", 10];
 $user->queryChain($where)->select();
 ```
 
+原生表达式形式的SQL：
+
+```php
+$user = new UserDao;
+$where = ["id", "exp", ">score"];
+$user->queryChain($where)->select();
+```
+
 多个条件可以使用表达式形式的二维数组示例：
 
 ```php
@@ -85,4 +93,20 @@ $where = function ($query) use ($ids) {
     $query->whereOr("id", ">", 10);
 };
 $user->queryChain($where)->select();
+```
+
+原生SQL字符串条件查询：
+
+```php
+$user = new UserDao;
+$where = 'id > 0 AND name LIKE "thinkphp%"';
+$user->queryChain()->whereRaw($where)->select();
+```
+
+原生SQL字符串条件查询（使用参数绑定）：
+
+```php
+$user = new UserDao;
+$where = 'id > :id AND name LIKE :name ';
+$user->queryChain()->whereRaw($where, ['id' => 0, 'name' => 'thinkphp%'])->select();
 ```
