@@ -16,7 +16,7 @@ use app\model\entity\User;
 class UserDao extends User
 {
     // 自定义软删除字段名
-    protected $deleteTime = 'del_time';
+    protected $deleteTime = 'mydel_time';
     // 定义软删除字段类型，支持 timestamp datetime year date time int 数据库字段类型
     protected $deleteTimeType = 'timestamp';
 }
