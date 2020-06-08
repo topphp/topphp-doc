@@ -57,7 +57,7 @@ $pageConfig = $user->getPaginateConfig(10);
 $user->addAll($list, true)->paginate($pageConfig)->toArray();
 ```
 
-上面的方法将返回包含了新增数据的所有数据集的分页数据（每页显示10条记录），这样即可达到新增与返回查询分页一气呵成。关于分页的说明可以查看[`分页及其他`](/composer/topphp-generate/BaseModel/page.md)板块。
+上面的方法将返回包含了新增数据的所有数据集的分页数据（每页显示10条记录），这样即可达到新增与返回查询分页一气呵成。关于分页的说明可以查看[`分页及其他`](/composer/topphp-generate/BaseModel/page.md)模块。
 
 ### 大数据量批量新增
 
