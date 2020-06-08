@@ -28,3 +28,8 @@ class UserDao extends User
 
 > 当数据表实体类的`schema`属性既不存在`delete_time`字段名，且我们也没自定义软删除字段信息时，使用`BaseModel`的`remove`方法将会自动识别为真实删除。
 
+### 推荐配置
+
+我们推荐的配置方式是：
+
+* 如果使用`TopPHP`提供的`BaseModel`类，请将数据表的时间字段设计为`timestamp`类型的`create_time`、`update_time`、`delete_time`字段，每次更新字段名或者新增表使用`php think gen:db`初始化`app\model\entity`下的数据表实体类，无需定义`$deleteTime`和`$deleteTimeType`即可实现全自动处理软删除业务。
