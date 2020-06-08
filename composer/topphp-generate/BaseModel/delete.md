@@ -98,5 +98,34 @@ $user->remove($where);
 
 > `remove`方法返回的是删除成功的记录数。
 
+### 原生查询条件删除
+
+> removeRaw \( '原生sql语句查询条件', '\[ false \]是否是真删除', '参数绑定' \);
+
+`removeRaw`方法其实就是`remove`的一个补充，增加原生SQL的`where`条件查询删除，主要针对一些复杂的SQL语句，参数绑定规则与`ThinkPHP`的参数绑定一致。
+
+> `removeRaw`返回的也是删除成功的记录数。
+
 ### 恢复软删除数据
 
+> recoverDel \( '查询条件', '\[ and \]是否or查询' \);
+
+如果你想恢复已经被软删除的数据，可以使用`recoverDel`方法：
+
+```php
+$user = new UserDao;
+$user->recoverDel();
+```
+
+`recoverDel`方法不传参数，默认会将数据表所有软删除数据恢复，还可以加入`where`条件：
+
+```php
+$user = new UserDao;
+$ids = [4, 5, 6];
+$where = ["id", "in", $ids];
+$user->recoverDel($where);
+```
+
+`recoverDel`方法也支持第二个参数`$isOr`来传入`or`修改查询条件为`or`查询，与`remove`使用方式一样，在此不做赘述了。
+
+> `recoverDel`方法返回的是恢复成功的记录数。
