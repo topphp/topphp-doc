@@ -63,5 +63,19 @@ $user->findField(1, "password");
 
 > 如果你在模型`Dao`的隐藏字段`$hidden`属性中设置了某个字段隐藏，那么`$field`筛选字段时你是获取不到该字段的，需要获取该字段可以使用`getModelData`方法来获取。
 
+`findField`的第三个参数是查询条件的`or`查询，如果你看了前面的文档，就不会生疏：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 32]
+];
+$user->findField($where, "*", "or");
+```
+
+> 使用`$field`筛选字段时，不传、传空数组、或者传`string`类型的`*`都视为获取不包含隐藏字段的所有字段。
+
 
 
