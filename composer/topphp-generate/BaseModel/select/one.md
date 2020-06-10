@@ -21,12 +21,20 @@ $user = new UserDao;
 $user->findField($where, ["id", "email"]);
 ```
 
-`$field`参数支持字符串形式：
+还可以通过数组形式定义别名：
 
 ```php
 $where = [
     'name' => 'thinkphp'
 ];
 $user = new UserDao;
-$user->findField($where, "id,email as em");
+$user->findField($where, ["id", "password" => "pwd"]);
+```
+
+`$field`参数支持字符串形式：
+
+```php
+$where = ['name', 'like', 'thinkphp'];
+$user = new UserDao;
+$user->findField($where, "id,password as pwd");
 ```
