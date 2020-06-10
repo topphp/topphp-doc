@@ -45,6 +45,15 @@ $user = new UserDao;
 $user->queryChain(1)->find();
 ```
 
+需要查询所有可以传给`where`查询条件为`string`类型的`*`：
+
+```php
+$user = new UserDao;
+$user->queryChain('*')->select();
+```
+
+> 查询条件不传、传空数组、或者传`string`类型的`*`在链式操作无其他`where`条件的情况下都视为查询所有。
+
 关联数组示例：
 
 ```php
