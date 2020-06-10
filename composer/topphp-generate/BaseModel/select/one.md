@@ -47,6 +47,17 @@ $where = [
     ['name', 'like', 'thinkphp'],
     ['create_time', '<', '2020-06-03 18:13:17']    
 ];
-$user->findField($where, "id,SUM(score)");
+$user->findField($where, "SUM(score) as sc");
 ```
+
+> 当`findField`的筛选字段获取的是一个字段时将直接返回该字段的值。
+
+```php
+$user = new UserDao;
+$user->findField(1, "password");
+```
+
+上面将直接返回`password`字段的值，`findField`实现了`ThinkPHP`的`find`查询与`value`查询的一个结合。所以`findField`方法是一个常用来查询单条数据的字段信息的方法。
+
+> 如果你在模型`Dao`的隐藏字段`$hidden`属性中设置了某个字段隐藏，那么`$field`筛选字段时你是获取不到该字段的，需要获取该字段可以使用`getModelData`方法来获取。
 
