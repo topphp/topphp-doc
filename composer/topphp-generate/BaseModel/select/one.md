@@ -52,7 +52,7 @@ $where = [
 $user->findField($where, "SUM(score) as sc");
 ```
 
-> 当`findField`的筛选字段获取的是一个字段时将直接返回该字段的值。
+> `findField`默认返回当前数据的一围键值对数组，当`findField`的筛选字段获取的仅是一个字段时将直接返回该字段的值。
 
 ```php
 $user = new UserDao;
