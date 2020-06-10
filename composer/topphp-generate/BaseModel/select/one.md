@@ -75,7 +75,32 @@ $where = [
 $user->findField($where, "*", "or");
 ```
 
+当然`findField`仅会获取上面满足条件的第一条数据，因为`findField`是仅查询单条的方法。
+
 > 使用`$field`筛选字段时，不传、传空数组、或者传`string`类型的`*`都视为获取不包含隐藏字段的所有字段。
+
+`findField`的第四个参数是提供给你查询软删除数据的方式：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 32]
+];
+$user->findField($where, "*", "or", true);
+```
+
+> 第四个`$withSoft`参数默认`false`不包含软删除数据，如果你需要查询包含软删除的数据，请传`true`。
+
+如果你需要返回一个二维数组形式的数据，即相当于使用`ThinkPHP`的`select`来查询一条数据，可以传入第五个布尔值参数`$isSelect`：
+
+```php
+$user = new UserDao;
+$user->findField(1, "*", "and", false, true);
+```
+
+上面的查询将会返回一个二维的数据形式数据，如果查询不到，也将会返回空数组。当然这种情况的需求可能少之又少，`TopPHP`仅仅提供你这么一种返回方式，实际看需求。
 
 
 
