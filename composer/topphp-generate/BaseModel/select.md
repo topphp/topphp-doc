@@ -45,7 +45,7 @@ $user = new UserDao;
 $user->queryChain(1)->find();
 ```
 
-需要查询所有提供三种方式：
+需要查询所有，提供三种方式：
 
 ```php
 $user = new UserDao;
