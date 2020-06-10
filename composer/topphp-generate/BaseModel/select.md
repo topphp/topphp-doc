@@ -71,6 +71,8 @@ $where = ["id", "exp", ">score"];
 $user->queryChain($where)->select();
 ```
 
+`exp`查询的条件不会被当成字符串，所以后面的查询条件可以使用任何SQL支持的语法，包括使用函数和字段名称。
+
 多个条件可以使用表达式形式的二维数组示例：
 
 ```php
@@ -112,3 +114,6 @@ $user->queryChain()->whereRaw($where, ['id' => 0, 'name' => 'thinkphp%'])->selec
 ```
 
 > 事实上`queryChain`仅是一个链式操作查询的开始，后面的链式操作与`ThinkPHP`的链式操作并无异处，你可以使用任何`ThinkPHP`的链式操作;
+
+
+
