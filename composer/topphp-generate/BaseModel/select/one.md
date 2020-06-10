@@ -14,27 +14,39 @@ $user->findField(1);
 我们可以通过第二个参数`$field`来筛选字段：
 
 ```php
+$user = new UserDao;
 $where = [
     'name' => 'thinkphp'
 ];
-$user = new UserDao;
 $user->findField($where, ["id", "email"]);
 ```
 
 还可以通过数组形式定义别名：
 
 ```php
+$user = new UserDao;
 $where = [
     'name' => 'thinkphp'
 ];
-$user = new UserDao;
 $user->findField($where, ["id", "password" => "pwd"]);
 ```
 
 `$field`参数支持字符串形式：
 
 ```php
-$where = ['name', 'like', 'thinkphp'];
 $user = new UserDao;
+$where = ['name', 'like', 'thinkphp'];
 $user->findField($where, "id,password as pwd");
 ```
+
+还可以使用SQL函数：
+
+```php
+$user = new UserDao;
+$where = [
+    ['name', 'like', 'thinkphp'],
+    ['create_time', '<', '2020-06-03 18:13:17']    
+];
+$user->findField($where, "id,SUM(score)");
+```
+
