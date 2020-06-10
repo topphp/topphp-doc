@@ -113,7 +113,7 @@ $where = 'id > :id AND name LIKE :name ';
 $user->queryChain()->whereRaw($where, ['id' => 0, 'name' => 'thinkphp%'])->select();
 ```
 
-> 事实上`queryChain`仅是一个链式操作查询的开始，后面的链式操作与`ThinkPHP`的链式操作并无异处，你可以使用任何`ThinkPHP`的链式操作;
+> 事实上`queryChain`仅是一个链式操作查询的开始，后面的链式操作与`ThinkPHP`的链式操作并无异处，你可以使用任何`ThinkPHP`支持的链式操作;
 
 
 
