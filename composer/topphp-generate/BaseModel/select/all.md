@@ -24,7 +24,7 @@ $user->selectAll($where, "password");
 
 > `selectAll`的第二个参数`$withoutField`支持数组或字符串`field1,field2`形式。排除字段和隐藏字段的过滤方式不一样。
 
-**注意：使用了`$withoutField`参数进行排除字段，那么查询出来的数据，使用`getModelData`就也获取不到被排除的字段信息了。**
+**注意：使用了**`$withoutField`**参数进行排除字段，那么查询出来的数据，使用**`getModelData`**就也获取不到被排除的字段信息了。**
 
 之所以`selectAll`方法的第二个参数设置的是`排除字段`而不是`筛选字段`，是因为大多数情况下，我们都是查询数据表所有的数据，可能某些文本字段的值查询非常耗内存，查询时又不需要这样的数据，所以需要做排除处理。
 
@@ -86,7 +86,7 @@ class UserDao extends User
 
 ### selectSort 排序查询
 
-> selectSort \( '查询条件', '查询排序', '\[ and \]是否or查询', '\[ * \]Limit筛选', '\[ false \]是否返回model对象' \);
+> selectSort \( '查询条件', '查询排序', '\[ and \]是否or查询', '\[ \* \]Limit筛选', '\[ false \]是否返回model对象' \);
 
 如果你有排序的需求，我们更推荐直接使用`selectSort`方法，而非`selectAll`去链式操作：
 
@@ -146,7 +146,7 @@ $order = ["create_time" => "desc"];
 $user->selectSort($where, $order, "or", 5);
 ```
 
-上面将会获取`id`在`1`、`3`、`9`或者`id` > `10`的数据中按照创建时间降序排列的前`5`条数据。
+上面将会获取`id`在`1`、`3`、`9`或者`id` &gt; `10`的数据中按照创建时间降序排列的前`5`条数据。
 
 > `$limit`筛选参数默认通配符`*`表示不进行`limit`筛选。`selectSort`第五个参数`$isModel`同样与`selectAll`的返回`model`对象参数一样可以为`true`切换`ThinkPHP`的链式操作。
 
@@ -270,3 +270,6 @@ $user->selectList($where, [], null, 0, "or");
 ```php
 SELECT * FROM `topphp_user` WHERE ( `id` IN (1,6,10) OR `id` > 32 ) AND ( `delete_time` IS NULL OR `delete_time` = 0 ) LIMIT 0,15
 ```
+
+
+
