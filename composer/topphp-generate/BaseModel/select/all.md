@@ -47,3 +47,17 @@ $user->selectAll($where, [], "or", true)
 ```
 
 > 如果你使用了第四个参数返回模型对象，那么当前查询的整个模式将进入`ThinkPHP`的链式查询操作模式。
+
+如你需要筛选字段，而非排除字段：
+
+```php
+$user = new UserDao;
+$ids = [1, 3, 9];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 10]
+];
+$user->selectAll($where, [], "or", true)
+->field(["id","username","create_time"])
+->select()->toArray();
+```
