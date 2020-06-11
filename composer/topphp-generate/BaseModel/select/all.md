@@ -264,3 +264,9 @@ $where = [
 ];
 $user->selectList($where, [], null, 0, "or");
 ```
+
+上面两种方式都会生成类似如下的SQL语句：
+
+```php
+SELECT * FROM `topphp_user` WHERE ( `id` IN (1,6,10) OR `id` > 32 ) AND ( `delete_time` IS NULL OR `delete_time` = 0 ) LIMIT 0,15
+```
