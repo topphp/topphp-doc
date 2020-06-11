@@ -189,7 +189,16 @@ $where = ["id", ">", 10];
 $user->selectList($where);
 ```
 
-查询条件和查询排序两个参数就不做赘述了，前面已经说明过了，来看一下第三个参数`$each`回调：
+如果你有排序条件，可以直接传入排序条件：
+
+```php
+$user = new UserDao;
+$where = ["id", ">", 10];
+$order = ["create_time" => "desc"];
+$user->selectList($where, $order);
+```
+
+查询条件和查询排序两个参数就不做详细赘述了，前面已经说明过了，来看一下第三个参数`$each`回调：
 
 ```php
 $user = new UserDao;
