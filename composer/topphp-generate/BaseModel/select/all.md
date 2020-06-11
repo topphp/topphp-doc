@@ -179,9 +179,7 @@ $user = new UserDao;
 $user->selectList("*");
 ```
 
-如果你需要隐藏哪个字段，直接通过模型`Dao`的隐藏字段`$hidden`属性设置即可，`selectList`方法返回的数据将不包含隐藏字段信息。
-
-关于分页`PaginateEnum`枚举类如何配置可以查看[`分页及其他`](/composer/topphp-generate/BaseModel/page.md)模块。
+如果你需要隐藏哪个字段，直接通过模型`Dao`的隐藏字段`$hidden`属性设置即可，`selectList`方法返回的数据将不包含隐藏字段信息。关于分页`PaginateEnum`枚举类如何配置可以查看[`分页及其他`](/composer/topphp-generate/BaseModel/page.md)模块。
 
 查询条件和查询排序两个参数就不做赘述了，前面已经说明过了，来看一下第三个参数`$each`回调：
 
