@@ -61,5 +61,5 @@ $user->selectNoRepeat("*", ["nickname"]);
 SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )  AND ( (nickname) IN (SELECT nickname FROM topphp_user GROUP BY nickname HAVING COUNT(*)=1) )
 ```
 
-
+解释一下`selectNoRepeat`方法所指的不重复的含义：即数据表中`id`为`10`的`nickname`为`topphp`，而在数据表中不会再出现其他的`id`数据`nickname`字段值是`topphp`了，那么`id`为`10`的这条数据就是不重复的数据。
 
