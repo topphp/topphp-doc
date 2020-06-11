@@ -107,6 +107,8 @@ SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 
 
 `selectFieldInList`的其他参数用法与`selectFieldInSet`一致。
 
+### selectColumn 查询列
 
+> selectColumn \( '查询条件', '要筛选的列数组 或 字段字符串（多个用逗号隔开）', '指定用哪个字段当索引', '\[ and \]是否or查询' \);
 
 
