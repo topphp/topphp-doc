@@ -75,14 +75,9 @@ class UserDao extends User
 {
     public function getUserList()
     {
-        $ids = [1, 3, 9];
-        $where = [
-            ["id", "in", $ids],
-            ["id", ">", 10]
-        ];
         $pageConfig = $this->getPaginateConfig();
-        return $this->selectAll($where, ["password", "delete_time"], "or", true)
-                ->paginate($pageConfig)->toArray();
+        $withoutField = ["password", "delete_time"];
+        return $this->selectAll("*", $withoutField, "or", true)->paginate($pageConfig)->toArray();
     }
 }
 ```
