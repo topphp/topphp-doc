@@ -86,6 +86,26 @@ SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 
 
 如果你有查询出来分页的需求，可以使用`selectFieldInSet`的第五个参数`$isModel`来返回`model`模型对象进行链式操作调用`paginate`方法进行分页。具体操作方式前面的[`查询所有`](/composer/topphp-generate/BaseModel/select/all.md)章节已经描述过，在此不做赘述。
 
+### selectFieldInList FIND_IN_SET查询 反向用法
+
+> selectFieldInList \( '查询条件', '字段与值数组', '查询排序', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
+`selectFieldInList`与`selectFieldInSet`是相反的存在，主要用于查询指定字段在指定的集合的数据集合，效果类似于 field in (1,2,3,4,5) 的用法。
+
+```php
+$user = new ArticleDao;
+$user->selectFieldInList("*", ["id" => [1,2,6]]);
+```
+
+以上查询将会生成类似如下SQL：
+
+```php
+SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )  AND ( FIND_IN_SET(id,'1,2,6') )
+```
+
+> `selectFieldInList`的第二个参数`$fieldAndVal`应为键值对形式`[field=>value]`其中`value`支持数组，如：`[1,2,3,4,5]`
+
+`selectFieldInList`的其他参数用法与`selectFieldInSet`一致。
 
 
 
