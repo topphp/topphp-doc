@@ -147,7 +147,7 @@ $user->queryChain()->whereRaw($where, ['id' => 0, 'name' => 'thinkphp%'])->selec
 * selectFullJoin
 * selectChild
 
-### 我们推荐的做法是：
+### 我们推荐的用法是：
 
 * 使用`queryChain()`进行链式操作，查询所有，直接不传`where`条件即可。
 * 使用其他的方法时，如非特殊说明，查询所有的条件，统一使用通配符字符串`*`。
