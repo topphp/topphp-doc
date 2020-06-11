@@ -1,6 +1,6 @@
 ## 查询一条
 
-### find 查询
+### findField 查询
 
 > findField \( '查询条件', '查询字段', '\[ and \]是否or查询', '\[ false \]是否包含软删除数据', '\[ false \]是否是select查询' \);
 
@@ -108,7 +108,7 @@ $user->findField(1, "*", "and", false, true);
 
 其实如果你有`findField`方法第五个参数的那种需求，是可以直接使用下面的`selectOne`方法来实现的。
 
-### select 查询
+### selectOne 查询
 
 > selectOne \( '查询条件', '查询排序', '\[ and \]是否or查询', '\[ false \]是否是find查询' \);
 
