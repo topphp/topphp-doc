@@ -45,3 +45,5 @@ $user->selectAll($where, [], "or", true)
      }
 })->toArray();
 ```
+
+如果你使用了第四个参数返回模型对象，那么当前查询的整个模式将进入`ThinkPHP`的链式查询操作模式。
