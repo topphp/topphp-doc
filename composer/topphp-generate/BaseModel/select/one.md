@@ -146,3 +146,42 @@ $user->selectOne($where, ["score", "create_time" => "desc"]);
 ```php
 SELECT * FROM `topphp_user` WHERE  `id` IN (1,6,10)  AND (  `delete_time` IS NULL OR `delete_time` = 0 ) ORDER BY `score`,`create_time` DESC LIMIT 1
 ```
+
+如果你需要将`score`升序：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = ["id", "in", $ids];
+$user->selectOne($where, ["score" => "asc", "create_time" => "desc"]);
+```
+
+如果都是升序：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = ["id", "in", $ids];
+$user->selectOne($where, ["score", "create_time"]);
+```
+
+> `$order`参数如果没有指定`desc`或者`asc`排序规则的话，默认为`asc`。
+
+如果你想使用原生的sql排序可以直接传入原生sql字符串：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = ["id", "in", $ids];
+$user->selectOne($where, "score,create_time desc");
+```
+> 如果你需要在`$order`参数中使用`mysql`函数的话，必须使用字符串的方式：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = ["id", "in", $ids];
+$user->selectOne($where, "field(name,'thinkphp','topphp','onethink')");
+```
+
+
