@@ -63,3 +63,11 @@ SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )
 
 解释一下`selectNoRepeat`方法所指的不重复的含义：即数据表中`id`为`10`的`nickname`为`topphp`，而在数据表中不会再出现其他的`id`数据`nickname`字段值是`topphp`了，那么`id`为`10`的这条数据就是不重复的数据。
 
+### selectFieldInSet FIND_IN_SET查询
+
+> selectFieldInSet \( '查询条件', '字段与值数组', '查询排序', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
+`selectFieldInSet`查询指定字段包含指定的值或字符串的数据集合。
+
+应用场景 常用于判断类型或筛选权限等场景，例如 有个文章表里面有个type字段，它存储的是文章类型，有 1头条、2推荐、3热点、4图文等等，现在有篇文章他既是头条，又是热点，还是图文，type中以 1,3,4 的格式存储。我们就可以使用此方法进行查询所有type中有4的图文类型的文章。
+
