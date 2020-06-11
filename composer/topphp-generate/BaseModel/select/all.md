@@ -22,6 +22,6 @@ $where = [
 $user->selectAll($where, "password");
 ```
 
-> `selectAll`的第二个参数`$withoutField`支持数组或字符串`field1,field2`形式。排除字段和隐藏字段的查询方式不一样：
+> `selectAll`的第二个参数`$withoutField`支持数组或字符串`field1,field2`形式。排除字段和隐藏字段的过滤方式不一样：
 
 **注意：使用了`$withoutField`参数进行排除字段，那么查询出来的数据，使用`getModelData`就也获取不到被排除的字段信息了。**
