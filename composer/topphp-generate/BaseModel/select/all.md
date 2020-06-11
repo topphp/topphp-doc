@@ -66,3 +66,23 @@ $user->selectAll($where, [], "or", true)
 
 如你需要分页，也可以在模型中按照如下方式使用：
 
+```php
+namespace app\index\model;
+
+use app\model\entity\User;
+
+class UserDao extends User
+{
+    public function getUserList()
+    {
+        $ids = [1, 3, 9];
+        $where = [
+            ["id", "in", $ids],
+            ["id", ">", 10]
+        ];
+        $pageConfig = $this->getPaginateConfig();
+        return $this->selectAll($where, ["password", "delete_time"], "or", true)
+                ->paginate($pageConfig)->toArray();
+    }
+}
+```
