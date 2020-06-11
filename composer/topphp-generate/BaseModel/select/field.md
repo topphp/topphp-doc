@@ -84,3 +84,7 @@ SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 
 
 > 需要注意的是：数据表的`type`字段值应该是`1,3,4`这种格式存储的，`selectFieldInSet`的第二个参数`$fieldAndVal`应为键值对形式`[field=>value]`其中`value`必须是`string`或`int`型。
 
+如果你有查询出来分页的需求，可以使用`selectFieldInSet`的第五个参数`$isModel`来返回`model`模型对象进行链式操作调用`paginate`方法进行分页。
+
+
+
