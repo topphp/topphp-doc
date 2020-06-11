@@ -113,4 +113,31 @@ SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 
 
 `selectColumn`方法其实就是`ThinkPHP`的`column`查询。
 
+```php
+$user = new UserDao;
+$user->selectColumn("*", "nickname");
+```
+
+上面将会返回`nickname`字段值组成的数组，如果你需要指定以哪个字段值作为数组的`key`，请传入第三个参数`$index`：
+
+```php
+$user = new UserDao;
+$user->selectColumn("*", "nickname", "id");
+```
+
+上面将会返回数组`key`为`id`的值，`value`为`nickname`的值的数组。
+
+多个字段数组形式展示：
+
+```php
+$user = new UserDao;
+$user->selectColumn("*", ["nickname", "email"], "id");
+```
+
+多个字段字符串形式展示：
+
+```php
+$user = new UserDao;
+$user->selectColumn("*", "nickname,email", "id");
+```
 
