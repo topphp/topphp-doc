@@ -63,7 +63,7 @@ SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )
 
 解释一下`selectNoRepeat`方法所指的不重复的含义：即数据表中`id`为`10`的`nickname`为`topphp`，而在数据表中不会再出现其他的`id`数据`nickname`字段值是`topphp`了，那么`id`为`10`的这条数据就是不重复的数据。
 
-### selectFieldInSet FIND_IN_SET查询
+### selectFieldInSet `FIND_IN_SET`查询
 
 > selectFieldInSet \( '查询条件', '字段与值数组', '查询排序', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
 
@@ -86,7 +86,7 @@ SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 
 
 如果你有查询出来分页的需求，可以使用`selectFieldInSet`的第五个参数`$isModel`来返回`model`模型对象进行链式操作调用`paginate`方法进行分页。具体操作方式前面的[`查询所有`](/composer/topphp-generate/BaseModel/select/all.md)章节已经描述过，在此不做赘述。
 
-### selectFieldInList FIND_IN_SET查询 反向用法
+### selectFieldInList `FIND_IN_SET`查询 反向用法
 
 > selectFieldInList \( '查询条件', '字段与值数组', '查询排序', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
 
