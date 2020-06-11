@@ -110,5 +110,39 @@ $user->findField(1, "*", "and", false, true);
 
 ### select 查询
 
+> selectOne \( '查询条件', '查询排序', '\[ and \]是否or查询', '\[ false \]是否是find查询' \);
 
+`selectOne`查询默认通过`ThinkPHP`的`select`方法进行查询，但也仅会返回一条数据：
 
+```php
+$user = new UserDao;
+$user->selectOne(1);
+```
+
+> `selectOne`默认返回二维数组形式的数据，且会自动过滤软删除数据，如果查询不到将返回空数组。如果你想查询软删除数据，请使用`findField`方法。
+
+`selectOne`不支持过滤字段，但支持模型`Dao`的隐藏字段`$hidden`属性的设置隐藏规则。`selectOne`支持`order`排序查询：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = ["id", "in", $ids];
+$user->selectOne($where, ["create_time" => "desc"]);
+```
+
+上面的查询将返回`id`在`1`、`6`、`10`这三条数据中创建时间降序以后的第一条数据。`selectOne`的第二个参数`$order`支持数组形式定义、和原生SQL语句排序。
+
+多个字段的数组形式可以如下定义：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = ["id", "in", $ids];
+$user->selectOne($where, ["score", "create_time" => "desc"]);
+```
+
+上面的查询将会生成类似如下SQL语句：
+
+```php
+SELECT * FROM `topphp_user` WHERE  `id` IN (1,6,10)  AND (  `delete_time` IS NULL OR `delete_time` = 0 ) ORDER BY `score`,`create_time` DESC LIMIT 1
+```
