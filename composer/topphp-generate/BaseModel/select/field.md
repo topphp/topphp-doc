@@ -19,7 +19,7 @@ $user->selectSameField(1, "nickname");
 SELECT * FROM `topphp_user` WHERE  `nickname` IN (SELECT `nickname` FROM `topphp_user` WHERE  `id` = 1)  AND (  `delete_time` IS NULL OR `delete_time` = 0 )
 ```
 
-`selectSameField`返回的是相同数据的二维数组。支持第四个参数`$isModel`返回`model`对象，可以链式操作调用分页等`ThinkPHP`的链式操作。
+`selectSameField`返回的是相同数据的二维数组。支持第四个参数`$isModel`返回`model`对象，可以链式调用分页等`ThinkPHP`的链式操作。
 
 
 
