@@ -16,7 +16,7 @@ $user->selectSameField(1, "nickname");
 生成的SQL语句为：
 
 ```php
-SELECT * FROM `topphp_user` WHERE  `nickname` IN (SELECT `nickname` FROM `topphp_user` WHERE  `id` = 1)  AND (  `delete_time` IS NULL OR `delete_time` = 0 )
+SELECT * FROM `topphp_user` WHERE `nickname` IN (SELECT `nickname` FROM `topphp_user` WHERE `id` = 1) AND ( `delete_time` IS NULL OR `delete_time` = 0 )
 ```
 
 `selectSameField`返回的是相同数据的二维数组。支持第四个参数`$isModel`返回`model`对象，可以链式调用分页等`ThinkPHP`的链式操作。
@@ -35,7 +35,7 @@ $user->selectRepeat("*", ["nickname"]);
 生成的SQL语句为：
 
 ```php
-SELECT * FROM `topphp_user` WHERE  (  `delete_time` IS NULL OR `delete_time` = 0 )  AND ( (nickname) IN (SELECT nickname FROM topphp_user GROUP BY nickname HAVING COUNT(*)>1) )
+SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )  AND ( (nickname) IN (SELECT nickname FROM topphp_user GROUP BY nickname HAVING COUNT(*)>1) )
 ```
 
 `selectRepeat`返回的是重复数据的二维数组。
