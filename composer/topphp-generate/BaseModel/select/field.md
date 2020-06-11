@@ -13,5 +13,13 @@ $user = new UserDao;
 $user->selectSameField(1, "nickname");
 ```
 
+生成的SQL语句为：
+
+```php
+SELECT * FROM `topphp_user` WHERE  `nickname` IN (SELECT `nickname` FROM `topphp_user` WHERE  `id` = 1)  AND (  `delete_time` IS NULL OR `delete_time` = 0 )
+```
+
+`selectSameField`返回的是相同数据的二维数组。
+
 
 
