@@ -83,3 +83,87 @@ class UserDao extends User
 ```
 
 其中`where`条件的`*`表示查询所有，所有快捷方法的`where`都不支持直接传空数组来识别为查询所有。
+
+### selectSort 排序查询
+
+> selectSort \( '查询条件', '查询排序', '\[ and \]是否or查询', '\[ * \]Limit筛选', '\[ false \]是否返回model对象' \);
+
+如果你有排序的需求，我们更推荐直接使用`selectSort`方法，而非`selectAll`去链式操作：
+
+```php
+$user = new UserDao;
+$ids = [1, 3, 9];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 10]
+];
+$order = ["create_time" => "desc"];
+$user->selectSort($where, $order, "or");
+```
+
+`$order`参数多个字段的数组形式的排序可以如下定义：
+
+```php
+$order = ["score", "create_time" => "desc"];
+```
+
+生成类似如下SQL语句：
+
+```php
+SELECT * FROM `topphp_user` WHERE (  `id` IN (1,3,9) OR `id` > 10 ) AND (  `delete_time` IS NULL OR `delete_time` = 0 ) ORDER BY `score`,`create_time` DESC
+```
+
+如果都是升序：
+
+```php
+$order = ["score", "create_time"];
+```
+
+> `$order`参数如果没有指定`desc`或者`asc`排序规则的话，默认为`asc`。
+
+如果你想使用原生的sql排序可以直接传入原生sql字符串：
+
+```php
+$order = "score,create_time desc";
+```
+
+> 如果你需要在`$order`参数中使用`mysql`函数的话，必须使用字符串的方式：
+
+```php
+$order = "field(name,'thinkphp','topphp','onethink')";
+```
+
+`selectSort`方法还支持`limit`筛选：
+
+```php
+$user = new UserDao;
+$ids = [1, 3, 9];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 10]
+];
+$order = ["create_time" => "desc"];
+$user->selectSort($where, $order, "or", 5);
+```
+
+上面将会获取`id`在`1`、`3`、`9`或者`id` > `10`的数据中按照创建时间降序排列的前`5`条数据。
+
+> `$limit`筛选参数默认通配符`*`表示不进行`limit`筛选。`selectSort`第五个参数`$isModel`同样与`selectAll`的返回`model`对象参数一样可以为`true`切换`ThinkPHP`的链式操作。
+
+```php
+namespace app\index\model;
+
+use app\model\entity\User;
+
+class UserDao extends User
+{
+    public function getUserList()
+    {
+        $pageConfig = $this->getPaginateConfig();
+        $order = ["create_time" => "desc"];
+        return $this->selectSort("*", $order, "and", 100, true)->paginate($pageConfig)->toArray();
+    }
+}
+```
+
+上面的代码表示查询所有数据，按照创建时间降序排列，筛选前`100`条进行分页。
