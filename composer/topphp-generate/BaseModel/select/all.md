@@ -161,9 +161,9 @@ class UserDao extends User
     {
         $pageConfig = $this->getPaginateConfig();
         $order = ["create_time" => "desc"];
-        return $this->selectSort("*", $order, "and", 100, true)->paginate($pageConfig)->toArray();
+        return $this->selectSort("*", $order, "and", "*", true)->paginate($pageConfig)->toArray();
     }
 }
 ```
 
-上面的代码表示查询所有数据，按照创建时间降序排列，筛选前`100`条进行分页。
+上面的代码表示查询所有数据，按照创建时间降序排列进行分页。
