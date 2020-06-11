@@ -240,3 +240,27 @@ $user->selectList("*", [], null, 10);
 这样看来如果仅查询所有数据并分页，参数就很繁琐了，所以我们还是推荐使用`TopPHP`骨架的`PaginateEnum`枚举类配置了分页配置，除非你的需求很特殊，需要动态改变每页显示条数。
 
 > `$pageLimit`参数默认值为`0`，将会自动获取`PaginateEnum`枚举类配置的分页每页显示条数，如果你传入大于`0`的数字，将会以你传入的参数为主。
+
+如果你的`where`条件是一个或者的查询，尽管我们提供第五个参数`$isOr`是否是`or`查询，但是这样，一个方法调用就会很长，所以，我们还是推荐使用闭包的形式传入`or`条件：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = function ($query) use ($ids) {
+    $query->where("id", "in", $ids);
+    $query->whereOr("id", ">", 32);
+};
+$user->selectList($where);
+```
+
+上面的构造条件其实与下面的效果是等效的：
+
+```php
+$user = new UserDao;
+$ids  = [1, 6, 10];
+$where = [
+    ["id", "in", $ids],
+    ["id", ">", 32]
+];
+$user->selectList($where, [], null, 0, "or");
+```
