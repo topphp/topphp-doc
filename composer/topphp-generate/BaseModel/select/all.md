@@ -110,7 +110,7 @@ $order = ["score", "create_time" => "desc"];
 生成类似如下SQL语句：
 
 ```php
-SELECT * FROM `topphp_user` WHERE (  `id` IN (1,3,9) OR `id` > 10 ) AND (  `delete_time` IS NULL OR `delete_time` = 0 ) ORDER BY `score`,`create_time` DESC
+SELECT * FROM `topphp_user` WHERE ( `id` IN (1,3,9) OR `id` > 10 ) AND (  `delete_time` IS NULL OR `delete_time` = 0 ) ORDER BY `score`,`create_time` DESC
 ```
 
 如果都是升序：
