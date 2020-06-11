@@ -213,4 +213,30 @@ $user->selectList("*", [], $each);
 
 上面将会查询出所有的分页数据，并将`id`为`1`的数据`username`字段改为`topphp`，同时新增一个数据表不存在的字段`is_super_user`值为`1`。
 
-> `$each`接收一个闭包函数，在闭包中，第一个参数`$item`即为每一条查询出来的数据集，`$each`回调会遍历循环每一条数据集，并执行闭包函数中的代码。
+> `$each`接收一个闭包函数，在闭包中，第一个参数`$item`即为每一条查询出来的数据集，`$each`回调会遍历循环每一条数据集，并执行闭包函数中的代码。省去了我们获取到数据再通过`foreach`来操作的数据的操作。
+
+还可以通过`use`关键字向闭包函数中传入参数：
+
+```php
+$user = new UserDao;
+$username = "topphp";
+$isSuperUser = 1;
+$each = function ($item) use ($username, $isSuperUser) {
+    if ($item["id"] == 1) {
+        $item["username"] = $username;
+        $item["is_super_user"] = $isSuperUser;
+    }
+};
+$user->selectList("*", [], $each);
+```
+
+`selectList`的第四个参数`$pageLimit`是每页显示条数：
+
+```php
+$user = new UserDao;
+$user->selectList("*", [], null, 10);
+```
+
+这样看来如果仅查询所有数据并分页，参数就很繁琐了，所以我们还是推荐使用`TopPHP`骨架的`PaginateEnum`枚举类配置了分页配置，除非你的需求很特殊，需要动态改变每页显示条数。
+
+> `$pageLimit`参数默认值为`0`，将会自动获取`PaginateEnum`枚举类配置的分页每页显示条数，如果你传入大于`0`的数字，将会以你传入的参数为主。
