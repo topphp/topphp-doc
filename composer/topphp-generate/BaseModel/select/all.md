@@ -202,7 +202,13 @@ $user->selectList($where, $order);
 
 ```php
 $user = new UserDao;
-$each = function(){
-}
+$each = function ($item) {
+    if ($item["id"] == 1) {
+        $item["username"] = "topphp";
+        $item["is_super_user"] = 1;
+    }
+};
 $user->selectList("*", [], $each);
 ```
+
+上面将会查询出所有的分页数据，并将`id`为`1`的数据`username`字段改为`topphp`，同时新增一个数据表不存在的字段`is_super_user`值为`1`。
