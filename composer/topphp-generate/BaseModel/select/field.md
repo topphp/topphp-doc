@@ -111,4 +111,6 @@ SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 
 
 > selectColumn \( '查询条件', '要筛选的列数组 或 字段字符串（多个用逗号隔开）', '指定用哪个字段当索引', '\[ and \]是否or查询' \);
 
+`selectColumn`方法其实就是`ThinkPHP`的`column`查询。
+
 
