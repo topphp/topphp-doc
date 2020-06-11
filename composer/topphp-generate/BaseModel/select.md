@@ -126,5 +126,26 @@ $user->queryChain()->whereRaw($where, ['id' => 0, 'name' => 'thinkphp%'])->selec
 
 > 事实上`queryChain`仅是一个链式操作查询的开始，后面的链式操作与`ThinkPHP`的链式操作并无异处，你可以使用任何`ThinkPHP`支持的链式操作;
 
+需要注意的是，以下所有快捷方法的`where`都不支持直接传空数组来识别为查询所有，需要查询所有请统一传入字符串`*`。
+
+* findField
+* selectOne
+* selectAll
+* selectList
+* selectColumn
+* selectSort
+* selectFirst
+* selectEnd
+* selectRand
+* selectRepeat
+* selectNoRepeat
+* selectFieldInSet
+* selectFieldInList
+* selectJoin
+* selectLeftJoin
+* selectRightJoin
+* selectFullJoin
+* selectChild
+
 
 
