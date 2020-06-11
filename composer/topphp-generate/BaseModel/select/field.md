@@ -71,3 +71,16 @@ SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )
 
 应用场景：常用于判断类型或筛选权限等场景，例如 有个文章表里面有个type字段，它存储的是文章类型，有 1头条、2推荐、3热点、4图文等等，现在有篇文章他既是头条，又是热点，还是图文，type中以 1,3,4 的格式存储。我们就可以使用此方法进行查询所有type中有4的图文类型的文章。
 
+```php
+$user = new ArticleDao;
+$user->selectFieldInSet("*", ["type" => 4]);
+```
+
+以上查询将会生成类似如下SQL：
+
+```php
+SELECT * FROM `topphp_article` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )  AND FIND_IN_SET(4, `type`)
+```
+
+> 需要注意的是：数据表的`type`字段值应该是`1,3,4`这种格式存储的，`selectFieldInSet`的第二个参数`$fieldAndVal`应为键值对形式`[field=>value]`其中`value`必须是`string`或`int`型。
+
