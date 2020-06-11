@@ -61,3 +61,5 @@ $user->selectAll($where, [], "or", true)
 ->field(["id","username","create_time"])
 ->select()->toArray();
 ```
+
+> 排除字段的优先级高于筛选字段，如果你既设置了排除字段又设置了筛选字段，返回将以排除字段为主。
