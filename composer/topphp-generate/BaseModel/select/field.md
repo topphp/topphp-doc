@@ -42,7 +42,7 @@ SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )
 
 解释一下`selectRepeat`方法所指的重复的含义：比如`id`为`1`的`nickname`为`zhangsan`，同时`id`为`5`的`nickname`也为`zhangsan`，那么这两条数据就会被查询出来，同时`id`为`3`的`nickname`为`lisi`，同时`id`为`7`的`nickname`也为`lisi`，那么这两条也会被查询出来，当我们在`$where`限定条件为`["nickname" => "zhangsan"]`则只会返回`id`为`1`和`5`两条数据了。
 
-所以查询重复的记录具体返回是通过`$where`查询条件来控制的。
+所以**查询重复的记录具体返回是通过`$where`查询条件来控制的**。
 
 
 
