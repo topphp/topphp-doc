@@ -271,5 +271,11 @@ $user->selectList($where, [], null, 0, "or");
 SELECT * FROM `topphp_user` WHERE ( `id` IN (1,6,10) OR `id` > 32 ) AND ( `delete_time` IS NULL OR `delete_time` = 0 ) LIMIT 0,15
 ```
 
+### 我们推荐的用法是：
+
+* 通常情况下根据条件查询所有，使用`selectAll`
+* 如果你需要根据查询条件排序查询，或者需要通过limit筛选，使用`selectSort`
+* 如果你需要对于查询结果分页，使用`selectList`
+
 
 
