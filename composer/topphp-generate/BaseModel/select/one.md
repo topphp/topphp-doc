@@ -179,8 +179,7 @@ $user->selectOne($where, "score,create_time desc");
 
 ```php
 $user = new UserDao;
-$ids  = [1, 6, 10];
-$where = ["id", "in", $ids];
+$where = ["id", ">", 10];
 $user->selectOne($where, "field(name,'thinkphp','topphp','onethink')");
 ```
 
