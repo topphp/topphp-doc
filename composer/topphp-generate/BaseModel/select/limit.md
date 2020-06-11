@@ -59,3 +59,27 @@ $user->selectEnd($where, 10);
 上面的数据将返回满足条件的后`10`条数据。
 
 > `selectEnd`如果是`limit`一条数据，默认返回该条数据键值对一围数组，如果是`limit`多条，将返回二维数组。
+
+### selectRand 满足条件的数据随机返回（或随机取Limit条）
+
+> selectRand \( '查询条件', '\[ 1 \]Limit筛选', '\[ and \]是否or查询' \);
+
+随机返回一条：
+
+```php
+$user = new UserDao;
+$where = [
+    'name' => 'topphp'
+];
+$user->selectRand($where);
+```
+
+随机返回limit条：
+
+```php
+$user = new UserDao;
+$where = [
+    'name' => 'topphp'
+];
+$user->selectRand($where, 10);
+```
