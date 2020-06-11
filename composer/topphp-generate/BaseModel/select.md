@@ -128,24 +128,24 @@ $user->queryChain()->whereRaw($where, ['id' => 0, 'name' => 'thinkphp%'])->selec
 
 需要注意的是，以下所有快捷方法的`where`都不支持直接传空数组来识别为查询所有，需要查询所有请统一传入字符串`*`。
 
-* findField
-* selectOne
-* selectAll
-* selectList
-* selectColumn
-* selectSort
-* selectFirst
-* selectEnd
-* selectRand
-* selectRepeat
-* selectNoRepeat
-* selectFieldInSet
-* selectFieldInList
-* selectJoin
-* selectLeftJoin
-* selectRightJoin
-* selectFullJoin
-* selectChild
+* findField 【查询字段值】
+* selectOne 【查询一条】
+* selectAll 【查询所有】
+* selectList 【查询List】
+* selectColumn 【查询列】
+* selectSort 【查询排序】
+* selectFirst 【查询首条数据】
+* selectEnd 【查询最后一条数据】
+* selectRand 【满足条件的数据随机返回】
+* selectRepeat 【查询指定字段值重复的记录】
+* selectNoRepeat 【查询指定字段值不重复的记录】
+* selectFieldInSet 【FIND_IN_SET查询】
+* selectFieldInList 【FIND_IN_SET查询反向】
+* selectJoin 【innerJoin联查】
+* selectLeftJoin 【leftJoin联查】
+* selectRightJoin 【rightJoin联查】
+* selectFullJoin 【fullJoin联查】
+* selectChild 【一对多子查询】
 
 ### 我们推荐的用法是：
 
