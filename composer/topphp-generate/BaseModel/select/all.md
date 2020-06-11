@@ -81,3 +81,5 @@ class UserDao extends User
     }
 }
 ```
+
+其中`where`条件的`*`表示查询所有，所有快捷方法的`where`都不支持直接传空数组来识别为查询所有。
