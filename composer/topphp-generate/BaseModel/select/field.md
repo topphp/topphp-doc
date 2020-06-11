@@ -47,5 +47,20 @@ SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )
 
 ### selectNoRepeat 查询指定字段值 不重复 的记录
 
+> selectNoRepeat \( '查询条件', '字段名数组', '查询排序', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
+`selectNoRepeat`与`selectRepeat`是相反的存在，即只有当指定的字段存在唯一性时才会被查询出来。
+
+```php
+$user = new UserDao;
+$user->selectNoRepeat("*", ["nickname"]);
+```
+
+生成的SQL语句为：
+
+```php
+SELECT * FROM `topphp_user` WHERE ( `delete_time` IS NULL OR `delete_time` = 0 )  AND ( (nickname) IN (SELECT nickname FROM topphp_user GROUP BY nickname HAVING COUNT(*)=1) )
+```
+
 
 
