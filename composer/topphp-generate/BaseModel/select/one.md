@@ -183,4 +183,15 @@ $where = ["id", ">", 10];
 $user->selectOne($where, "field(name,'thinkphp','topphp','onethink')");
 ```
 
+第三个`$isOr`参数前面已经遇到过，在此不做赘述，第四个`$isFind`参数表示是否是`ThinkPHP`的`find`查询：
+
+```php
+$user = new UserDao;
+$user->selectOne(1, [], "and", true);
+```
+
+上面的方式将直接返回一围数组形式的结果，如果查询不到，也会返回一个空数组，而不是`null`。
+
+### 推荐用法
+
 
