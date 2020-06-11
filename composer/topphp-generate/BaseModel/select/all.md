@@ -38,10 +38,10 @@ $where = [
     ["id", ">", 10]
 ];
 $user->selectAll($where, [], "or", true)
-    ->order("id", "desc")->select()
-    ->each(function ($item) {
-         if ($item['id'] == 9) {
-             $item['admin_name'] = "topphp";
-         }
-    })->toArray();
+->order("id", "desc")->select()
+->each(function ($item) {
+     if ($item['id'] == 9) {
+         $item['admin_name'] = "topphp";
+     }
+})->toArray();
 ```
