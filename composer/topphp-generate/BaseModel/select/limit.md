@@ -30,3 +30,32 @@ $user->selectFirst($where, 10);
 
 > `selectFirst`如果是`limit`一条数据，默认返回该条数据键值对一围数组，如果是`limit`多条，将返回二维数组。
 
+### selectEnd 查询最后一条（或后Limit条）
+
+> selectEnd \( '查询条件', '\[ 1 \]Limit筛选', '\[ and \]是否or查询' \);
+
+```php
+$user = new UserDao;
+$where = [
+    'name' => 'topphp'
+];
+$user->selectEnd($where);
+```
+
+上面将返回数据库中最后一次出现`name`值为`topphp`的那条数据。
+
+> `selectEnd`默认的排序条件为主键`id`降序，`create_time`降序，`update_time`降序，如果三个字段都不存在，将默认根据数据表第一个出现的字段降序。
+
+支持第二个参数`$limit`获取后 N 条数据：
+
+```php
+$user = new UserDao;
+$where = [
+    'name' => 'topphp'
+];
+$user->selectEnd($where, 10);
+```
+
+上面的数据将返回满足条件的后`10`条数据。
+
+> `selectEnd`如果是`limit`一条数据，默认返回该条数据键值对一围数组，如果是`limit`多条，将返回二维数组。
