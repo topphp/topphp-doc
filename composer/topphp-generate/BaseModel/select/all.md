@@ -77,7 +77,7 @@ class UserDao extends User
     {
         $pageConfig = $this->getPaginateConfig();
         $withoutField = ["password", "delete_time"];
-        return $this->selectAll("*", $withoutField, "or", true)->paginate($pageConfig)->toArray();
+        return $this->selectAll("*", $withoutField, "and", true)->paginate($pageConfig)->toArray();
     }
 }
 ```
