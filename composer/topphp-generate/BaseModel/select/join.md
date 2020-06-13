@@ -71,3 +71,5 @@ $order->setBaseQuery("a", "*", ["order_goods b","order_id"], "leftJoin")
 ```php
 SELECT `a`.*,`b`.* FROM `topphp_order` `a` LEFT JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`a`.`order_id` WHERE  `a`.`order_id` = 1
 ```
+
+这也就会产生一个问题，就是两张表如果出现相同字段名的情况，后面的表会把前面的表字段值覆盖，有可能导致查询数据结果与实际数据不符，通常我们获取数据都是以某一张表的数据为主，所以`setBaseQuery`才会将两种过滤分开处理。
