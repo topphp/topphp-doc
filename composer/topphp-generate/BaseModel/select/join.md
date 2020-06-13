@@ -209,3 +209,4 @@ $order->setBaseQuery("a", ["order_no", "order_price"])
 
 * 单表查询链式操作依旧使用`queryChain`。
 * 关联查询链式操作使用`setBaseQuery`。
+* 关联查询时，允许不定义别名，无论是主表还是联查表，默认会以表名作为别名处理。
