@@ -305,5 +305,27 @@ SELECT `this`.`order_no`,`b`.`goods_name` FROM `topphp_order` `this` INNER JOIN 
 
 > 如果你仅需要筛选联查表中不多的几个字段，推荐使用字符串形式的字段筛选，如果你是大批量的查询所有，推荐使用数组形式定义筛选字段。快捷方法的后面几个参数与之前说明的无异。
 
+### selectLeftJoin 联查【leftJoin】
 
+> selectLeftJoin \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
+`selectLeftJoin`**即使右表中没有匹配，也从左表返回所有的行**
+
+用法同`selectJoin`。
+
+### selectRightJoin 联查【rightJoin】
+
+> selectRightJoin \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
+`selectRightJoin`**即使左表中没有匹配，也从右表返回所有的行**
+
+用法同`selectJoin`。
+
+### selectFullJoin 联查【fullJoin】
+
+> selectFullJoin \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
+`selectFullJoin`**只要其中一个表中存在匹配，就返回行，Mysql数据库不支持**
+
+用法同`selectJoin`。
 
