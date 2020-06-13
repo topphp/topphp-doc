@@ -214,3 +214,5 @@ $order->setBaseQuery("a", ["order_no", "order_price"])
 ### selectJoin 联查【innerJoin】
 
 > selectJoin \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
+**`selectJoin`如果表中有至少一个匹配，则返回行**
