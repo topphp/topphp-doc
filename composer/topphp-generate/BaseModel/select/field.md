@@ -141,3 +141,19 @@ $user = new UserDao;
 $user->selectColumn("*", "nickname,email", "id");
 ```
 
+> `selectColumn`默认以主键`id`作为键值查询。
+
+```php
+$user = new UserDao;
+$user->selectColumn("*");
+```
+
+上面的查询将会返回以主键`id`为键值的所有数据组成的数组。如果你想以数据表中某个字段作为键值来查询所有：
+
+```php
+$user = new UserDao;
+$user->selectColumn("*", [], "username");
+```
+
+
+
