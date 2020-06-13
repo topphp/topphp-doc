@@ -130,3 +130,5 @@ $order->setBaseQuery("a", "*", $join, "leftJoin")
 ```php
 SELECT `a`.*,`b`.`goods_name`,`c`.`username` FROM `topphp_order` `a` LEFT JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`a`.`order_id` LEFT JOIN `topphp_user` `c` ON `c`.`id`=`a`.`user_id` WHERE ( `c`.`delete_time` IS NULL OR `c`.`delete_time` = 0 ) AND `a`.`order_id` = 1
 ```
+
+> 注意：`setBaseQuery`方法也会默认过滤软删除数据，如果你的数据表中存在如`delete_time`这样的软删除字段，就会自动触发软删除筛选。
