@@ -22,5 +22,21 @@
 4、$type 关联方式，默认'join'方式，可选'leftJoin'，'rightJoin'，'fullJoin'。
 ```
 
+假如我们有一个订单表和一个订单商品表，进行关联，表的结构大概是如下样子的：
+
+![](/assets/join.png)
+
+通常你使用`TopPHP`的`BaseModel`类进行链式操作时都要使用`queryChain`进行链式操作的开始，如果你想直接使用`ThinkPHP`的链式操作联查方式也是可以的：
+
+```php
+$order = new OrderDao;
+$where = [
+    "id" => 1,
+];
+$order->queryChain($where)
+->alias('a')
+->leftJoin('order_goods b','a.order_id = b.order_id')
+->select();
+```
 
 
