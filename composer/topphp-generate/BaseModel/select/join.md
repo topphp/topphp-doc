@@ -173,4 +173,18 @@ $order->setBaseQuery("a", "*", $join)
 ->select();
 ```
 
-这与上面一个示例生成的SQL语句是一样的。
+这与上面一个示例生成的SQL语句是一样的。数组中定义关联方式的优先级要高于`setBaseQuery`的第四个`$type`参数。
+
+我们也支持一维数组形式的定义：
+
+```php
+$order = new OrderDao;
+$where = [
+    "a.order_id" => 1,
+];
+$join = ["order_goods b", "order_id", "order_id", "leftJoin"];
+$order->setBaseQuery("a", ["order_no", "order_price"], $join)
+->field('b.*')
+->where($where)
+->select();
+```
