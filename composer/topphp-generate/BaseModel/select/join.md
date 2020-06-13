@@ -268,3 +268,38 @@ $order->selectJoin($where, ["b.*"], $join);
 ```
 
 数组形式的字段筛选，生成的联查表数据字段会自动重命名为【表名+下划线+字段名】形式，如上面设置的`order_goods`表别名为`b`，那么查询出来的所有`order_goods`表字段名都会默认加上`b_`的前缀。如果你没有设置别名，前缀将都会变成表名`order_goods_`。
+
+如果你想筛选主表字段，可以按照如下方式筛选：
+
+```php
+$order = new OrderDao;
+$where = [
+    "this.order_id" => 1,
+];
+$join = ["order_goods b", "order_id"];
+$order->selectJoin($where, ["this.order_no", "b.goods_name"], $join);
+```
+
+这将生成如下SQL：
+
+```php
+SELECT `this`.`order_no`,b.goods_name as b_goods_name FROM `topphp_order` `this` INNER JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`this`.`order_id` WHERE `this`.`order_id` = 1
+```
+
+如果是字符串形式的筛选：
+
+```php
+$order = new OrderDao;
+$where = [
+    "this.order_id" => 1,
+];
+$join = ["order_goods b", "order_id"];
+$order->selectJoin($where, "this.order_no,b.goods_name", $join);
+```
+
+这将生成如下SQL：
+
+```php
+SELECT `this`.`order_no`,`b`.`goods_name` FROM `topphp_order` `this` INNER JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`this`.`order_id` WHERE `this`.`order_id` = 1
+```
+
