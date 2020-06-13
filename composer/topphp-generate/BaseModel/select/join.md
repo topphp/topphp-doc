@@ -358,5 +358,5 @@ $order->selectChild($where, ["this.order_no", "b.goods_name"], $join);
 
 ![](/assets/select-child.png)
 
-
+如图可以看到`order_goods`表的数据都以子层级关系放在`order`表的查询结果中，我们可以通过键值`table_order_goods`来获取子层级的两条数据。
 
