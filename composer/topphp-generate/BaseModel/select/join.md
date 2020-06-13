@@ -18,6 +18,7 @@
     
     如果是多张表联查，可以使用二维数组形式，如：
     [['order_goods og', 'order_id', 'id'],...]
+    
 4、$type 关联方式，默认'join'方式，可选'leftJoin'，'rightJoin'，'fullJoin'。
 ```
 
