@@ -340,8 +340,8 @@ SELECT `this`.`order_no`,`b`.`goods_name` FROM `topphp_order` `this` INNER JOIN 
 ```php
 $order = new OrderDao;
 $where = ["this.order_id", "<", 100];
-$join = ["order_goods b", "order_id"];
-$order->selectChild($where, ["this.*"], $join);
+$with = ["order_goods b", "order_id"];
+$order->selectChild($where, ["this.*"], $with);
 ```
 
 上面将返回主表和子表的全部数据，主表相对于子表为一级关系，子表为二级，子表数组在主表中的键值为`table_` + 表名，如上面的查询就是`table_order_goods`，我们筛选一下字段来看看详细结构：
@@ -352,8 +352,8 @@ $where = [
     ["this.order_id", "<", 45],
     ["this.order_id", ">", 40]
 ];
-$join = ["order_goods b", "order_id"];
-$order->selectChild($where, ["this.order_no", "b.goods_name"], $join);
+$with = ["order_goods b", "order_id"];
+$order->selectChild($where, ["this.order_no", "b.goods_name"], $with);
 ```
 
 `selectChild`方法的筛选字段仅支持数组形式的定义，不支持字符串形式定义，上面的查询将返回类似如下图结果：
@@ -364,3 +364,11 @@ $order->selectChild($where, ["this.order_no", "b.goods_name"], $join);
 
 > `selectChild`方法的关联规则为：\["子表名 (别名)", "子表关联字段", "(主表关联字段)"\]，如果主表与子表关联字段名一样，第三个【主表关联字段名】参数可省略。
 
+`selectChild`支持分页，如果你配置了`TopPHP`骨架的`PaginateEnum`分页枚举类，将以枚举类定义的每页显示条数为主，如果你需要自定义，可以手动传入`selectChild`的第六个参数`$pageLimit`。
+
+```php
+$order = new OrderDao;
+$where = ["this.order_id", "<", 100];
+$with = ["order_goods b", "order_id"];
+$order->selectChild($where, ["this.*"], $with, "and", true, 10);
+```
