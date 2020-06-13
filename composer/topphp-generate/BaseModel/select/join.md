@@ -54,7 +54,7 @@ $order->setBaseQuery("a", "*", ["order_goods b","order_id"], "leftJoin")
 ->select();
 ```
 
-**需要注意的是`setBaseQuery`方法默认都是针对主表的数据查询，所以上面的`*`筛选出来的都是主表（即当前表的数据），如果你需要获取子表的数据还需要链式操作通过`field`方法来筛选：**
+**需要注意的是`setBaseQuery`方法默认都是针对主表的数据查询，所以上面的`*`筛选出来的都是主表（即当前表的数据），如果你需要获取联查表的数据还需要链式操作通过`field`方法来筛选：**
 
 ```php
 $order = new OrderDao;
