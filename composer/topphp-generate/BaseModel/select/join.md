@@ -114,8 +114,14 @@ $join = [
     ["order_goods b", "order_id"],
     ["user c", "id", "user_id"]
 ];
-$order->setBaseQuery("a", ["order_no", "order_price"], $join, "leftJoin")
-->field('b.*')
+$order->setBaseQuery("a", "*", $join, "leftJoin")
+->field('b.goods_name,c.username')
 ->where($where)
 ->select();
+```
+
+上面将会生成类似如下SQL：
+
+```php
+SELECT `a`.*,`b`.`goods_name`,`c`.`username` FROM `topphp_order` `a` LEFT JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`a`.`order_id` LEFT JOIN `topphp_user` `c` ON `c`.`id`=`a`.`user_id` WHERE ( `c`.`delete_time` IS NULL OR `c`.`delete_time` = 0 ) AND `a`.`order_id` = 1
 ```
