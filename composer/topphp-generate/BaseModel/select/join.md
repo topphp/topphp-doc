@@ -188,3 +188,19 @@ $order->setBaseQuery("a", ["order_no", "order_price"], $join)
 ->where($where)
 ->select();
 ```
+
+> 其实`setBaseQuery`也支持单表的查询，效果与`queryChain`其实是一样的。
+
+比如：
+
+```php
+$order = new OrderDao;
+$where = [
+    "order_id" => 1,
+];
+$order->setBaseQuery("a", ["order_no", "order_price"])
+->where($where)
+->select();
+```
+
+上面的第一个参数`$alias`也可以写成空字符串，并不影响单表的查询，第二个参数`$field`也就成了单表的过滤字段。
