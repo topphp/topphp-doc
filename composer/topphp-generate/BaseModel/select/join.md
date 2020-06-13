@@ -219,3 +219,52 @@ $order->setBaseQuery("a", ["order_no", "order_price"])
 > selectJoin \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
 
 **`selectJoin`如果表中有至少一个匹配，则返回行**
+
+```php
+$order = new OrderDao;
+$where = [
+    "this.order_id" => 1,
+];
+$join = ["order_goods", "order_id"];
+$order->selectJoin($where, [], $join);
+```
+
+快捷方法如果不筛选主表字段，默认都会把主表全部字段查询出来，如上面的方式，将会返回主表所有数据，但是不会包含联查表数据。
+
+> 四种联查方式快捷方法的主表别名统一都会默认为字符串“this”，主表字段筛选，请统一使用“this.字段名”
+
+上面的查询将会生成如下SQL：
+
+```php
+SELECT `this`.* FROM `topphp_order` `this` INNER JOIN `topphp_order_goods` `order_goods` ON `order_goods`.`order_id`=`this`.`order_id` WHERE `this`.`order_id` = 1
+```
+
+筛选字段参数`$fields`默认表示的是筛选联查表字段，如：
+
+```php
+$order = new OrderDao;
+$where = [
+    "this.order_id" => 1,
+];
+$join = ["order_goods b", "order_id"];
+$order->selectJoin($where, "b.*", $join);
+```
+
+上面将会将主表和联查表所有字段查询出来，生成如下SQL：
+
+```php
+SELECT `this`.*,`b`.* FROM `topphp_order` `this` INNER JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`this`.`order_id` WHERE `this`.`order_id` = 1
+```
+
+这样查询所有，请注意主表与联查表中是否有重复的字段名，联查表的重复字段值会覆盖主表的，所以我们推荐数组形式进行查询：
+
+```php
+$order = new OrderDao;
+$where = [
+    "this.order_id" => 1,
+];
+$join = ["order_goods b", "order_id"];
+$order->selectJoin($where, ["b.*"], $join);
+```
+
+数组形式的字段筛选，生成的联查表数据字段会自动重命名为【表名+下划线+字段名】形式，如上面设置的`order_goods`表别名为`b`，那么查询出来的所有`order_goods`表字段名都会默认加上`b_`的前缀。如果你没有设置别名，前缀将都会变成表名`order_goods_`。
