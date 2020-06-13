@@ -331,7 +331,7 @@ SELECT `this`.`order_no`,`b`.`goods_name` FROM `topphp_order` `this` INNER JOIN 
 
 ### selectChild 一对多子查询
 
-> selectChild \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+> selectChild \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否分页', '\[ 0 \]每页显示条数' \);
 
 还是上面的订单与订单商品表结构，一般情况下，我们查询出来的数据都是多条平级关系的，这可能不利于我们遍历展示数据，往往我们会有一对多子查询结构的需求。
 
