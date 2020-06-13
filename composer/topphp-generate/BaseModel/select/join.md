@@ -239,7 +239,7 @@ $order->selectJoin($where, [], $join);
 SELECT `this`.* FROM `topphp_order` `this` INNER JOIN `topphp_order_goods` `order_goods` ON `order_goods`.`order_id`=`this`.`order_id` WHERE `this`.`order_id` = 1
 ```
 
-筛选字段参数`$fields`默认表示的是筛选联查表字段，如：
+筛选字段参数`$fields`默认表示的是筛选**联查表**字段，如：
 
 ```php
 $order = new OrderDao;
