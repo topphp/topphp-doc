@@ -26,17 +26,33 @@
 
 ![](/assets/join.png)
 
+`order`表与`order_goods`表通过`order_id`进行关联，我们这个示例是一个一对多的数据关系，一笔订单下会有多个商品。
+
 通常你使用`TopPHP`的`BaseModel`类进行链式操作时都要使用`queryChain`进行链式操作的开始，如果你想直接使用`ThinkPHP`的链式操作联查方式也是可以的：
 
 ```php
 $order = new OrderDao;
 $where = [
-    "id" => 1,
+    "a.order_id" => 1,
 ];
 $order->queryChain($where)
 ->alias('a')
 ->leftJoin('order_goods b','a.order_id = b.order_id')
 ->select();
 ```
+
+但是`BaseModel`提供`setBaseQuery`方法来简化上面的联查写法：
+
+```php
+$order = new OrderDao;
+$where = [
+    "a.order_id" => 1,
+];
+$order->setBaseQuery("a", "*", ["order_goods b","order_id"], "leftJoin")
+->where($where)
+->select();
+```
+
+**需要注意的是`setBaseQuery`方法默认都是针对主表的数据查询，所以上面的`*`筛选出来的都是主表（即当前表的数据），如果你需要获取子表的数据还需要链式操作通过`field`方法来筛选：**
 
 
