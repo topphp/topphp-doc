@@ -331,6 +331,8 @@ SELECT `this`.`order_no`,`b`.`goods_name` FROM `topphp_order` `this` INNER JOIN 
 
 ### selectChild 一对多子查询
 
+> selectChild \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
+
 还是上面的订单与订单商品表结构，一般情况下，我们查询出来的数据都是多条平级关系的，这可能不利于我们遍历展示数据，往往我们会有一对多子查询结构的需求。
 
 例如，我们默认情况下仅展示订单列表，当前端点击一笔订单的展开按钮时，就会展示订单下多条商品列表，常规情况下我们是先查询订单列表，点击时再根据订单号查询订单下的商品，而`selectChild`方法将返回这样的父子层级关联关系数据结构：
@@ -354,9 +356,11 @@ $join = ["order_goods b", "order_id"];
 $order->selectChild($where, ["this.order_no", "b.goods_name"], $join);
 ```
 
-上面的查询将返回类似如下图结果：
+`selectChild`方法的筛选字段仅支持数组形式的定义，不支持字符串形式定义，上面的查询将返回类似如下图结果：
 
 ![](/assets/select-child.png)
 
-如图可以看到`order_goods`表的数据都以子层级关系放在`order`表的查询结果中，我们可以通过键值`table_order_goods`来获取子层级的两条数据。
+如图可以看到`order_goods`表的数据都以子层级关系放在`order`表的查询结果中，我们可以通过键值`table_order_goods`来获取子层级的两条数据。这就是`selectChild`方法的作用。
+
+> `selectChild`方法的关联规则为：\["子表名 (别名)", "子表关联字段", "(主表关联字段)"\]，如果主表与子表关联字段名一样，第三个【主表关联字段名】参数可省略。
 
