@@ -11,10 +11,11 @@
 2、$field 当前表字段数组，如 'order' 表的字段 [field1,field2...]，如果需要查询所有字段直接传 '空数组' 或者是 通配符字符串 '*' 。
 3、$join 关联规则，需要连接的表（以下称"联查表"），参数为数组形式，结构如下：
 
-    ['联查表 (别名)', '联查表外键字段', ('主表主键字段')]
+    ['联查表 (别名)', '联查表外键字段', ('主表主键字段'), ('连接类型')]
 
     上面的括号表示可选，如果你的主键与外键的字段名一致的话，可以省略第三个参数。
     以上第三个【主表主键字段】参数不传，默认使用【联查表外键字段】进行联查。
+    第四个参数为【连接类型】，默认以setBaseQuery方法的【关联方式】为主，主要用于多张表不同连接类型的情况，优先级高于$type参数
     
     如果是多张表联查，可以使用二维数组形式，如：
     [['order_goods og', 'order_id', 'id'],...]
@@ -96,6 +97,23 @@ $where = [
     "a.order_id" => 1,
 ];
 $join = ["order_goods b","order_id"];
+$order->setBaseQuery("a", ["order_no", "order_price"], $join, "leftJoin")
+->field('b.*')
+->where($where)
+->select();
+```
+
+如果是多张表联查也是一样的处理方式，`$join`参数要变为二维数组：
+
+```php
+$order = new OrderDao;
+$where = [
+    "a.order_id" => 1,
+];
+$join = [
+    ["order_goods b", "order_id"],
+    ["user c", "id", "user_id"]
+];
 $order->setBaseQuery("a", ["order_no", "order_price"], $join, "leftJoin")
 ->field('b.*')
 ->where($where)
