@@ -339,5 +339,24 @@ SELECT `this`.`order_no`,`b`.`goods_name` FROM `topphp_order` `this` INNER JOIN 
 $order = new OrderDao;
 $where = ["this.order_id", "<", 100];
 $join = ["order_goods b", "order_id"];
-$order->selectJoin($where, [], $join);
+$order->selectChild($where, ["this.*"], $join);
 ```
+
+上面将返回主表和子表的全部数据，主表相对于子表为一级关系，子表为二级，子表数组在主表中的键值为`table_` + 表名，如上面的查询就是`table_order_goods`，我们筛选一下字段来看看详细结构：
+
+```php
+$order = new OrderDao;
+$where = [
+    ["this.order_id", "<", 45],
+    ["this.order_id", ">", 40]
+];
+$join = ["order_goods b", "order_id"];
+$order->selectChild($where, ["this.order_no", "b.goods_name"], $join);
+```
+
+上面的查询将返回类似如下图结果：
+
+![](/assets/select-child.png)
+
+
+
