@@ -132,3 +132,45 @@ SELECT `a`.*,`b`.`goods_name`,`c`.`username` FROM `topphp_order` `a` LEFT JOIN `
 ```
 
 > 注意：`setBaseQuery`方法也会默认过滤软删除数据，如果你的数据表中存在如`delete_time`这样的软删除字段，就会自动触发软删除筛选。像上面的查询，我的`order`表和`order_goods`表都不存在软删除字段，但是`user`表存在软删除字段了，所以你看到的查询中就会加入过滤`user`表软删除的语句。
+
+如果你想构造如`order_goods`表与`order`表是`leftJoin`关系，`user`表与`order`表是`rightJoin`关系，那么就需要在`$join`的二维数组中加入第四个参数：
+
+```php
+$order = new OrderDao;
+$where = [
+    "a.order_id" => 1,
+];
+$join = [
+    ["order_goods b", "order_id"],
+    ["user c", "id", "user_id", "rightJoin"]
+];
+$order->setBaseQuery("a", "*", $join, "leftJoin")
+->field('b.goods_name,c.username')
+->where($where)
+->select();
+```
+
+上面将会生成类似如下SQL：
+
+```php
+SELECT `a`.*,`b`.`goods_name`,`c`.`username` FROM `topphp_order` `a` LEFT JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`a`.`order_id` RIGHT JOIN `topphp_user` `c` ON `c`.`id`=`a`.`user_id` WHERE ( `c`.`delete_time` IS NULL OR `c`.`delete_time` = 0 ) AND `a`.`order_id` = 1
+```
+
+还可以省略`setBaseQuery`的第四个`$type`参数，直接在数组中定义：
+
+```php
+$order = new OrderDao;
+$where = [
+    "a.order_id" => 1,
+];
+$join = [
+    ["order_goods b", "order_id", "order_id", "leftJoin"],
+    ["user c", "id", "user_id", "rightJoin"]
+];
+$order->setBaseQuery("a", "*", $join)
+->field('b.goods_name,c.username')
+->where($where)
+->select();
+```
+
+这与上面一个示例生成的SQL语句是一样的。
