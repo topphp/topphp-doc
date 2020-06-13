@@ -211,6 +211,8 @@ $order->setBaseQuery("a", ["order_no", "order_price"])
 * 关联查询链式操作使用`setBaseQuery`。
 * 关联查询时，允许不定义别名，无论是主表还是联查表，默认会以表名作为别名处理。
 
+> `BaseModel`提供四种联查方式的快捷方法`selectJoin`，`selectLeftJoin`，`selectRightJoin`，`selectFullJoin`。注意：`selectFullJoin`联查方式Mysql数据库不支持。
+
 ### selectJoin 联查【innerJoin】
 
 > selectJoin \( '查询条件', '筛选字段', '关联规则', '\[ and \]是否or查询', '\[ false \]是否返回model对象' \);
