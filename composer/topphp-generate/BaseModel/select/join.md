@@ -96,7 +96,7 @@ $where = [
     "a.order_id" => 1,
 ];
 $join = ["order_goods b","order_id"];
-$order->setBaseQuery("a", ["order_no"], $join, "leftJoin")
+$order->setBaseQuery("a", ["order_no", "order_price"], $join, "leftJoin")
 ->field('b.*')
 ->where($where)
 ->select();
