@@ -156,7 +156,7 @@ $order->setBaseQuery("a", "*", $join, "leftJoin")
 SELECT `a`.*,`b`.`goods_name`,`c`.`username` FROM `topphp_order` `a` LEFT JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`a`.`order_id` RIGHT JOIN `topphp_user` `c` ON `c`.`id`=`a`.`user_id` WHERE ( `c`.`delete_time` IS NULL OR `c`.`delete_time` = 0 ) AND `a`.`order_id` = 1
 ```
 
-还可以省略`setBaseQuery`的第四个`$type`参数，直接在数组中定义：
+还可以省略`setBaseQuery`的第四个`$type`参数，直接在`$join`数组中定义：
 
 ```php
 $order = new OrderDao;
