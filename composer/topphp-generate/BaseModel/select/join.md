@@ -303,7 +303,7 @@ $order->selectJoin($where, "this.order_no,b.goods_name", $join);
 SELECT `this`.`order_no`,`b`.`goods_name` FROM `topphp_order` `this` INNER JOIN `topphp_order_goods` `b` ON `b`.`order_id`=`this`.`order_id` WHERE `this`.`order_id` = 1
 ```
 
-> 如果你仅需要筛选联查表中不多的几个字段，推荐使用字符串形式的字段筛选，如果你是大批量的查询所有，推荐使用数组形式定义筛选字段。
+> 如果你仅需要筛选联查表中不多的几个字段，推荐使用字符串形式的字段筛选，如果你是大批量的查询所有，推荐使用数组形式定义筛选字段。快捷方法的后面几个参数与之前说明的无异。
 
 
 
