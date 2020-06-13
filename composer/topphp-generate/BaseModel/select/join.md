@@ -204,3 +204,5 @@ $order->setBaseQuery("a", ["order_no", "order_price"])
 ```
 
 上面的第一个参数`$alias`也可以写成空字符串，并不影响单表的查询，第二个参数`$field`也就成了单表的过滤字段。
+
+#### 我们推荐的用法是：
