@@ -156,5 +156,20 @@ class UserCheck extends Validate
 
 > 注意上面的错误信息`key`值与`ThinkPHP`的有所区别，`ThinkPHP`的是`msg`，使用`Check`中间件定义就要写成`message`。为了拥抱`PHP严格模式`错误信息的内容必须是`string`类型，不允许为`int`型。错误码`code`的类型推荐`int`型。
 
+上面如果验证失败，将会返回类似如下`json`数据：
+
+```json
+{
+    "code":20001,
+    "message":"名称必须",
+    "data":[
+
+    ],
+    "operate":"admin/Index/index"
+}
+```
+
+
+
 
 
