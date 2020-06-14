@@ -45,7 +45,7 @@ User::where('id','>',10)->delete();
 
 ## 最佳实践
 
-> 删除的最佳实践原则是：如果删除当前模型数据，用`delete`方法，如果需要直接删除数据，使用`destroy`静态方法。
+> 删除的最佳实践原则是：如果删除当前模型数据，用`delete`方法，如果需要直接删除数据，使用`destroy`静态方法。或者使用`TopPHP`的[`topphp/topphp-generate`](/composer/topphp-generate.md)组件提供的`BaseModel`类的`remove`方法进行数据删除。
 
 
 
