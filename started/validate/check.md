@@ -214,7 +214,7 @@ class UserCheck extends Validate
 '层级名(layered).操作方法名(actionName)'
 ```
 
-> 如你控制器下有不需要验证的操作方法，请务必定义场景值对应的操作方法为空数组，如下面的`index`方法。
+> 如你控制器下有不需要验证的操作方法，请务必定义场景值对应的操作方法为空字符串数组，如下面的`index`方法。
 
 ```php
 namespace app\admin\validate;
@@ -238,7 +238,7 @@ class UserCheck extends Validate
     ];
 
     protected $scene = [
-        "index"    => [],
+        "index"    => [''],
         "register" => ["name", "age", "email"]
     ];
 }
@@ -288,7 +288,7 @@ class UserCheck extends Validate
 
 上面的定义方式需注意 @ 后字段名区分大小写，配置好后，默认情况下访问`register`操作是不会自动验证`password`字段的，当我们按照条件需要（如：`type`参数类型为`1`时）验证时，就在控制器需要验证的地方调用`checkOneRequestParam`公共方法来进行验证。
 
-> checkOneRequestParam ( '字段名', '请求方式' )
+> checkOneRequestParam \( '字段名', '请求方式' \)
 
 `checkOneRequestParam`方法会根据验证器文件中定义的单独验证场景和规则，进行单独验证某一个字段，请求方式支持`get`，`post`，`put`，`patch`，`delete`。可以使用`MethodEnum`枚举类来传入对应的请求方式，如：
 
@@ -308,7 +308,6 @@ checkOneRequestParam("password",MethodEnum::POST);
     "operate":"admin/User/register"
 }
 ```
-
 
 
 
