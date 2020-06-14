@@ -165,7 +165,7 @@ class UserCheck extends Validate
     "data":[
 
     ],
-    "operate":"admin/Index/index"
+    "operate":"admin/User/register"
 }
 ```
 
