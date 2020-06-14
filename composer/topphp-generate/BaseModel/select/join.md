@@ -212,7 +212,7 @@ $order->setBaseQuery("a", ["order_no", "order_price"])
 * 关联查询时，允许不定义别名，无论是主表还是联查表，默认会以表名作为别名处理。
 
 > `BaseModel`提供四种联查方式的快捷方法`selectJoin`，`selectLeftJoin`，`selectRightJoin`，`selectFullJoin`。  
-> 注意：`selectFullJoin`联查方式Mysql数据库不支持。
+> 注意：`selectFullJoin`联查方式Mysql数据库不支持。快捷方法的
 
 ### selectJoin 联查【innerJoin】
 
@@ -362,7 +362,7 @@ $order->selectChild($where, ["this.order_no", "b.goods_name"], $with);
 
 如图可以看到`order_goods`表的数据都以子层级关系放在`order`表的查询结果中，我们可以通过键值`table_order_goods`来获取子层级的两条数据。这就是`selectChild`方法的作用。
 
-> `selectChild`方法的关联规则为：\["子表名 (别名)", "子表关联字段", "(主表关联字段)"\]，如果主表与子表关联字段名一样，第三个【主表关联字段名】参数可省略。
+> `selectChild`方法的关联规则为：\["子表名 \(别名\)", "子表关联字段", "\(主表关联字段\)"\]，如果主表与子表关联字段名一样，第三个【主表关联字段名】参数可省略。
 
 `selectChild`支持分页，如果你配置了`TopPHP`骨架的`PaginateEnum`分页枚举类，将以枚举类定义的每页显示条数为主，如果你需要自定义，可以手动传入`selectChild`的第六个参数`$pageLimit`。
 
@@ -372,3 +372,6 @@ $where = ["this.order_id", "<", 100];
 $with = ["order_goods b", "order_id"];
 $order->selectChild($where, ["this.*"], $with, "and", true, 10);
 ```
+
+
+
