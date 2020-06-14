@@ -9,7 +9,7 @@ composer require topthink/think-view
 
 ```
 
-> 视图相关的配置在配置目录的`view.php`配置文件中进行定义。
+> 视图相关的配置在配置目录的`view.php`配置文件中进行定义。`TopPHP`骨架默认已自动安装了`think-view`组件。
 
 通常可以直接使用`think\facade\View`来操作视图。
 
