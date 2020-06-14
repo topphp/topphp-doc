@@ -202,7 +202,19 @@ class UserCheck extends Validate
 
 > 如果你使用`ThinkPHP`的注解验证器是不支持数组形式定义的，注解验证器，请查看注解验证章节。
 
-`$scene`验证场景参数我们规定为操作方法名
+`$scene`验证场景参数我们规定为：
+
+```
+'操作方法名(actionName)'
+```
+
+如：上面的注册方法，即是`register`。如果你是多层级控制器，那么命名规则就是：
+
+```
+'层级名(layered).操作方法名(actionName)'
+```
+
+
 
 
 
