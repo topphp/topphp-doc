@@ -158,6 +158,9 @@
     * [模板渲染](started/view/rendering.md)
     * [模板引擎](started/view/template.md)
     * [视图驱动](started/view/driver.md)
+* [错误和日志](started/error-log.md)
+    * [错误处理](started/error-log/error.md)
+    * [日志处理](started/error-log/log.md)
 
 ## 微服务
 
