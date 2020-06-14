@@ -103,7 +103,7 @@ $user->remove($where);
 
 上面的两种方式都可以达到同一种效果。
 
-> `remove`方法返回的是删除成功的记录数。
+> `remove`方法返回的是删除成功的记录数。更详细的用法可以参看[`topphp/topphp-generate`](/composer/topphp-generate.md)组件章节。
 
 
 
