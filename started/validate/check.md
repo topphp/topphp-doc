@@ -125,5 +125,34 @@ class IndexCheck extends Validate
 }
 ```
 
+`$rule`验证规则与`ThinkPHP`定义规则一致，在此不做赘述，`$message`错误信息除了兼容`ThinkPHP`的错误信息定义方式外，还支持数组形式的定义方式：
 
+```php
+namespace app\admin\validate;
+
+use think\Validate;
+
+class UserCheck extends Validate
+{
+    protected $rule = [
+        'name'  => 'require|max:25',
+        'age'   => 'number|between:1,120',
+        'email' => 'email',
+    ];
+
+    protected $message = [
+        'name.require' => ['code' => 20001, 'message' => '名称必须'],
+        'name.max'     => ['code' => 20002, 'message' => '名称最多不能超过25个字符'],
+        'age.number'   => ['code' => 20003, 'message' => '年龄必须是数字'],
+        'age.between'  => ['code' => 20004, 'message' => '年龄必须在1~120之间'],
+        'email'        => ['code' => 20005, 'message' =>'邮箱格式错误'],
+    ];
+
+    protected $scene = [
+
+    ];
+}
+```
+
+> 注意上面的错误信息`key`值与`ThinkPHP`的有所区别，`ThinkPHP`的是`msg`，使用`Check`中间件定义就要写成`message`。为了拥抱`PHP严格模式`错误信息的内容必须是`string`类型，不允许为`int`型。错误码`code`的类型推荐`int`型。
 
