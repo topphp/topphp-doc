@@ -2,6 +2,8 @@
 
 在实际项目中，对数据频繁使用删除操作会导致性能问题，软删除的作用就是把数据加上删除标记，而不是真正的删除，同时也便于需要的时候进行数据的恢复。
 
+> 如果你使用`TopPHP`的[`topphp/topphp-generate`](/composer/topphp-generate.md)组件提供的`BaseModel`类中的方法，默认都是自带软删除的，无需定义引入`ThinkPHP`的`SoftDelete`trait。
+
 要使用软删除功能，需要引入`SoftDelete`trait，例如`User`模型按照下面的定义就可以使用软删除功能：
 
 ```php
