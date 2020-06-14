@@ -273,7 +273,7 @@ class UserCheck extends Validate
     ];
 
     protected $scene = [
-        "index"             => [],
+        "index"             => [''],
         "register"          => ["name", "age", "email"],
         "register@password" => ["password"],
     ];
