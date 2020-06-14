@@ -214,7 +214,35 @@ class UserCheck extends Validate
 '层级名(layered).操作方法名(actionName)'
 ```
 
+> 如你控制器下有不需要验证的操作方法，请务必定义场景值对应的操作方法为空数组，如下面的`index`方法。
 
+```php
+namespace app\admin\validate;
+
+use think\Validate;
+
+class UserCheck extends Validate
+{
+    protected $rule = [
+        'name'  => 'require|max:25',
+        'age'   => 'number|between:1,120',
+        'email' => 'email',
+    ];
+
+    protected $message = [
+        'name.require' => '名称必须',
+        'name.max'     => '名称最多不能超过25个字符',
+        'age.number'   => '年龄必须是数字',
+        'age.between'  => '年龄必须在1~120之间',
+        'email'        => '邮箱格式错误',
+    ];
+
+    protected $scene = [
+        "index"    => [],
+        "register" => ["name", "age", "email"]
+    ];
+}
+```
 
 
 
