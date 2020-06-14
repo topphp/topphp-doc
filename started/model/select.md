@@ -161,7 +161,7 @@ foreach(User::where('status', 1)->cursor() as $user){
 
 ## 最佳实践
 
-> 模型查询的最佳实践原则是：在模型外部使用静态方法进行查询，内部使用动态方法查询，包括使用数据库的查询构造器。
+> 模型查询的最佳实践原则是：在模型外部使用静态方法进行查询，内部使用动态方法查询，包括使用数据库的查询构造器。或者使用`TopPHP`的[`topphp/topphp-generate`](/composer/topphp-generate.md)组件提供的`BaseModel`类的查询章节的相关方法进行数据查询。
 
 
 
