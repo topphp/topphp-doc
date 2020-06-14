@@ -296,7 +296,7 @@ class UserCheck extends Validate
 checkOneRequestParam("password",MethodEnum::POST);
 ```
 
-> `checkOneRequestParam`方法验证成功会返回`true`，验证失败会自动抛出错误信息，如：
+> `checkOneRequestParam`方法验证成功会返回`true`，验证失败会自动向客户端抛出响应错误信息，如：
 
 ```json
 {
