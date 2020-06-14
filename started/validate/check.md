@@ -83,7 +83,7 @@ abstract class Base extends BaseController
 
 ### 使用
 
-`app\admin\validate`目录即是存放验证器中间件的目录，这与`ThinkPHP`的定义验证器规则是一致的，但是**使用`Check`全局验证器功能，必须将验证器配置文件以`xxxCheck.php`形式命名，否则将不会生效**。
+`app\admin\validate`目录即是存放验证器中间件的目录，这与`ThinkPHP`的定义验证器规则是一致的，但是**使用**`Check`**全局验证器功能，必须将验证器配置文件以**`xxxCheck.php`**形式命名，否则将不会生效**。
 
 定义规则与`ThinkPHP`的验证场景定义规则一致：
 
@@ -145,7 +145,7 @@ class UserCheck extends Validate
         'name.max'     => ['code' => 20002, 'message' => '名称最多不能超过25个字符'],
         'age.number'   => ['code' => 20003, 'message' => '年龄必须是数字'],
         'age.between'  => ['code' => 20004, 'message' => '年龄必须在1~120之间'],
-        'email'        => ['code' => 20005, 'message' =>'邮箱格式错误'],
+        'email'        => ['code' => 20005, 'message' => '邮箱格式错误'],
     ];
 
     protected $scene = [
@@ -155,4 +155,6 @@ class UserCheck extends Validate
 ```
 
 > 注意上面的错误信息`key`值与`ThinkPHP`的有所区别，`ThinkPHP`的是`msg`，使用`Check`中间件定义就要写成`message`。为了拥抱`PHP严格模式`错误信息的内容必须是`string`类型，不允许为`int`型。错误码`code`的类型推荐`int`型。
+
+
 
