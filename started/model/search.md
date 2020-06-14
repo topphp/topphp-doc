@@ -83,9 +83,9 @@ class User extends Model
 
 ```php
 User::withSearch(['name','create_time', 'status'], [
-    'name'        =>    'think',
-        'create_time'    =>    ['2018-8-1','2018-8-5'],
-        'status'    =>    1,
+        'name'        =>    'think',
+        'create_time' =>    ['2018-8-1','2018-8-5'],
+        'status'      =>    1,
         'sort'        =>    ['status'=>'desc'],
     ])
     ->select();
@@ -101,9 +101,9 @@ SELECT * FROM `think_user` WHERE  `name` LIKE 'think%' AND `create_time` BETWEEN
 
 ```php
 User::withSearch(['name'=>'nickname','create_time', 'status'], [
-    'nickname'    =>    'think',
-        'create_time'    =>    ['2018-8-1','2018-8-5'],
-        'status'    =>    1,
+        'nickname'    =>    'think',
+        'create_time' =>    ['2018-8-1','2018-8-5'],
+        'status'      =>    1,
         'sort'        =>    ['status'=>'desc'],
     ])
     ->select();
