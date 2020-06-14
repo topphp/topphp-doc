@@ -83,5 +83,5 @@ abstract class Base extends BaseController
 
 ### 使用
 
-
+`app\admin\validate`目录即是存放验证器中间件的目录，这与`ThinkPHP`的定义验证器规则是一致的，但是**使用`Check`全局验证器功能，必须将验证器配置文件以`xxxCheck.php`形式命名，否则将不会生效**。
 
