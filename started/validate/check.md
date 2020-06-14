@@ -38,3 +38,43 @@ www  WEB部署目录（或者子目录）
 │  │  │
 │  │  └─ ...                更多类库目录
 ```
+
+上面我们看到`middleware`目录是存放当前应用的中间件的，所以没有找到`Check`中间件，`Check`中间件放在`app\middleware`目录下，作为全局中间件使用，在应用下的`config`目录下存在一个`middleware.php`的配置文件：
+
+```php
+<?php
+// admin中间件配置
+return [
+    // 别名或分组
+    'alias'    => [
+        "Auth" => app\admin\middleware\Auth::class,
+        "Check" => app\middleware\Check::class,
+    ],
+    // 优先级设置，此数组中的中间件会按照数组中的顺序优先执行
+    'priority' => [
+        app\middleware\Check::class,
+        app\admin\middleware\Auth::class,
+    ],
+];
+```
+
+此文件即是配置当前应用的中间件的文件，我们可以看到这里引用了`Check`中间件，所以才会在当前应用生效。打开`app\admin\controller\Base.php`即可看到这里通过控制器中间件属性`$middleware`引用了`Check`中间件：
+
+```php
+declare(strict_types=1);
+
+namespace app\admin\controller;
+
+use app\BaseController;
+
+abstract class Base extends BaseController
+{
+    /**
+     * 定义业务中间件
+     * @var array
+     */
+    protected $middleware = ['Check','Auth'];
+
+    // Admin应用基础业务逻辑（所有方法需定义protected关键词）
+}
+```
