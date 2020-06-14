@@ -244,6 +244,70 @@ class UserCheck extends Validate
 }
 ```
 
+> `Check`全局验证器中间件，默认会自动触发验证，你无须再在控制器中调用任何其他的验证方法。
+
+如果你有需要单独验证的场景，比如当入参`type`类型为`1`的时候才需要验证`password`字段，其他情况下，不验证，我们可以在验证器文件中这样定义场景值：
+
+```php
+namespace app\admin\validate;
+
+use think\Validate;
+
+class UserCheck extends Validate
+{
+    protected $rule = [
+        'name'     => 'require|max:25',
+        'age'      => 'number|between:1,120',
+        'email'    => 'email',
+        'password' => 'require|between:6,20',
+    ];
+
+    protected $message = [
+        'name.require'      => '名称必须',
+        'name.max'          => '名称最多不能超过25个字符',
+        'age.number'        => '年龄必须是数字',
+        'age.between'       => '年龄必须在1~120之间',
+        'email'             => '邮箱格式错误',
+        'password.require'  => '密码必填',
+        'password.between'  => '密码必须为6~20位',
+    ];
+
+    protected $scene = [
+        "index"             => [],
+        "register"          => ["name", "age", "email"],
+        "register@password" => ["password"],
+    ];
+}
+```
+
+我们通过在验证场景中按照如下规则定义单独验证的场景：
+
+```
+操作方法名(actionName)@字段名 => ['字段验证规则key']
+```
+
+上面的定义方式需注意 @ 后字段名区分大小写，配置好后，默认情况下访问`register`操作是不会自动验证`password`字段的，当我们按照条件需要（如：`type`参数类型为`1`时）验证时，就在控制器需要验证的地方调用`checkOneRequestParam`公共方法来进行验证。
+
+> checkOneRequestParam ( '字段名', '请求方式' )
+
+`checkOneRequestParam`方法会根据验证器文件中定义的单独验证场景和规则，进行单独验证某一个字段，请求方式支持`get`，`post`，`put`，`patch`，`delete`。可以使用`MethodEnum`枚举类来传入对应的请求方式，如：
+
+```php
+checkOneRequestParam("password",MethodEnum::POST);
+```
+
+> `checkOneRequestParam`方法验证成功会返回`true`，验证失败会自动抛出错误信息，如：
+
+```json
+{
+    "code":40000,
+    "message":"密码必填",
+    "data":[
+
+    ],
+    "operate":"admin/User/register"
+}
+```
 
 
 
