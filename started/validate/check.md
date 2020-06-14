@@ -149,7 +149,7 @@ class UserCheck extends Validate
     ];
 
     protected $scene = [
-
+        "register" => ["name", "age", "email"]
     ];
 }
 ```
@@ -168,6 +168,41 @@ class UserCheck extends Validate
     "operate":"admin/User/register"
 }
 ```
+
+如果你的项目对于`code`码没有那么高的需求，还可以直接填写字符串形式的错误信息：
+
+```php
+namespace app\admin\validate;
+
+use think\Validate;
+
+class UserCheck extends Validate
+{
+    protected $rule = [
+        'name'  => 'require|max:25',
+        'age'   => 'number|between:1,120',
+        'email' => 'email',
+    ];
+
+    protected $message = [
+        'name.require' => '名称必须',
+        'name.max'     => '名称最多不能超过25个字符',
+        'age.number'   => '年龄必须是数字',
+        'age.between'  => '年龄必须在1~120之间',
+        'email'        => '邮箱格式错误',
+    ];
+
+    protected $scene = [
+        "register" => ["name", "age", "email"]
+    ];
+}
+```
+
+验证失败将会统一返回`40000`的`code`错误码。
+
+> 如果你使用Tp6的注解验证器是不支持数组形式定义的，注解验证器，请查看注解验证器章节。
+
+`$scene`验证场景参数我们规定为操作方法名
 
 
 
