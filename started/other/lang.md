@@ -6,9 +6,8 @@ ThinkPHP内置通过`\think\facade\Lang`类提供多语言支持，如果你的�
 
 默认系统会加载默认语言包，但如果需要多语言自动侦测及自动切换，你需要在全局的中间件定义文件中添加中间件定义：
 
-```
-'think\middleware\LoadLangPack'
-,
+```php
+'think\middleware\LoadLangPack',
 ```
 
 默认情况下，系统载入的是配置的默认语言包，并且不会自动侦测当前系统的语言。多语言相关的设置在`lang.php`配置文件中进行设置。
@@ -70,7 +69,6 @@ lang('add user error');
 app\lang\当前语言.php
 // 多应用模式
 app\应用\lang\当前语言.php
-
 ```
 
 如果你还需要加载其他的语言包，可以通过`extend_list`设置，例如：
@@ -109,7 +107,7 @@ return [
 {$Think.lang.lang_var}
 ```
 
-可以输出当前语言包里面定义的 `lang_var`语言定义。
+可以输出当前语言包里面定义的 `lang_var`语言定义。
 
 ## 变量传入支持
 
