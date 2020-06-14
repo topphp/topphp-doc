@@ -1,5 +1,13 @@
 ## 日志处理
 
-> `TopPHP`已对`ThinkPHP`的日志进行了扩展优化，我们推荐使用`TopPHP`提供的`topphp-log`组件。
-您可以查看[`topphp-log`组件](/composer/topphp-log.md)文档。`TopPHP`日志组件部分配置功能仍然沿用`ThinkPHP`的配置方式，所以我们仍为你提供以下`ThinkPHP`日志功能的文档。
+> `TopPHP`已对`ThinkPHP`的日志进行了扩展优化，我们推荐使用`TopPHP`提供的`topphp-log`组件。  
+> 您可以查看[`topphp-log`组件](/composer/topphp-log.md)文档。`TopPHP`日志组件部分配置功能仍然沿用`ThinkPHP`的配置方式，所以我们仍为你提供以下`ThinkPHP`日志功能的文档。
+
+日志记录和写入由`\think\Log`类完成，通常我们使用`think\facade\Log`类进行静态调用。
+
+由于日志记录了所有的运行错误，因此养成经常查看日志文件的习惯，可以避免和及早发现很多的错误隐患。
+
+> 日志遵循`PSR-3`规范,除非是实时写入的日志,其它日志都是在当前请求结束的时候统一写入的 所以不要在日志写入之后使用`exit`等中断操作会导致日志写入失败。
+
+
 
