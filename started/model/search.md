@@ -38,8 +38,8 @@ class User extends Model
 ```php
 User::withSearch(['name','create_time'], [
         'name'        =>    'think',
-        'create_time'    =>    ['2018-8-1','2018-8-5'],
-        'status'    =>    1
+        'create_time' =>    ['2018-8-1','2018-8-5'],
+        'status'      =>    1
     ])
     ->select();
 ```
