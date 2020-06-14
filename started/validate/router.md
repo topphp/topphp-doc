@@ -6,7 +6,7 @@
 
 ```php
 Route::post('hello/:id', 'index/hello')
-	->validate(\app\validate\User::class,'edit');
+    ->validate(\app\validate\User::class,'edit');
 ```
 
 或者不使用验证器而直接传入验证规则
@@ -14,8 +14,8 @@ Route::post('hello/:id', 'index/hello')
 ```php
 Route::post('hello/:id', 'index/hello')
     ->validate([
-        'name'	=> 'min:5|max:50',
-        'email'	=> 'email',
+        'name' => 'min:5|max:50',
+        'email' => 'email',
     ]);
 ```
 
@@ -24,8 +24,8 @@ Route::post('hello/:id', 'index/hello')
 ```php
 Route::post('hello/:id', 'index/hello')
     ->validate([
-        'name'	=> ValidateRule::min(5)->max(50),
-        'email'	=> ValidateRule::isEmail(),
+        'name' => ValidateRule::min(5)->max(50),
+        'email' => ValidateRule::isEmail(),
     ]);
 ```
 
