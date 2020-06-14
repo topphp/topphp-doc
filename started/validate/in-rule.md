@@ -470,5 +470,153 @@
 'price'=>'<:market_price'
 ```
 
+## filter验证
 
+支持使用`filter_var`进行验证，例如：
+
+```php
+'ip'=>'filter:validate_ip'
+```
+
+## 正则验证
+
+支持直接使用正则验证，例如：
+
+```php
+'zip'=>'\d{6}',
+// 或者
+'zip'=>'regex:\d{6}',
+```
+
+如果你的正则表达式中包含有`|`符号的话，必须使用数组方式定义。
+
+```php
+'accepted'=>['regex'=>'/^(yes|on|1)$/i'],
+```
+
+也可以实现预定义正则表达式后直接调用，例如在验证器类中定义regex属性
+
+```php
+namespace app\index\validate;
+
+use think\Validate;
+
+class User extends Validate
+{
+    protected $regex = [ 'zip' => '\d{6}'];
+    
+    protected $rule = [
+        'name'  =>  'require|max:25',
+        'email' =>  'email',
+    ];
+
+}
+```
+
+然后就可以使用
+
+```php
+'zip'	=>	'regex:zip',
+```
+
+## 上传验证
+
+> ### file
+
+验证是否是一个上传文件
+
+> ### image:width,height,type
+
+验证是否是一个图像文件，width height和type都是可选，width和height必须同时定义。
+
+> ### fileExt:允许的文件后缀
+
+验证上传文件后缀
+
+> ### fileMime:允许的文件类型
+
+验证上传文件类型
+
+> ### fileSize:允许的文件字节大小
+
+验证上传文件大小
+
+## 其它验证
+
+> ### token:表单令牌名称
+
+表单令牌验证
+
+> ### unique:table,field,except,pk
+
+验证当前请求的字段值是否为唯一的，例如：
+
+```php
+// 表示验证name字段的值是否在user表（不包含前缀）中唯一
+'name'   => 'unique:user',
+// 验证其他字段
+'name'   => 'unique:user,account',
+// 排除某个主键值
+'name'   => 'unique:user,account,10',
+// 指定某个主键值排除
+'name'   => 'unique:user,account,10,user_id',
+```
+
+如果需要对复杂的条件验证唯一，可以使用下面的方式：
+
+```php
+// 多个字段验证唯一验证条件
+'name'   => 'unique:user,status^account',
+// 复杂验证条件
+'name'   => 'unique:user,status=1&account='.$data['account'],
+```
+
+> ### requireIf:field,value
+
+验证某个字段的值等于某个值的时候必须，例如：
+
+```php
+// 当account的值等于1的时候 password必须
+'password'=>'requireIf:account,1'
+```
+
+> ### requireWith:field
+
+验证某个字段有值的时候必须，例如：
+
+```php
+// 当account有值的时候password字段必须
+'password'=>'requireWith:account'
+```
+
+> ### requireWithout:field
+
+验证某个字段没有值的时候必须，例如：
+
+```php
+// mobile和phone必须输入一个
+'mobile' => 'requireWithout:phone',
+'phone'  => 'requireWithout:mobile'
+```
+
+> ### requireCallback:callable
+
+验证当某个callable为真的时候字段必须，例如：
+
+```php
+// 使用check_require方法检查是否需要验证age字段必须
+'age'=>'requireCallback:check_require|number'
+```
+
+用于检查是否需要验证的方法支持两个参数，第一个参数是当前字段的值，第二个参数则是所有的数据。
+
+```php
+function check_require($value, $data){
+    if(empty($data['birthday'])){
+    	return true;
+    }
+}
+```
+
+只有check\_require函数返回true的时候age字段是必须的，并且会进行后续的其它验证。
 
