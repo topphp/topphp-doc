@@ -78,3 +78,10 @@ abstract class Base extends BaseController
     // Admin应用基础业务逻辑（所有方法需定义protected关键词）
 }
 ```
+
+至此，`Check`中间件的定义与引用完成。
+
+### 使用
+
+
+
