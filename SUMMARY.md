@@ -161,6 +161,12 @@
 * [错误和日志](started/error-log.md)
     * [错误处理](started/error-log/error.md)
     * [日志处理](started/error-log/log.md)
+* [杂项](started/other.md)
+    * [缓存](started/other/cache.md)
+    * [Session](started/other/session.md)
+    * [Cookie](started/other/cookie.md)
+    * [多语言](started/other/lang.md)
+    * [上传](started/other/upload.md)
 
 ## 微服务
 
