@@ -6,4 +6,4 @@
 
 如果你需要对于异常处理页面进行展示优化，可以自定义修改`extend/lib/TopExceptionTmpl.php`文件。
 
-如果你想在代码执行时抛出异常，建议直接调用`SendMsg::jsonThrow()`方法。详细可以查看[`code响应`](/started/response/code.md)章节。
+如果你想在代码执行时抛出异常，建议直接调用`SendMsg::jsonThrow()`方法。详细可以查看[`Code响应`](/started/response/code.md)章节。
