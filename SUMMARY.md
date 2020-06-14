@@ -167,6 +167,7 @@
     * [Cookie](started/other/cookie.md)
     * [多语言](started/other/lang.md)
     * [上传](started/other/upload.md)
+* [命令行](started/command.md)
 
 ## 微服务
 
