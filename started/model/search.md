@@ -25,7 +25,7 @@ class User extends Model
     {
         $query->where('name','like', $value . '%');
     }
-    
+
     public function searchCreateTimeAttr($query, $value, $data)
     {
         $query->whereBetweenTime('create_time', $value[0], $value[1]);
@@ -37,9 +37,9 @@ class User extends Model
 
 ```php
 User::withSearch(['name','create_time'], [
-	'name'		=>	'think',
-    	'create_time'	=>	['2018-8-1','2018-8-5'],
-        'status'	=>	1
+        'name'        =>    'think',
+        'create_time'    =>    ['2018-8-1','2018-8-5'],
+        'status'    =>    1
     ])
     ->select();
 ```
@@ -47,7 +47,7 @@ User::withSearch(['name','create_time'], [
 最终生成的SQL语句类似于
 
 ```php
-SELECT * FROM `think_user` WHERE  `name` LIKE 'think%' AND `create_time` BETWEEN '2018-08-01 00:00:00' AND '2018-08-05 00:00:00' 
+SELECT * FROM `think_user` WHERE  `name` LIKE 'think%' AND `create_time` BETWEEN '2018-08-01 00:00:00' AND '2018-08-05 00:00:00'
 ```
 
 可以看到查询条件中并没有`status`字段的数据，因此可以很好的避免表单的非法查询条件传入，在这个示例中仅能使用`name`和`create_time`条件进行查询。
@@ -68,10 +68,10 @@ class User extends Model
     {
         $query->where('name','like', $value . '%');
         if (isset($data['sort'])) {
-        	$query->order($data['sort']);
+            $query->order($data['sort']);
         }        
     }
-    
+
     public function searchCreateTimeAttr($query, $value, $data)
     {
         $query->whereBetweenTime('create_time', $value[0], $value[1]);
@@ -83,10 +83,10 @@ class User extends Model
 
 ```php
 User::withSearch(['name','create_time', 'status'], [
-	'name'		=>	'think',
-    	'create_time'	=>	['2018-8-1','2018-8-5'],
-        'status'	=>	1,
-        'sort'		=>	['status'=>'desc'],
+    'name'        =>    'think',
+        'create_time'    =>    ['2018-8-1','2018-8-5'],
+        'status'    =>    1,
+        'sort'        =>    ['status'=>'desc'],
     ])
     ->select();
 ```
@@ -95,17 +95,16 @@ User::withSearch(['name','create_time', 'status'], [
 
 ```php
 SELECT * FROM `think_user` WHERE  `name` LIKE 'think%' AND `create_time` BETWEEN '2018-08-01 00:00:00' AND '2018-08-05 00:00:00' ORDER BY `status` DESC
-
 ```
 
 你可以给搜索器定义字段别名，例如：
 
 ```php
 User::withSearch(['name'=>'nickname','create_time', 'status'], [
-	'nickname'	=>	'think',
-    	'create_time'	=>	['2018-8-1','2018-8-5'],
-        'status'	=>	1,
-        'sort'		=>	['status'=>'desc'],
+    'nickname'    =>    'think',
+        'create_time'    =>    ['2018-8-1','2018-8-5'],
+        'status'    =>    1,
+        'sort'        =>    ['status'=>'desc'],
     ])
     ->select();
 ```
