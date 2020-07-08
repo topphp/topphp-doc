@@ -10,13 +10,12 @@ composer require topphp/topphp-testing
 
 ### 使用
 
-1.继承`Topphp\TopphpTesting\HttpTestCase`
-2.类名`*Test`
-3.方法名 `test*`
-4.可使用注解形式`(@test)`定义单元测试函数,这样方法名就不用`test`开头
+1. 继承`Topphp\TopphpTesting\HttpTestCase`
+2. 类名`*Test`
+3. 方法名 `test*`
+4. 可使用注解形式`(@test)`定义单元测试函数,这样方法名就不用`test`开头
 
 ```php
-
 <?php
 declare(strict_types=1);
 
