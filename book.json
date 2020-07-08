@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "-lunr",
+    "-search",
+    "search-pro",
+    "back-to-top-button",
+    "expandable-chapters",
+    "code",
+    "github",
+    "popup",
+    "theme-lixj"
+  ],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/topphp"
+    }
+  }
+}
