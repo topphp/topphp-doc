@@ -9,7 +9,8 @@
     "custom-favicon",
     "back-to-top-button",
     "code",
-    "popup"
+    "popup",
+    "theme-lixj"
   ],
   "pluginsConfig": {
     "insert-logo": {
