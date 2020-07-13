@@ -3,16 +3,19 @@
     "-lunr",
     "-search",
     "search-pro",
+    "pageview-count",
+    "chapter-fold",
+    "insert-logo",
+    "custom-favicon",
     "back-to-top-button",
-    "expandable-chapters",
     "code",
-    "github",
-    "popup",
-    "theme-lixj"
+    "popup"
   ],
   "pluginsConfig": {
-    "github": {
-      "url": "https://github.com/topphp"
-    }
+    "insert-logo": {
+      "url": "/logo.png",
+      "style": "background: none; max-height: 30px; min-height: 30px"
+    },
+    "favicon": "/favicon.ico"
   }
 }
