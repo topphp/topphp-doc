@@ -4,12 +4,6 @@ Cygwin
 
 [http://www.cygwin.com/](http://www.cygwin.com/)
 
-setup-x86\_6
-
-4.exe
-
-1.28MB
-
 安装cgywin
 
 ![](/assets/cgywin/1.png)
@@ -34,18 +28,15 @@ setup-x86\_6
 
 如果没有，可以手动add添加
 
-http://mirrors.metapeer.com
+[http://mirrors.metapeer.com](http://mirrors.metapeer.com)
 
 或者
 
-http://mirrors.163.com
+[http://mirrors.163.com](http://mirrors.163.com)
 
 附录：
 
 [http://mirrors.163.com/.help/cygwin.html](http://mirrors.163.com/.help/cygwin.html)
-
-  
-
 
 接下来要选择预先安装的软件啦，由于是要运行php环境所以需要安装一下几个软件
 
@@ -89,12 +80,6 @@ wget tar gawk bzip2 vim 这四个基本工具是必须的，其他的php扩展�
 
 [https://pecl.php.net/package/swoole](https://pecl.php.net/package/swoole)
 
-swoole-4.5.
-
-2.tgz
-
-1.42MB
-
 将下载下来的swool拓展复制到Cygwin安装包的home目录下
 
 \(1\):解压swoole拓展包
@@ -105,45 +90,23 @@ swoole-4.5.
 
 cd /home/ tar -zxvf swoole-4.5.2.tgz
 
-安装 pcre2 等 相关插件（我们需要安装一个
+安装 pcre2 等 相关插件（我们需要安装一个apt-cyg包管理工具）
 
-apt-cyg包管理工具
-
-）
-
-如果已安装
-
-Cygwin，可以直接下载二进制可执行文件
+如果已安装Cygwin，可以直接下载二进制可执行文件
 
 [https://github.com/transcode-open/apt-cyg](https://github.com/transcode-open/apt-cyg)
 
-apt-cyg
+将其放在Cygwin安装目录的bin目录下
 
+执行：chmod +x /bin/apt-cyg
 
-
-13.44KB
-
-将其放在
-
-Cygwin安装目录的bin目录下执行
-
-：
-
-chmod +x /bin/apt-cyg
-
-执行：
-
-apt-cyg --version
+执行：apt-cyg --version
 
 查看是否安装成功
 
-apt-cyg
+apt-cyg install libpcre2-devel
 
-install libpcre2-devel
-
-apt-cyg
-
-install libpcre-devel
+apt-cyg install libpcre-devel
 
 \(2\)安装swoole拓展包
 
@@ -153,19 +116,7 @@ cd swoole-4.5.2 phpize
 
 \[2\]编译安装swoole
 
-./configure 
-
-&
-
-&
-
- make 
-
-&
-
-&
-
- make install
+./configure&&make&&make install
 
 \[3\]在php.ini文件中加入
 
@@ -183,27 +134,15 @@ php -m
 
 命令查看swoole是否安装成功
 
-  
-
-
 ![](/assets/cgywin/15.png)
 
 如上图表示php的swoole拓展安装成功
-
-  
-
 
 编译安装redis扩展
 
 1、下载redis（注意5.x版本扩展可能会有冲突，建议3.x版本）
 
 [https://pecl.php.net/package/redis](https://pecl.php.net/package/redis)
-
-redis-3.1.
-
-6.tgz
-
-195.23KB
 
 2、解压并进入目录
 
