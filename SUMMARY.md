@@ -16,7 +16,7 @@
   * [单元测试PHPStorm图解](started/phpstorm-testing.md)
 * [目录结构](started/dir-detail.md)
 * [开发规范](started/frame-standard.md)
-* [Windows下安装swoole](started/windowsxia-an-zhuang-swoole.md)
+* [Windows下安装swoole](started/windows-install-swoole.md)
 
 ## 基础架构
 
